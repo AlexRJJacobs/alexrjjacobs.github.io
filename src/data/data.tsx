@@ -19,7 +19,7 @@ import porfolioImage1 from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg';
 import testimonialImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
 // import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 // import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
+import profilepic from '../images/profile.jpeg';
 import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg';
 import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
 import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
@@ -123,45 +123,45 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Spoken languages',
+    name: 'CAD Programs',
     skills: [
       {
-        name: 'English',
+        name: 'Solidworks',
         level: 10,
       },
       {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
+        name: 'Fusion 360',
         level: 7,
       },
       {
-        name: 'GraphQL',
-        level: 6,
+        name: 'Onshape',
+        level: 8,
       },
     ],
   },
   {
-    name: 'Backend development',
+    name: 'Programming languages',
     skills: [
       {
-        name: 'Node.js',
-        level: 8,
+        name: 'C++',
+        level: 6,
+      },
+      {
+        name: 'Python',
+        level: 3,
+      },
+      {
+        name: 'Lua',
+        level: 2,
+      },
+    ],
+  },
+  {
+    name: 'Manufacturing',
+    skills: [
+      {
+        name: '3D-Printing',
+        level: 10,
       },
       {
         name: 'Rust',
@@ -289,13 +289,15 @@ export const experience: TimelineItem[] = [
     title: 'Student Lab Assistant Co-op',
     content: (
       <p>During this co-op I: 
-      ◦ Wrote a program to add gaussian noise to LiDAR or IMU data within .bag files for Robot Operating System (ROS)
-      ◦ Created files and instructions to import buildings from CAD to the robotics simulator Gazebo
-      ◦ Designed and modelled multiple pre-existing mounting solutions to allow for newer parts to be installed
-      ◦ Debugged and tested numerous SLAM algorithms on several datasets
-      ◦ Debugged several deprecated programs related to Robot Operating System (ROS)
-      ◦ Designed multiple different logos for the lab as a whole
-      ◦ Other miscellaneous work to accelerate the lab’s research
+        <ul>
+      <li>◦ Wrote a program to add gaussian noise to LiDAR or IMU data within .bag files for Robot Operating System (ROS)</li>
+      <li>◦ Created files and instructions to import buildings from CAD to the robotics simulator Gazebo</li>
+      <li>◦ Designed and modelled multiple pre-existing mounting solutions to allow for newer parts to be installed</li>
+      <li>◦ Debugged and tested numerous SLAM algorithms on several datasets</li>
+      <li>◦ Debugged several deprecated programs related to Robot Operating System (ROS)</li>
+      <li>◦ Designed multiple different logos for the lab as a whole</li>
+      <li>◦ Other miscellaneous work to accelerate the lab’s research</li>
+      </ul>
       </p>
     ),
   },
