@@ -1,11 +1,11 @@
 import {
-  AcademicCapIcon,
+  // AcademicCapIcon,
   ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
-  MapIcon,
-  SparklesIcon,
+  // BuildingOffice2Icon,
+  // CalendarIcon,
+  // FlagIcon,
+  // MapIcon,
+  // SparklesIcon,
 } from '@heroicons/react/24/outline';
 
 // import GithubIcon from '../components/Icon/GithubIcon';
@@ -17,16 +17,16 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import heroImage from '../images/backdrop1.jpeg';
 import porfolioImage1 from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg';
 import testimonialImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
+import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg';
+import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
+import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
+import porfolioImage5 from '../images/VariousProjects/helldivershelmet.jpg';
+import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
+import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
+import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
+import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
+// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
+// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import {
   About,
@@ -105,16 +105,16 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `I am a first year student studying mechatronics engineering at the University of Waterloo.
+   Ever since I was a baby I've had a knack for technology, designing and creating. 
+   Fortunately for me, these are transferable skills which has allowed me to pursue a career in engineering.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    // {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
+    // {label: 'Age', text: '29', Icon: CalendarIcon},
+    // {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
+    // {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
+    // {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
+    // {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -250,18 +250,18 @@ export const portfolioItems: PortfolioItem[] = [
     url: 'https://reactresume.com',
     image: porfolioImage9,
   },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-  },
+  // {
+  //   title: 'Project title 10',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage10,
+  // },
+  // {
+  //   title: 'Project title 11',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage11,
+  // },
 ];
 
 /**
@@ -269,28 +269,33 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'August 2023, January 6th 2025 - April 21st 2025',
+    location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
+    title: 'Unmanned Surface Vehicle',
+    content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorthims on related datasets</p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'August 2023',
+    location: 'New Haven Learning Centre',
+    title: 'Forearm Guard',
+    content: <p>I Designed, modelled, and 3D-Printed a bite guard for therapists working with autistic children</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'January 6th 2025 - April 21st 2025',
+    location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
+    title: 'Student Lab Assistant Co-op',
     content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+      <p>During this co-op I: 
+      ◦ Wrote a program to add gaussian noise to LiDAR or IMU data within .bag files for Robot Operating System (ROS)
+      ◦ Created files and instructions to import buildings from CAD to the robotics simulator Gazebo
+      ◦ Designed and modelled multiple pre-existing mounting solutions to allow for newer parts to be installed
+      ◦ Debugged and tested numerous SLAM algorithms on several datasets
+      ◦ Debugged several deprecated programs related to Robot Operating System (ROS)
+      ◦ Designed multiple different logos for the lab as a whole
+      ◦ Other miscellaneous work to accelerate the lab’s research
       </p>
     ),
   },
