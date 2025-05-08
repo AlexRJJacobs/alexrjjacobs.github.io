@@ -9,8 +9,6 @@
     "dev": "yarn compile && yarn next dev",
     "lint": "yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
     "start": "yarn next start",
-    // "predeploy": "npm run build",
-    // "deploy":"gh-pages -d build",
     "build": "yarn compile && yarn next build",
     "sitemap": "yarn next-sitemap"
   },
