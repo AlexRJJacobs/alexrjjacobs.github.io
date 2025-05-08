@@ -7,9 +7,7 @@ import {
   MapIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
-import Head from 'next/head'
 
-import ImageSlider from '../components/Carousel/ImageSlider'
 // import GithubIcon from '../components/Icon/GithubIcon';
 // import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
@@ -269,20 +267,6 @@ export const portfolioItems: PortfolioItem[] = [
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
-export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>Image Slider</title>
-        <meta content="Image slider example with Next.js, Tailwind CSS, and TypeScript" name="description" />
-        <link href="/favicon.ico" rel="icon" />
-      </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center py-2">
-        <ImageSlider />
-      </main>
-    </div>
-  )
-}
 
 export const experience: TimelineItem[] = [
   {
@@ -351,7 +335,23 @@ export const testimonial: TestimonialSection = {
     },
   ],
 };
-
+export const testimonial2: TestimonialSection = {
+  imageSrc: testimonialImage,
+  testimonials: [
+    {
+      cellnumber: '437-688-2039',
+      cell: 'Call',
+      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
+      email: 'Email',
+      emailaddress: 'ajrjacob@uwaterloo.ca',
+      linkedin: 'LinkedIn',
+      linkedinaddress: 'Alex Jacobs',
+      href: 'https://www.linkedin.com/in/alex-jacobs-4bb0b6328/',
+      name: '',
+      text: '',
+    },
+  ],
+};
 /**
  * Contact section
  */
