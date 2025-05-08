@@ -17,17 +17,17 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import heroImage from '../images/backdrop1.jpeg';
 import porfolioImage1 from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg';
 import testimonialImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
+// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
+// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
+import profilepic from '../images/profilepic.jpg';
 import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg';
 import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
 import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
 import porfolioImage5 from '../images/VariousProjects/helldivershelmet.jpg';
+import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
+import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
-import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
-import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
-// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
 import {
   About,
   ContactSection,
