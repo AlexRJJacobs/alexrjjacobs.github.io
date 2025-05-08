@@ -113,6 +113,10 @@ export interface Testimonial {
   linkedinaddress: string;
   href: string;
 }
+export interface App {
+  mainRef: string;
+  
+}
 
 /**
  * Contact section

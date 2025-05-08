@@ -7,7 +7,9 @@ import {
   MapIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
+import Head from 'next/head'
 
+import ImageSlider from '../components/Carousel/ImageSlider'
 // import GithubIcon from '../components/Icon/GithubIcon';
 // import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
@@ -28,7 +30,6 @@ import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
 import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
-import Carousel from '../components/carousel.component';
 import {
   About,
   ContactSection,
@@ -265,25 +266,23 @@ export const portfolioItems: PortfolioItem[] = [
   //   image: porfolioImage11,
   // },
 ];
-function App() {
-  let slides = [
-    "https://i.pinimg.com/originals/51/82/ac/5182ac536727d576c78a9320ac62de30.jpg",
-    "https://wallpapercave.com/wp/wp3386769.jpg",
-    "https://wallpaperaccess.com/full/809523.jpg",
-    "https://getwallpapers.com/wallpaper/full/5/c/0/606489.jpg",
-  ];
-
-  return (
-    <div className="w-[60%] m-auto pt-11">
-      <Carousel slides={slides} />
-    </div>
-  );
-}
-
-export default App;
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
+export default function Home() {
+  return (
+    <div>
+      <Head>
+        <title>Image Slider</title>
+        <meta content="Image slider example with Next.js, Tailwind CSS, and TypeScript" name="description" />
+        <link href="/favicon.ico" rel="icon" />
+      </Head>
+      <main className="flex min-h-screen flex-col items-center justify-center py-2">
+        <ImageSlider />
+      </main>
+    </div>
+  )
+}
 
 export const experience: TimelineItem[] = [
   {
