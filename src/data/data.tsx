@@ -164,32 +164,32 @@ export const skills: SkillGroup[] = [
         level: 10,
       },
       {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
+        name: 'Machining',
         level: 4,
       },
+      // {
+      //   name: 'Golang',
+      //   level: 4,
+      // },
     ],
   },
-  {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
-        level: 9,
-      },
-      {
-        name: 'Flutter',
-        level: 4,
-      },
-      {
-        name: 'Swift',
-        level: 3,
-      },
-    ],
-  },
+  // {
+  //   name: 'Mobile development',
+  //   skills: [
+  //     {
+  //       name: 'React Native',
+  //       level: 9,
+  //     },
+  //     {
+  //       name: 'Flutter',
+  //       level: 4,
+  //     },
+  //     {
+  //       name: 'Swift',
+  //       level: 3,
+  //     },
+  //   ],
+  // },
 ];
 
 /**
@@ -198,56 +198,56 @@ export const skills: SkillGroup[] = [
 export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Halo ODST Cosplay',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    description: 'I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODST featured in Halo Reach.',
+    url: '',
     image: porfolioImage1,
   },
   {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Halo Reach Noble Six Cosplay',
+    description: 'Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach.',
+    url: '',
     image: porfolioImage2,
   },
   {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Revenge of the Sith Scout Trooper Cosplay',
+    description: 'In just under a month I constructed two wearable cosplays of Scout Troopers from Revenge of the Sith for me and my friend.',
+    url: '',
     image: porfolioImage3,
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Ace of Spades Replica',
+    description: 'A friend of mine wanted a replica of his favourite weapon from his favourite game Destiny!',
+    url: '',
     image: porfolioImage4,
   },
   {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Helldivers 2 Wearable Helmet',
+    description: 'I was commissioned by a client in the USA to recreate the helmet featured in the video game Helldivers 2.',
+    url: '',
     image: porfolioImage5,
   },
   {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'NCR Ranger Custom Mask',
+    description: 'I was commissioned by a client in Singapore to create a customized mask of an NCR Ranger from the video game Fallout: New Vegas.',
+    url: '',
     image: porfolioImage6,
   },
   {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Ultrakill Figurine',
+    description: 'Another commission from a different client in the USA. I printed and painted a custom figurine of the character V1 from the video game Ultrakill.',
+    url: '',
     image: porfolioImage7,
   },
   {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'NCR Ranger Helmet',
+    description: 'I was commissioned by a friend to recreate the entire helmet of an NCR Ranger from the video game Fallout: New Vegas.',
+    url: '',
     image: porfolioImage8,
   },
   {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Borderlands Psycho Mask',
+    description: 'I made this wearable mask of the Psycho from the video game series Borderlands as a gift for a friend.',
+    url: '',
     image: porfolioImage9,
   },
   // {
@@ -301,17 +301,17 @@ export const experience: TimelineItem[] = [
       </p>
     ),
   },
-  {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
-    content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
-      </p>
-    ),
-  },
+  // {
+  //   date: 'March 2007 - February 2010',
+  //   location: 'Garage Startup Studio',
+  //   title: 'Junior bug fixer',
+  //   content: (
+  //     <p>
+  //       Describe work, special projects, notable achievements, what technologies you have been working with, and
+  //       anything else that would be useful for an employer to know.
+  //     </p>
+  //   ),
+  // },
 ];
 
 /**
