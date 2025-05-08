@@ -2,10 +2,10 @@ import {
   // AcademicCapIcon,
   ArrowDownTrayIcon,
   // BuildingOffice2Icon,
-  // CalendarIcon,
-  // FlagIcon,
-  // MapIcon,
-  // SparklesIcon,
+  CalendarIcon,
+  FlagIcon,
+  MapIcon,
+  SparklesIcon,
 } from '@heroicons/react/24/outline';
 
 // import GithubIcon from '../components/Icon/GithubIcon';
@@ -28,6 +28,7 @@ import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
 import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
+import Carousel from '../components/carousel.component';
 import {
   About,
   ContactSection,
@@ -45,8 +46,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Alex Jacobs Engineering Portfolio',
+  description: "A portfolio website of projects by Alex Jacobs",
 };
 
 /**
@@ -75,12 +76,12 @@ export const heroData: Hero = {
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         I'm a University of Waterloo <strong className="text-stone-100">Mechatronics student</strong>, currently in 1st
-        year with years of prior experience in <strong className="text-stone-100">3D-modelling, 3D-printing,</strong>{' '}
-        and <strong className="text-stone-100">programming</strong>.
+        year with years of prior experience in <strong className="text-stone-100">3D-Modelling, 3D-Printing,</strong>{' '}
+        and <strong className="text-stone-100">Programming</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, I am found creating <strong className="text-stone-100">costumes and props</strong> from
-        movies and video games, taking <strong className="text-stone-100">landscape photography</strong>, or exploring
+        In my free time time, I am found creating <strong className="text-stone-100">Costumes and Props</strong> from
+        movies and video games, taking <strong className="text-stone-100">Landscape Photography</strong>, or <strong className="text-stone-100">Exploring</strong>
         whichever city I find myself in. {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
       </p>
     </>
@@ -109,11 +110,11 @@ export const aboutData: About = {
    Ever since I was a baby I've had a knack for technology, designing and creating. 
    Fortunately for me, these are transferable skills which has allowed me to pursue a career in engineering.`,
   aboutItems: [
-    // {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    // {label: 'Age', text: '29', Icon: CalendarIcon},
-    // {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    // {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    // {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
+    {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
+    {label: 'Age', text: '19', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Canadian', Icon: FlagIcon},
+    {label: 'Interests', text: 'Science fiction, Photography, Painting', Icon: SparklesIcon},
+    // {label: 'Study', text: 'University of Waterloo', Icon: AcademicCapIcon},
     // {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
   ],
 };
@@ -250,6 +251,7 @@ export const portfolioItems: PortfolioItem[] = [
     url: '',
     image: porfolioImage9,
   },
+  
   // {
   //   title: 'Project title 10',
   //   description: 'Give a short description of your project here.',
@@ -263,24 +265,25 @@ export const portfolioItems: PortfolioItem[] = [
   //   image: porfolioImage11,
   // },
 ];
+function App() {
+  let slides = [
+    "https://i.pinimg.com/originals/51/82/ac/5182ac536727d576c78a9320ac62de30.jpg",
+    "https://wallpapercave.com/wp/wp3386769.jpg",
+    "https://wallpaperaccess.com/full/809523.jpg",
+    "https://getwallpapers.com/wallpaper/full/5/c/0/606489.jpg",
+  ];
 
+  return (
+    <div className="w-[60%] m-auto pt-11">
+      <Carousel slides={slides} />
+    </div>
+  );
+}
+
+export default App;
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
-export const education: TimelineItem[] = [
-  {
-    date: 'August 2023, January 6th 2025 - April 21st 2025',
-    location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
-    title: 'Unmanned Surface Vehicle',
-    content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorthims on related datasets</p>,
-  },
-  {
-    date: 'August 2023',
-    location: 'New Haven Learning Centre',
-    title: 'Forearm Guard',
-    content: <p>I Designed, modelled, and 3D-Printed a bite guard for therapists working with autistic children</p>,
-  },
-];
 
 export const experience: TimelineItem[] = [
   {
@@ -313,6 +316,21 @@ export const experience: TimelineItem[] = [
   //   ),
   // },
 ];
+export const education: TimelineItem[] = [
+  {
+    date: 'August 2023, January 6th 2025 - April 21st 2025',
+    location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
+    title: 'Unmanned Surface Vehicle',
+    content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorthims on related datasets</p>,
+  },
+  {
+    date: 'August 2023',
+    location: 'New Haven Learning Centre',
+    title: 'Forearm Guard',
+    content: <p>I Designed, modelled, and 3D-Printed a bite guard for therapists working with autistic children</p>,
+  },
+];
+
 
 /**
  * Testimonial section
