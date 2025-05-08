@@ -36,6 +36,7 @@ import {
   HomepageMeta,
   PortfolioItem,
   SkillGroup,
+  SliderSection,
   Social,
   TestimonialSection,
   TimelineItem,
@@ -61,6 +62,7 @@ export const SectionId = {
   // Skills: 'skills',
   Stats: 'stats',
   Testimonials: 'testimonials',
+  Sliders: 'sliders',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -335,20 +337,20 @@ export const testimonial: TestimonialSection = {
     },
   ],
 };
-export const testimonial2: TestimonialSection = {
-  imageSrc: testimonialImage,
-  testimonials: [
+export const slider: SliderSection = {
+  SliderimageSrc: testimonialImage,
+  sliders: [
     {
-      cellnumber: '437-688-2039',
-      cell: 'Call',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-      email: 'Email',
-      emailaddress: 'ajrjacob@uwaterloo.ca',
-      linkedin: 'LinkedIn',
-      linkedinaddress: 'Alex Jacobs',
-      href: 'https://www.linkedin.com/in/alex-jacobs-4bb0b6328/',
-      name: '',
-      text: '',
+      image: porfolioImage1,
+      title: 'aa',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+      href: 'idfk',
+    },
+    {
+      image: porfolioImage2,
+      title: 'cc',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+      href: 'idfk',
     },
   ],
 };

@@ -14,11 +14,11 @@ const Resume: FC = memo(() => {
           {experience.map((item, index) => (
             <TimelineItem item={item} key={`${item.title}-${index}`} />
           ))}
+        </ResumeSection>
         <ResumeSection title="Professional Projects">
           {education.map((item, index) => (
             <TimelineItem item={item} key={`${item.title}-${index}`} />
           ))}
-        </ResumeSection>
         </ResumeSection>
         <ResumeSection title="Skills">
           <p className="pb-8">Here are my most commonly applicable skills with scales to give you a quick idea of my proficiency</p>
