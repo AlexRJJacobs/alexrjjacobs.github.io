@@ -1,32 +1,34 @@
-import {DevicePhoneMobileIcon, EnvelopeIcon, MapPinIcon} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
+// import {DevicePhoneMobileIcon, EnvelopeIcon, MapPinIcon} from '@heroicons/react/24/outline';
+// import classNames from 'classnames';
 import {FC, memo} from 'react';
 
 import {contact, SectionId} from '../../../data/data';
-import {ContactType, ContactValue} from '../../../data/dataDef';
-import FacebookIcon from '../../Icon/FacebookIcon';
-import GithubIcon from '../../Icon/GithubIcon';
-import InstagramIcon from '../../Icon/InstagramIcon';
-import LinkedInIcon from '../../Icon/LinkedInIcon';
-import TwitterIcon from '../../Icon/TwitterIcon';
+// import {ContactType, ContactValue} from '../../../data/dataDef';
+// import FacebookIcon from '../../Icon/FacebookIcon';
+// import GithubIcon from '../../Icon/GithubIcon';
+// import InstagramIcon from '../../Icon/InstagramIcon';
+// import LinkedInIcon from '../../Icon/LinkedInIcon';
+// import TwitterIcon from '../../Icon/TwitterIcon';
 import Section from '../../Layout/Section';
-import ContactForm from './ContactForm';
+// import ContactForm from './ContactForm';
 
-const ContactValueMap: Record<ContactType, ContactValue> = {
-  [ContactType.Email]: {Icon: EnvelopeIcon, srLabel: 'Email'},
-  [ContactType.Phone]: {Icon: DevicePhoneMobileIcon, srLabel: 'Phone'},
-  [ContactType.Location]: {Icon: MapPinIcon, srLabel: 'Location'},
-  [ContactType.Github]: {Icon: GithubIcon, srLabel: 'Github'},
-  [ContactType.LinkedIn]: {Icon: LinkedInIcon, srLabel: 'LinkedIn'},
-  [ContactType.Facebook]: {Icon: FacebookIcon, srLabel: 'Facebook'},
-  [ContactType.Twitter]: {Icon: TwitterIcon, srLabel: 'Twitter'},
-  [ContactType.Instagram]: {Icon: InstagramIcon, srLabel: 'Instagram'},
-};
+// const ContactValueMap: Record<ContactType, ContactValue> = {
+// [ContactType.Email]: {Icon: EnvelopeIcon, srLabel: 'Email'},
+// [ContactType.Phone]: {Icon: DevicePhoneMobileIcon, srLabel: 'Phone'},
+// [ContactType.Location]: {Icon: MapPinIcon, srLabel: 'Location'},
+// [ContactType.Github]: {Icon: GithubIcon, srLabel: 'Github'},
+// [ContactType.LinkedIn]: {Icon: LinkedInIcon, srLabel: 'LinkedIn'},
+// [ContactType.Facebook]: {Icon: FacebookIcon, srLabel: 'Facebook'},
+// [ContactType.Twitter]: {Icon: TwitterIcon, srLabel: 'Twitter'},
+// [ContactType.Instagram]: {Icon: InstagramIcon, srLabel: 'Instagram'},
+// };
 
 const Contact: FC = memo(() => {
-  const {headerText, description, items} = contact;
+  // const {headerText, description, items} = contact; <-- original
+  const {headerText} = contact;
   return (
     <Section className="bg-neutral-800 px-0 py-0 md:py-0 lg:px-0" sectionId={SectionId.Contact}>
+      <h2 className="text-2xl font-bold text-white opacity-0">{headerText}</h2>
       {/* <div className="flex flex-col gap-y-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-center">
           <EnvelopeIcon className="hidden h-16 w-16 text-white md:block" />

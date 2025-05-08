@@ -114,7 +114,7 @@ const Testimonials: FC = memo(() => {
 });
 
 const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
-  ({testimonial: {cell, cellnumber, image, email, emailaddress, linkedin, linkedinaddress,href}, isActive}) => (
+  ({testimonial: {cell, cellnumber, image, email, emailaddress, linkedin, linkedinaddress, href}, isActive}) => (
     <div
       className={classNames(
         'flex w-full shrink-0 snap-start snap-always flex-col items-start gap-y-4 p-2 transition-opacity duration-1000 sm:flex-row sm:gap-x-12 justify-center',
@@ -139,13 +139,14 @@ const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
       <div className="flex flex-col gap-y-4">
         <p className="prose prose-sm font-medium text-white sm:prose-base sm:text-center">{linkedin}</p>
         <a
-          className={classNames(
-            '-m-2 flex rounded-md p-2 text-neutral-300 hover:text-indigo-400 focus:outline-none',
-            {'hover:text-white': href},
-          )}
+          className={classNames('-m-2 flex rounded-md p-2 text-neutral-300 hover:text-indigo-400 focus:outline-none', {
+            'hover:text-white': href,
+          })}
           href={href}
           target="_blank">
-          <span className="text-xs text-white hover:text-indigo-400 sm:text-sm md:text-base lg:text-lg">{linkedinaddress}</span>
+          <span className="text-xs text-white hover:text-indigo-400 sm:text-sm md:text-base lg:text-lg">
+            {linkedinaddress}
+          </span>
         </a>
       </div>
     </div>

@@ -105,6 +105,13 @@ export interface Testimonial {
   image?: string;
   name: string;
   text: string;
+  cell: string;
+  cellnumber: string;
+  email: string;
+  emailaddress: string;
+  linkedin: string;
+  linkedinaddress: string;
+  href: string;
 }
 
 /**

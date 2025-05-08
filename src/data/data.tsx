@@ -16,6 +16,7 @@ import TwitterIcon from '../components/Icon/TwitterIcon';
 // import heroImage from '../images/header-background.webp';
 import heroImage from '../images/backdrop1.jpeg';
 import porfolioImage1 from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg';
+import testimonialImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
@@ -27,7 +28,6 @@ import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
-import testimonialImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
 import {
   About,
   ContactSection,
@@ -74,13 +74,14 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a University of Waterloo <strong className="text-stone-100">Mechatronics student</strong>, currently in 1st year
-        with years of prior experience in <strong className="text-stone-100">3D-modelling, 3D-printing,</strong> and <strong className="text-stone-100">programming</strong>.
+        I'm a University of Waterloo <strong className="text-stone-100">Mechatronics student</strong>, currently in 1st
+        year with years of prior experience in <strong className="text-stone-100">3D-modelling, 3D-printing,</strong>{' '}
+        and <strong className="text-stone-100">programming</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, I am found creating <strong className="text-stone-100">costumes and props</strong> from movies and video games,
-        taking <strong className="text-stone-100">landscape photography</strong>, or exploring whichever city I find myself in.{' '}
-        {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
+        In my free time time, I am found creating <strong className="text-stone-100">costumes and props</strong> from
+        movies and video games, taking <strong className="text-stone-100">landscape photography</strong>, or exploring
+        whichever city I find myself in. {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
       </p>
     </>
   ),
@@ -321,6 +322,8 @@ export const testimonial: TestimonialSection = {
       linkedin: 'LinkedIn',
       linkedinaddress: 'Alex Jacobs',
       href: 'https://www.linkedin.com/in/alex-jacobs-4bb0b6328/',
+      name: '',
+      text: '',
     },
   ],
 };
