@@ -118,7 +118,7 @@ const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
     <div
       className={classNames(
         'flex w-full shrink-0 snap-start snap-always items-start gap-y-4 p-2 transition-opacity duration-1000 flex-row gap-x-12 justify-center',
-        isActive ? '1opacity-00' : 'opacity-0',
+        isActive ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="flex flex-col gap-y-4">
         <p className="prose prose-sm font-medium text-white prose-base text-center">{cell}</p>

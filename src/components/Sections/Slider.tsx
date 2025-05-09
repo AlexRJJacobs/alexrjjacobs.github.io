@@ -114,27 +114,29 @@ const Sliders: FC = memo(() => {
 });
 
 const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
-  ({slider: {title, image, description, /*href */}, isActive}) => (
+  ({slider: {title, image, description}, isActive}) => (
     <div
       className={classNames(
-        'flex w-full shrink-0 snap-start snap-always items-start gap-y-0 p-0 transition-opacity duration-1000 flex-row gap-x-10 justify-between',
-        isActive ? '1opacity-00' : 'opacity-0',
-      )}>
-        <div className="flex flex-col gap-y-4">
-        <div
-          className={classNames(
-          'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
-           )}>
-           <Image alt={title} className="max-h-1/3 w-full" placeholder="blur" src={image}/>
-         </div>
-        </div>
-        <div className={classNames('flex flex-col max-w-1/3')}>
-          <h2 className="underline decoration-indigo-400 text-xl font-bold uppercase text-gray-100 text-right">{title}</h2>
-          <br></br>
-          <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg text-right break-normal">{description}</p> 
+        'flex w-full shrink-0 snap-start snap-always items-start gap-y-0 p-0 transition-opacity duration-1000 ease-in-out flex-row gap-x-10 justify-between',
+        isActive ? 'opacity-100' : 'opacity-0',
+      )}
+    >      <div className="flex flex-col w-[300px] lg:max-w-1/3">
+        <h2 className="underline decoration-indigo-400 text-xl font-bold uppercase text-gray-100 text-left">{title}</h2>
+        <br />
+        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg text-left break-normal">{description}</p>
+      </div>
+      <div className="flex flex-col gap-y-4">
+        <div className="relative w-[200px] h-[340px] overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
+          <Image 
+            alt={title} 
+            className="w-full h-full object-cover object-top rounded-lg"
+            placeholder="blur"
+            src={image} 
+          />
         </div>
       </div>
-  ),
+    </div>
+  )
 );
 
 export default Sliders;
