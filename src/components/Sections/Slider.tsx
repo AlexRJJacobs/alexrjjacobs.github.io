@@ -114,10 +114,10 @@ const Sliders: FC = memo(() => {
 });
 
 const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
-  ({slider: {title, image, description, href}, isActive}) => (
+  ({slider: {title, image, description, /*href */}, isActive}) => (
     <div
       className={classNames(
-        'flex w-full shrink-0 snap-start snap-always flex-col items-start gap-y-0 p-0 transition-opacity duration-1000 sm:flex-row sm:gap-x-0 justify-between',
+        'flex w-full shrink-0 snap-start snap-always items-start gap-y-0 p-0 transition-opacity duration-1000 flex-row sm:gap-x-0 justify-between',
         isActive ? '1opacity-00' : 'opacity-0',
       )}>
         <div className="flex flex-col gap-y-4">
@@ -129,17 +129,10 @@ const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
          </div>
         </div>
         <div className={classNames('flex flex-col max-w-[300px]')}>
-        <h2 className="text-xl font-bold uppercase text-gray-100 text-right">{title}</h2>
-        <br></br>
-        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg text-right break-all">{description}</p> 
+          <h2 className="underline decoration-indigo-400 text-xl font-bold uppercase text-gray-100 text-right">{title}</h2>
+          <br></br>
+          <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg text-right break-normal">{description}</p> 
         </div>
-        <a
-          className={classNames('-m-2 flex rounded-md p-2 text-neutral-300 hover:text-indigo-400 focus:outline-none', {
-            'hover:text-white': href,
-          })}
-          href={href}
-          target="_blank">
-        </a>
       </div>
   ),
 );

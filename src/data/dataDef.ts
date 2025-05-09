@@ -122,7 +122,7 @@ export interface Slider {
   image: string | StaticImageData;
   title: string;
   description: string;
-  href: string;
+//  href: string;
 }
 
 

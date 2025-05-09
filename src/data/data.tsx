@@ -15,12 +15,16 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 // import TwitterIcon from '../components/Icon/TwitterIcon';
 // import heroImage from '../images/header-background.webp';
 import heroImage from '../images/backdrop1.jpeg';
-import porfolioImage1 from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg';
-import testimonialImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
+import ScoutTrooperFeatured from '../images/ScoutTrooper/featured.jpg';
+import ReachFeatured from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg'
+import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
+import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg';
+import sliderImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
+import testimonialImage from '../images/backdrop3.jpeg';
 // import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 // import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profile.jpeg';
-import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg';
+import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9889.jpg';
 import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
 import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
 import porfolioImage5 from '../images/VariousProjects/helldivershelmet.jpg';
@@ -57,12 +61,12 @@ export const SectionId = {
   Hero: 'hero',
   About: 'about',
   Contact: 'contact',
-  Portfolio: 'portfolio',
+  Portfolio: 'gallery',
   Resume: 'resume',
   // Skills: 'skills',
   Stats: 'stats',
   Testimonials: 'testimonials',
-  Sliders: 'sliders',
+  Sliders: 'featured',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -338,19 +342,25 @@ export const testimonial: TestimonialSection = {
   ],
 };
 export const slider: SliderSection = {
-  SliderimageSrc: testimonialImage,
+  SliderimageSrc: sliderImage,
   sliders: [
     {
-      image: porfolioImage1,
-      title: 'aa',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      href: 'idfk',
+      image: ODSTFeatured,
+      title: 'Halo Reach ODST',
+      description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODST's featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
+    //  href: 'idfk',
     },
     {
-      image: porfolioImage2,
-      title: 'cc',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      href: 'idfk',
+      image: ReachFeatured,
+      title: 'Halo Reach Spartan',
+      description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friends basement on his Xbox 360",
+   //   href: 'idfk',
+    },
+    {
+      image: ScoutTrooperFeatured,
+      title: '41st Trooper',
+      description: "This was my most recent cosplay project, and one I am quite fond of. In just under a month I constructed two wearable cosplays of Scout Troopers from Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
+   //   href: 'idfk',
     },
   ],
 };
@@ -359,8 +369,8 @@ export const slider: SliderSection = {
  */
 
 export const contact: ContactSection = {
-  headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  headerText: '',
+  description: '',
   items: [
     {
       type: ContactType.Email,
