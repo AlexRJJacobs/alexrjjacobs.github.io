@@ -15,16 +15,16 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 // import TwitterIcon from '../components/Icon/TwitterIcon';
 // import heroImage from '../images/header-background.webp';
 import heroImage from '../images/backdrop1.jpeg';
-import ScoutTrooperFeatured from '../images/ScoutTrooper/featured.jpg';
-import ReachFeatured from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg'
-import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
-import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg';
-import sliderImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
 import testimonialImage from '../images/backdrop3.jpeg';
+import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
+import sliderImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
+import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg';
 // import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 // import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profile.jpeg';
 import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9889.jpg';
+import ReachFeatured from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg'
+import ScoutTrooperFeatured from '../images/ScoutTrooper/featured.jpg';
 import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
 import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
 import porfolioImage5 from '../images/VariousProjects/helldivershelmet.jpg';
