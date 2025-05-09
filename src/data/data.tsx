@@ -87,7 +87,7 @@ export const heroData: Hero = {
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         In my free time time, I am found creating <strong className="text-stone-100">Costumes and Props</strong> from
         movies and video games, taking <strong className="text-stone-100">Landscape Photography</strong>, or <strong className="text-stone-100">Exploring</strong>
-        whichever city I find myself in. {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
+         whichever city I find myself in. {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
       </p>
     </>
   ),
@@ -280,13 +280,13 @@ export const experience: TimelineItem[] = [
     location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
     title: 'Student Lab Assistant Co-op',
     content: (
-      <p>During this co-op I: 
+      <p> 
         <ul>
-      <li>◦ Wrote a program to add gaussian noise to LiDAR or IMU data within .bag files for Robot Operating System (ROS)</li>
-      <li>◦ Created files and instructions to import buildings from CAD to the robotics simulator Gazebo</li>
+      <li>◦ Wrote a program to add gaussian noise to LiDAR or IMU data within .bag files for <strong>Robot Operating System (ROS)</strong></li>
+      <li>◦ Created files and instructions to import buildings from CAD to the robotics simulator <strong>Gazebo</strong></li>
       <li>◦ Designed and modelled multiple pre-existing mounting solutions to allow for newer parts to be installed</li>
       <li>◦ Debugged and tested numerous SLAM algorithms on several datasets</li>
-      <li>◦ Debugged several deprecated programs related to Robot Operating System (ROS)</li>
+      <li>◦ Debugged several deprecated programs related to <strong>Robot Operating System (ROS)</strong></li>
       <li>◦ Designed multiple different logos for the lab as a whole</li>
       <li>◦ Other miscellaneous work to accelerate the lab’s research</li>
       </ul>

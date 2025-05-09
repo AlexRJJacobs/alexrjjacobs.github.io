@@ -28,7 +28,7 @@ const Footer: FC = memo(() => (
           <span className="italic text-yellow">Resume</span>
         </span>
       </a>
-      <h2 className="text-sm text-neutral-700 text-right">The landscape photographs featured on this webpage are by Alex Jacobs</h2>
+      <h2 className="text-sm text-neutral-700 text-right">The landscape photographs featured on this webpage were taken by Alex Jacobs</h2>
       <span className="text-sm text-neutral-700">© Copyright {currentYear} Tim Baker</span>
     </div>
   </div>
