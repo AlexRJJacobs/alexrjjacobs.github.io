@@ -117,26 +117,26 @@ const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
   ({testimonial: {cell, cellnumber, /*image,*/ email, emailaddress, linkedin, linkedinaddress, href}, isActive}) => (
     <div
       className={classNames(
-        'flex w-full shrink-0 snap-start snap-always items-start gap-y-4 p-2 transition-opacity duration-1000 flex-row gap-x-12 justify-center',
+        'flex w-full flex-col shrink-0 snap-start snap-always items-center gap-y-4 p-2 transition-opacity duration-1000 sm:flex-row gap-x-12 justify-center',
         isActive ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="flex flex-col gap-y-4">
-        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{cell}</p>
-        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg">{cellnumber}</p>
+        <p className="text-sm text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{cell}</p>
+        <p className="text-sm text-white sm:text-sm md:text-base lg:text-lg">{cellnumber}</p>
       </div>
       <div className="flex flex-col gap-y-4">
-        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{email}</p>
-        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg">{emailaddress}</p>
+        <p className="text-sm text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{email}</p>
+        <p className="text-sm text-white sm:text-sm md:text-base lg:text-lg">{emailaddress}</p>
       </div>
       <div className="flex flex-col gap-y-4">
-        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{linkedin}</p>
+        <p className="text-sm text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{linkedin}</p>
         <a
           className={classNames('-m-2 flex rounded-md p-2 text-neutral-300 hover:text-indigo-400 focus:outline-none', {
             'hover:text-white': href,
           })}
           href={href}
           target="_blank">
-          <span className="text-xs text-white hover:text-indigo-400 sm:text-sm md:text-base lg:text-lg">
+          <span className="text-sm text-white hover:text-indigo-400 sm:text-sm md:text-base lg:text-lg">
             {linkedinaddress}
           </span>
         </a>

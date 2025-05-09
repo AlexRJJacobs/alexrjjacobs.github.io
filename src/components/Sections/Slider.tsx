@@ -115,27 +115,32 @@ const Sliders: FC = memo(() => {
 
 const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
   ({slider: {title, image, description}, isActive}) => (
-    <div
-      className={classNames(
-        'flex w-full shrink-0 snap-start snap-always items-start gap-y-0 p-0 transition-opacity duration-1000 ease-in-out flex-row gap-x-10 justify-between',
-        isActive ? 'opacity-100' : 'opacity-0',
-      )}
-    >      <div className="flex flex-col w-[300px] lg:max-w-1/3">
-        <h2 className="underline decoration-indigo-400 text-xl font-bold uppercase text-gray-100 text-left">{title}</h2>
-        <br />
-        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg text-left break-normal">{description}</p>
-      </div>
-      <div className="flex flex-col gap-y-4">
-        <div className="relative w-[200px] h-[340px] overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
-          <Image 
-            alt={title} 
-            className="w-full h-full object-cover object-top rounded-lg"
-            placeholder="blur"
-            src={image} 
-          />
-        </div>
-      </div>
-    </div>
+<div
+  className={classNames(
+    'flex flex-col-reverse lg:flex-row w-full shrink-0 snap-start snap-always items-start p-0 transition-opacity duration-1000 ease-in-out gap-y-6 lg:gap-x-10 justify-between',
+    isActive ? 'opacity-100' : 'opacity-0'
+  )}
+>
+  {/* Text Section */}
+  <div className="flex flex-col w-full lg:max-w-1/3 px-4">
+    <h2 className="underline decoration-indigo-400 text-lg sm:text-xl font-bold uppercase text-gray-100 text-left">
+      {title}
+    </h2>
+    <p className="mt-4 text-sm sm:text-base md:text-lg text-white text-left break-normal">
+      {description}
+    </p>
+  </div>
+
+  {/* Image Section */}
+  <div className="w-full lg:w-[270px] lg:h-[340px] aspect-[3/5] max-w-[370px] mx-auto overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
+    <Image 
+      alt={title}
+      src={image}
+      placeholder="blur"
+      className="w-full h-full object-cover object-top rounded-lg"
+    />
+  </div>
+</div>
   )
 );
 
