@@ -121,15 +121,15 @@ const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
         isActive ? 'opacity-100' : 'opacity-0',
       )}>
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium text-white prose-base text-center">{cell}</p>
+        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{cell}</p>
         <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg">{cellnumber}</p>
       </div>
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium text-white prose-base text-center">{email}</p>
+        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{email}</p>
         <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg">{emailaddress}</p>
       </div>
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium text-white prose-base text-center">{linkedin}</p>
+        <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg font-medium text-center">{linkedin}</p>
         <a
           className={classNames('-m-2 flex rounded-md p-2 text-neutral-300 hover:text-indigo-400 focus:outline-none', {
             'hover:text-white': href,
