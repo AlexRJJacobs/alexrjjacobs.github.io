@@ -86,8 +86,8 @@ export const heroData: Hero = {
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         In my free time time, I am found creating <strong className="text-stone-100">Costumes and Props</strong> from
-        movies and video games, taking <strong className="text-stone-100">Landscape Photography</strong>, or <strong className="text-stone-100">Exploring</strong>
-         whichever city I find myself in. {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
+        movies and video games, taking <strong className="text-stone-100">Landscape Photography</strong>, or <strong className="text-stone-100">Exploring </strong>
+        whichever city I find myself in. {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
       </p>
     </>
   ),
@@ -137,7 +137,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Fusion 360',
-        level: 7,
+        level: 8,
       },
       {
         name: 'Onshape',
@@ -150,15 +150,15 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'C++',
-        level: 6,
+        level: 9,
       },
       {
         name: 'Python',
-        level: 3,
+        level: 6,
       },
       {
         name: 'Lua',
-        level: 2,
+        level: 5,
       },
     ],
   },
@@ -171,7 +171,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Machining',
-        level: 4,
+        level: 7,
       },
       // {
       //   name: 'Golang',
@@ -179,23 +179,23 @@ export const skills: SkillGroup[] = [
       // },
     ],
   },
-  // {
-  //   name: 'Mobile development',
-  //   skills: [
-  //     {
-  //       name: 'React Native',
-  //       level: 9,
-  //     },
-  //     {
-  //       name: 'Flutter',
-  //       level: 4,
-  //     },
-  //     {
-  //       name: 'Swift',
-  //       level: 3,
-  //     },
-  //   ],
-  // },
+  {
+    name: 'Miscellaneous',
+    skills: [
+      {
+        name: 'AutoCAD',
+        level: 10,
+      },
+      {
+        name: 'Microsoft Excel',
+        level: 8,
+      },
+      {
+        name: 'Robot Operating System (ROS)',
+        level: 5,
+      },
+    ],
+  },
 ];
 
 /**
