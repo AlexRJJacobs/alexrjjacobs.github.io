@@ -129,7 +129,7 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'CAD Programs',
+    name: '3D CAD Programs',
     skills: [
       {
         name: 'Solidworks',
@@ -171,6 +171,10 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Machining',
+        level: 7,
+      },
+      {
+        name: 'Detail Finishing',
         level: 7,
       },
       // {
