@@ -334,7 +334,6 @@ export const testimonial: TestimonialSection = {
     {
       cellnumber: '437-688-2039',
       cell: 'Call',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
       email: 'Email',
       emailaddress: 'ajrjacob@uwaterloo.ca',
       linkedin: 'LinkedIn',

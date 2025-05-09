@@ -6,7 +6,7 @@ import {SectionId, testimonial} from '../../data/data';
 import {Testimonial} from '../../data/dataDef';
 import useInterval from '../../hooks/useInterval';
 import useWindow from '../../hooks/useWindow';
-import QuoteIcon from '../Icon/QuoteIcon';
+// import QuoteIcon from '../Icon/QuoteIcon';
 import Section from '../Layout/Section';
 
 const Testimonials: FC = memo(() => {
@@ -91,7 +91,7 @@ const Testimonials: FC = memo(() => {
                 );
               })}
             </div>
-            <div className="flex gap-x-4">
+            {/* <div className="flex gap-x-4">
               {[...Array(testimonials.length)].map((_, index) => {
                 const isActive = index === activeIndex;
                 return (
@@ -105,7 +105,7 @@ const Testimonials: FC = memo(() => {
                     onClick={setTestimonial(index)}></button>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -114,30 +114,22 @@ const Testimonials: FC = memo(() => {
 });
 
 const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
-  ({testimonial: {cell, cellnumber, image, email, emailaddress, linkedin, linkedinaddress, href}, isActive}) => (
+  ({testimonial: {cell, cellnumber, /*image,*/ email, emailaddress, linkedin, linkedinaddress, href}, isActive}) => (
     <div
       className={classNames(
-        'flex w-full shrink-0 snap-start snap-always flex-col items-start gap-y-4 p-2 transition-opacity duration-1000 sm:flex-row sm:gap-x-12 justify-center',
+        'flex w-full shrink-0 snap-start snap-always items-start gap-y-4 p-2 transition-opacity duration-1000 flex-row gap-x-12 justify-center',
         isActive ? '1opacity-00' : 'opacity-0',
       )}>
-      {image ? (
-        <div className="relative h-1 w-1 shrink-0 sm:h-1 sm:w-1 opacity-0">
-          <QuoteIcon className="absolute -left-10 -top-2 h-4 w-4 stroke-black text-white" />
-          <img className="h-full w-full rounded-full" src={image} />
-        </div>
-      ) : (
-        <QuoteIcon className="h-5 w-5 shrink-0 text-white sm:h-8 sm:w-8" />
-      )}
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium text-white sm:prose-base sm:text-center">{cell}</p>
+        <p className="prose prose-sm font-medium text-white prose-base text-center">{cell}</p>
         <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg">{cellnumber}</p>
       </div>
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium text-white sm:prose-base sm:text-center">{email}</p>
+        <p className="prose prose-sm font-medium text-white prose-base text-center">{email}</p>
         <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg">{emailaddress}</p>
       </div>
       <div className="flex flex-col gap-y-4">
-        <p className="prose prose-sm font-medium text-white sm:prose-base sm:text-center">{linkedin}</p>
+        <p className="prose prose-sm font-medium text-white prose-base text-center">{linkedin}</p>
         <a
           className={classNames('-m-2 flex rounded-md p-2 text-neutral-300 hover:text-indigo-400 focus:outline-none', {
             'hover:text-white': href,

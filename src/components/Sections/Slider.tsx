@@ -117,7 +117,7 @@ const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
   ({slider: {title, image, description, /*href */}, isActive}) => (
     <div
       className={classNames(
-        'flex w-full shrink-0 snap-start snap-always items-start gap-y-0 p-0 transition-opacity duration-1000 flex-row sm:gap-x-0 justify-between',
+        'flex w-full shrink-0 snap-start snap-always items-start gap-y-0 p-0 transition-opacity duration-1000 flex-row gap-x-10 justify-between',
         isActive ? '1opacity-00' : 'opacity-0',
       )}>
         <div className="flex flex-col gap-y-4">
@@ -125,10 +125,10 @@ const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
           className={classNames(
           'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
            )}>
-           <Image alt={title} className="max-h-[500px] w-full" placeholder="blur" src={image}/>
+           <Image alt={title} className="max-h-1/3 w-full" placeholder="blur" src={image}/>
          </div>
         </div>
-        <div className={classNames('flex flex-col max-w-[300px]')}>
+        <div className={classNames('flex flex-col max-w-1/3')}>
           <h2 className="underline decoration-indigo-400 text-xl font-bold uppercase text-gray-100 text-right">{title}</h2>
           <br></br>
           <p className="text-xs text-white sm:text-sm md:text-base lg:text-lg text-right break-normal">{description}</p> 
