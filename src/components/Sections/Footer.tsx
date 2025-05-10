@@ -29,7 +29,7 @@ const Footer: FC = memo(() => (
         </span>
       </a>
       <h2 className="text-sm text-neutral-700 text-right">The landscape photographs featured on this webpage were taken by Alex Jacobs</h2>
-      <span className="text-sm text-neutral-700">© Copyright {currentYear} Tim Baker</span>
+      <span className="text-sm text-neutral-700">Template created by Tim Baker © Copyright {currentYear} Tim Baker</span>
     </div>
   </div>
 ));

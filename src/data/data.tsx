@@ -113,7 +113,7 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `I am a first year student studying mechatronics engineering at the University of Waterloo.
    Ever since I was a baby I've had a knack for technology, designing and creating. 
-   Fortunately for me, these are transferable skills which has allowed me to pursue a career in engineering.`,
+   Fortunately for me, these are transferable skills which have allowed me to pursue a career in engineering.`,
   aboutItems: [
     {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
     {label: 'Age', text: '19', Icon: CalendarIcon},
@@ -350,13 +350,13 @@ export const slider: SliderSection = {
     {
       image: ODSTFeatured,
       title: 'Halo Reach ODST',
-      description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODST's featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
+      description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODSTs featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
     //  href: 'idfk',
     },
     {
       image: ReachFeatured,
       title: 'Halo Reach Spartan',
-      description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friends basement on his Xbox 360",
+      description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friends basement on his Xbox 360.",
    //   href: 'idfk',
     },
     {

@@ -117,7 +117,7 @@ const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
   ({slider: {title, image, description}, isActive}) => (
 <div
   className={classNames(
-    'flex flex-col-reverse lg:flex-row w-full shrink-0 snap-start snap-always items-start p-0 transition-opacity duration-1000 ease-in-out gap-y-6 lg:gap-x-10 justify-between',
+    'flex flex-col-reverse lg:flex-row w-full shrink-0 snap-start snap-always items-start p-0 transition-opacity duration-3000 ease-in-out gap-y-6 lg:gap-x-10 justify-between',
     isActive ? 'opacity-100' : 'opacity-0'
   )}
 >
