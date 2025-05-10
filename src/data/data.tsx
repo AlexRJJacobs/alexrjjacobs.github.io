@@ -23,7 +23,7 @@ import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg'
 // import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profile.jpeg';
 import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9889.jpg';
-import ReachFeatured from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg'
+import ReachFeatured from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg'  
 import ScoutTrooperFeatured from '../images/ScoutTrooper/featured.jpg';
 import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
 import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
@@ -118,7 +118,7 @@ export const aboutData: About = {
     {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
     {label: 'Age', text: '19', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Canadian', Icon: FlagIcon},
-    {label: 'Interests', text: 'Science fiction, Photography, Painting', Icon: SparklesIcon},
+    {label: 'Interests', text: 'Science Fiction, Photography, Painting', Icon: SparklesIcon},
     // {label: 'Study', text: 'University of Waterloo', Icon: AcademicCapIcon},
     // {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
   ],
@@ -220,7 +220,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'Revenge of the Sith Scout Trooper Cosplay',
-    description: 'In just under a month I constructed two wearable cosplays of Scout Troopers from Revenge of the Sith for me and my friend.',
+    description: 'In just under a month I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend.',
     // url: '',
     image: porfolioImage3,
   },
@@ -286,7 +286,7 @@ export const experience: TimelineItem[] = [
     content: (
       <p> 
         <ul>
-      <li>◦ Wrote a program to add gaussian noise to LiDAR or IMU data within .bag files for <strong>Robot Operating System (ROS)</strong></li>
+      <li>◦ Wrote a program to add Gaussian noise to LiDAR or IMU data within .bag files for <strong>Robot Operating System (ROS)</strong></li>
       <li>◦ Created files and instructions to import buildings from CAD to the robotics simulator <strong>Gazebo</strong></li>
       <li>◦ Designed and modelled multiple pre-existing mounting solutions to allow for newer parts to be installed</li>
       <li>◦ Debugged and tested numerous SLAM algorithms on several datasets</li>
@@ -314,13 +314,13 @@ export const education: TimelineItem[] = [
     date: 'August 2023, January 6th 2025 - April 21st 2025',
     location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
     title: 'Unmanned Surface Vehicle',
-    content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorthims on related datasets</p>,
+    content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorithms on related datasets</p>,
   },
   {
     date: 'August 2023',
     location: 'New Haven Learning Centre',
     title: 'Forearm Guard',
-    content: <p>I Designed, modelled, and 3D-Printed a bite guard for therapists working with autistic children</p>,
+    content: <p>I designed, modelled, and 3D-printed a bite guard for therapists working with autistic children</p>,
   },
 ];
 
@@ -362,7 +362,7 @@ export const slider: SliderSection = {
     {
       image: ScoutTrooperFeatured,
       title: '41st Trooper',
-      description: "This was my most recent cosplay project, and one I am quite fond of. In just under a month I constructed two wearable cosplays of Scout Troopers from Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
+      description: "This was my most recent cosplay project, and one I am quite fond of. In just under a month I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
    //   href: 'idfk',
     },
   ],
