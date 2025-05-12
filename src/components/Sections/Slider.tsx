@@ -136,7 +136,7 @@ const Slider: FC<{slider: Slider; isActive: boolean}> = memo(
     <Image 
       alt={title}
       src={image}
-      placeholder="blur"
+      // placeholder="blur"
       className="w-full h-full object-cover object-top rounded-lg"
     />
   </div>

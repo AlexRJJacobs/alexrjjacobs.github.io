@@ -32,6 +32,13 @@ import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
 import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
+import porfolioImage10 from '../images/mp9speedloader.gif';
+import porfolioImage11 from '../images/boathull.gif';
+import porfolioImage12 from '../images/jetpack1.gif';
+import JetpackFeatured from '../images/jetpack2.gif';
+import porfolioImage13 from '../images/CameraMount.gif';
+import porfolioImage14 from '../images/Plate.gif';
+import USVFeatured from '../images/usv.jpg';
 import {
   About,
   ContactSection,
@@ -260,6 +267,37 @@ export const portfolioItems: PortfolioItem[] = [
     // url: '',
     image: porfolioImage9,
   },
+  {
+    title: 'Airsoft MP9 Speedloader',
+    description: 'I modelled and printed this speedloader for my airsoft magazines.',
+    // url: '',
+    image: porfolioImage10,
+  },
+  {
+    title: 'Boat Hull',
+    description: "When I was 16 I modelled this for the hull of an autonomous aquatic robot for UCLA's SRI Lab. ",
+    // url: '',
+    image: porfolioImage11,
+  },
+  {
+    title: 'Jetpack Project',
+    description: "This is a jetpack I modelled when I was 17. It was designed to function with motors and CO2 canisters.",
+    // url: '',
+    image: porfolioImage12,
+  },
+  {
+    title: 'Camera Mount',
+    description: "This is a two part camera mount I modelled for the UCLA SRI Lab. It was designed with different mounts at different angles for the camera to mount onto.",
+    // url: '',
+    image: porfolioImage13,
+  },
+  {
+    title: 'Mounting Plate',
+    description: "This is a mounting plate I modified for the UCLA SRI Lab.",
+    // url: '',
+    image: porfolioImage14,
+  },
+  
   
   // {
   //   title: 'Project title 10',
@@ -348,10 +386,22 @@ export const slider: SliderSection = {
   SliderimageSrc: sliderImage,
   sliders: [
     {
+      image: USVFeatured,
+      title: 'Unmanned Surface Vehicle',
+      description: "This is by far one of my most favourite projects in robotics that I got to work on. This was the project that I was working on for the UCLA SRI Lab. As detailed in my Experiences section, while my work on this project was mostly software related, I did also model some components for this project.",
+    //  href: 'idfk',
+    },    
+    {
       image: ODSTFeatured,
       title: 'Halo Reach ODST',
       description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODSTs featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
     //  href: 'idfk',
+    },
+    {
+      image: JetpackFeatured,
+      title: 'Functioning Halo Jetpack',
+      description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class with the hopes of later printing it out and being able to implement it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
+   //   href: 'idfk',
     },
     {
       image: ReachFeatured,
