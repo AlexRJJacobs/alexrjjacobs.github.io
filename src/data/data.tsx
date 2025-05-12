@@ -100,7 +100,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/AlexJacobsResume2025.pdf',
+      href: '/assets/Alex_Jacobs_Resume_2025.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
