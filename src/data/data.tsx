@@ -16,9 +16,15 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 // import heroImage from '../images/header-background.webp';
 import heroImage from '../images/backdrop1.jpeg';
 import testimonialImage from '../images/backdrop3.jpeg';
+import porfolioImage11 from '../images/boathull.gif';
+import porfolioImage13 from '../images/CameraMount.gif';
+import porfolioImage12 from '../images/jetpack1.gif';
+import JetpackFeatured from '../images/jetpack2.gif';
+import porfolioImage10 from '../images/mp9speedloader.gif';
 import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
 import sliderImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
 import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg';
+import porfolioImage14 from '../images/Plate.gif';
 // import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 // import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profile.jpeg';
@@ -26,19 +32,13 @@ import porfolioImage2 from '../images/ReachCosplayPhotos/IMG_9889.jpg';
 import ReachFeatured from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg'  
 import ScoutTrooperFeatured from '../images/ScoutTrooper/featured.jpg';
 import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
+import USVFeatured from '../images/usv.jpg';
 import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
 import porfolioImage5 from '../images/VariousProjects/helldivershelmet.jpg';
 import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
 import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
-import porfolioImage10 from '../images/mp9speedloader.gif';
-import porfolioImage11 from '../images/boathull.gif';
-import porfolioImage12 from '../images/jetpack1.gif';
-import JetpackFeatured from '../images/jetpack2.gif';
-import porfolioImage13 from '../images/CameraMount.gif';
-import porfolioImage14 from '../images/Plate.gif';
-import USVFeatured from '../images/usv.jpg';
 import {
   About,
   ContactSection,
