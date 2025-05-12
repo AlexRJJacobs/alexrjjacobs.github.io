@@ -119,7 +119,7 @@ export const heroData: Hero = {
 export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `I am a first year student studying mechatronics engineering at the University of Waterloo.
-   Ever since I was a baby I've had a knack for technology, designing and creating. 
+   Ever since I could hold a screwdriver, I've been disassembling, reimagining, and reassembling mechanical and electrical devices. 
    Fortunately for me, these are transferable skills which have allowed me to pursue a career in engineering.`,
   aboutItems: [
     {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
@@ -322,6 +322,7 @@ export const experience: TimelineItem[] = [
     location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
     title: 'Student Lab Assistant Co-op',
     content: (
+      <div className="flex text-left">
       <p> 
         <ul>
       <li>◦ Wrote a program to add Gaussian noise to LiDAR or IMU data within .bag files for <strong>Robot Operating System (ROS)</strong></li>
@@ -333,6 +334,7 @@ export const experience: TimelineItem[] = [
       <li>◦ Other miscellaneous work to accelerate the lab’s research</li>
       </ul>
       </p>
+      </div>
     ),
   },
   // {
