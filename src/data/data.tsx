@@ -100,7 +100,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/Alex_Jacobs_Resume_2025.pdf',
+      href: '/assets/Alex_Jacobs_Resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -162,11 +162,11 @@ export const skills: SkillGroup[] = [
       {
         name: 'Python',
         level: 6,
-      },
-      {
-        name: 'Lua',
-        level: 5,
-      },
+      }//,
+      // {
+      //   name: 'Lua',
+      //   level: 5,
+      // },
     ],
   },
   {
