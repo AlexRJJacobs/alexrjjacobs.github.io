@@ -1,7 +1,7 @@
 import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import Image from 'next/image';
-import {FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {FC, memo, UIEventHandler, useCallback, useEffect, useRef, useState} from 'react';
 
 import {isApple, isMobile} from '../../config';
 import {SectionId, Carousel} from '../../data/data';
@@ -25,18 +25,7 @@ const Sliders: FC = memo(() => {
 
   const {slidersections} = Carousel;
   const currentSection = slidersections[activeSectionIndex];
-  const previousSection = slidersections[previousSectionIndex];
-  const {SliderimageSrc, sliders} = currentSection;
-
-  const resolveSrc = useMemo(() => {
-    if (!SliderimageSrc) return undefined;
-    return typeof SliderimageSrc === 'string' ? SliderimageSrc : SliderimageSrc.src;
-  }, [SliderimageSrc]);
-
-  const resolvePreviousSrc = useMemo(() => {
-    if (!previousSection?.SliderimageSrc) return undefined;
-    return typeof previousSection.SliderimageSrc === 'string' ? previousSection.SliderimageSrc : previousSection.SliderimageSrc.src;
-  }, [previousSection]);
+  const {sliders} = currentSection;
 
   // Mobile iOS doesn't allow background-fixed elements
   useEffect(() => {
@@ -77,7 +66,7 @@ const Sliders: FC = memo(() => {
       setTimeout(() => {
         setIsFading(false);
       }, 50);
-    }, 100);
+    }, 50);
   }, [activeSectionIndex, slidersections.length]);
 
   const prevSection = useCallback(() => {
@@ -93,7 +82,7 @@ const Sliders: FC = memo(() => {
       setTimeout(() => {
         setIsFading(false);
       }, 50);
-    }, 100);
+    }, 50);
   }, [activeSectionIndex, slidersections.length]);
 
   const next = useCallback(() => {
@@ -118,26 +107,29 @@ const Sliders: FC = memo(() => {
   return (
     <Section noPadding sectionId={SectionId.Sliders}>
       <div className="relative w-full bg-neutral-700">
-        {/* Previous Background Layer */}
-        <div
-          className={classNames(
-            'absolute inset-0 w-full h-full bg-cover bg-center z-0',
-            parallaxEnabled && 'bg-fixed',
-            {'bg-neutral-700': !previousSection?.SliderimageSrc},
-            isFading ? 'opacity-100' : 'opacity-0'
-          )}
-          style={previousSection?.SliderimageSrc ? {backgroundImage: `url(${resolvePreviousSrc})`} : undefined}
-        />
-        {/* Current Background Layer */}
-        <div
-          className={classNames(
-            'absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-300 z-10',
-            parallaxEnabled && 'bg-fixed',
-            {'bg-neutral-700': !SliderimageSrc},
-            !isFading ? 'opacity-100' : 'opacity-0'
-          )}
-          style={SliderimageSrc ? {backgroundImage: `url(${resolveSrc})`} : undefined}
-        />
+        {/* Render all background layers to preload images */}
+        {slidersections.map((section, index) => {
+          const resolvedSrc = section.SliderimageSrc 
+            ? (typeof section.SliderimageSrc === 'string' ? section.SliderimageSrc : section.SliderimageSrc.src)
+            : undefined;
+          
+          const isPrevious = index === previousSectionIndex;
+          const isCurrent = index === activeSectionIndex;
+          const isVisible = (isPrevious && isFading) || (isCurrent && !isFading);
+          
+          return (
+            <div
+              key={`bg-${index}`}
+              className={classNames(
+                'absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-300',
+                parallaxEnabled && 'bg-fixed',
+                isVisible ? 'opacity-100' : 'opacity-0',
+                isCurrent ? 'z-10' : 'z-0'
+              )}
+              style={resolvedSrc ? {backgroundImage: `url(${resolvedSrc})`} : undefined}
+            />
+          );
+        })}
         {/* Content Layer */}
         <div className="relative z-20 flex w-full items-center justify-center px-4 py-16 md:py-24 lg:px-8">
         <div className="z-10 w-full max-w-screen-md px-4 lg:px-0">
@@ -175,7 +167,7 @@ const Sliders: FC = memo(() => {
                           setTimeout(() => {
                             setIsFading(false);
                           }, 50);
-                        }, 100);
+                        }, 300);
                       }}
                       aria-label={`Go to section ${index + 1}`}
                     />
