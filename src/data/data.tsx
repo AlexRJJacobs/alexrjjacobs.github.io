@@ -19,7 +19,7 @@ import testimonialImage from '../images/backdrop3.jpeg';
 import porfolioImage11 from '../images/boathull.gif';
 import porfolioImage13 from '../images/CameraMount.gif';
 import porfolioImage12 from '../images/jetpack1.gif';
-import JetpackFeatured from '../images/jetpack2.gif';
+//import JetpackFeatured from '../images/jetpack2.gif';
 import porfolioImage10 from '../images/mp9speedloader.gif';
 import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
 import fieldaiFeatured from '../images/fieldai/Spot.jpeg';
@@ -40,10 +40,10 @@ import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
 import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
-import fieldaiImage1 from '../images/fieldai/Cube.jpeg';
-import fieldaiImage2 from '../images/fieldai/backpack_1.jpeg';
-import fieldaiImage3 from '../images/fieldai/backpack_2.jpeg';
-import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
+// import fieldaiImage1 from '../images/fieldai/Cube.jpeg';
+// import fieldaiImage2 from '../images/fieldai/backpack_1.jpeg';
+// import fieldaiImage3 from '../images/fieldai/backpack_2.jpeg';
+// import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
 
 import {
   About,
