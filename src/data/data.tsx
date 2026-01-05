@@ -22,6 +22,7 @@ import porfolioImage12 from '../images/jetpack1.gif';
 import JetpackFeatured from '../images/jetpack2.gif';
 import porfolioImage10 from '../images/mp9speedloader.gif';
 import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
+import fieldaiFeatured from '../images/fieldai/Spot.jpeg';
 import sliderImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
 import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg';
 import porfolioImage14 from '../images/Plate.gif';
@@ -39,6 +40,11 @@ import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
 import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
+import fieldaiImage1 from '../images/fieldai/Cube.jpeg';
+import fieldaiImage2 from '../images/fieldai/backpack_1.jpeg';
+import fieldaiImage3 from '../images/fieldai/backpack_2.jpeg';
+import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
+
 import {
   About,
   ContactSection,
@@ -87,7 +93,7 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a University of Waterloo <strong className="text-stone-100">Mechatronics student</strong>, currently in 1st
+        I'm a University of Waterloo <strong className="text-stone-100">Mechatronics student</strong>, currently in 2nd
         year with years of prior experience in <strong className="text-stone-100">3D-Modelling, 3D-Printing,</strong>{' '}
         and <strong className="text-stone-100">Programming</strong>.
       </p>
@@ -118,7 +124,7 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I am a first year student studying mechatronics engineering at the University of Waterloo.
+  description: `I am a second year student studying mechatronics engineering at the University of Waterloo.
    Ever since I could hold a screwdriver, I've been disassembling, reimagining, and reassembling mechanical and electrical devices. 
    Fortunately for me, these are transferable skills which have allowed me to pursue a career in engineering.`,
   aboutItems: [
@@ -388,6 +394,12 @@ export const slider: SliderSection = {
   SliderimageSrc: sliderImage,
   sliders: [
     {
+      image: fieldaiFeatured,
+      title: 'Field AI',
+      description: "My most recent co-op had me working at Field AI, where I was a member of the hardware team. During my time there I worked on prototyping and testing various components for their payload system.",
+    //  href: 'idfk',
+    },
+    {
       image: USVFeatured,
       title: 'Unmanned Surface Vehicle',
       description: "This is by far one of my most favourite projects in robotics that I got to work on. This was the project that I was working on for the UCLA SRI Lab. As detailed in my Experiences section, while my work on this project was mostly software related, I did also model some components for this project.",
@@ -399,12 +411,12 @@ export const slider: SliderSection = {
       description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODSTs featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
     //  href: 'idfk',
     },
-    {
-      image: JetpackFeatured,
-      title: 'Functioning Halo Jetpack',
-      description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class with the hopes of later printing it out and being able to implement it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
-   //   href: 'idfk',
-    },
+  //   {
+  //     image: JetpackFeatured,
+  //     title: 'Functioning Halo Jetpack',
+  //     description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class with the hopes of later printing it out and being able to implement it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
+  //  //   href: 'idfk',
+  //   },
     {
       image: ReachFeatured,
       title: 'Halo Reach Spartan',
