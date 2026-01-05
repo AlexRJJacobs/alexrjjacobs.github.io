@@ -20,10 +20,12 @@ import porfolioImage11 from '../images/boathull.gif';
 import porfolioImage13 from '../images/CameraMount.gif';
 import fieldaiFeatured from '../images/fieldai/Spot.jpeg';
 import porfolioImage12 from '../images/jetpack1.gif';
-//import JetpackFeatured from '../images/jetpack2.gif';
+import JetpackFeatured from '../images/jetpack2.gif';
 import porfolioImage10 from '../images/mp9speedloader.gif';
 import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
-import sliderImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
+import sliderImageCosplay from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
+import sliderImageUCLA from '../images/UCLA/backdrop.jpeg';
+import sliderImageFieldAI from '../images/fieldai/backdrop.jpeg';  
 import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg';
 import porfolioImage14 from '../images/Plate.gif';
 // import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
@@ -44,6 +46,7 @@ import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
 // import fieldaiImage2 from '../images/fieldai/backpack_1.jpeg';
 // import fieldaiImage3 from '../images/fieldai/backpack_2.jpeg';
 // import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
+//import Carousel from 'react-elastic-carousel'
 import {
   About,
   ContactSection,
@@ -52,7 +55,8 @@ import {
   HomepageMeta,
   PortfolioItem,
   SkillGroup,
-  SliderSection,
+  SliderCarousel,
+  // SliderSection,
   Social,
   TestimonialSection,
   TimelineItem,
@@ -79,6 +83,7 @@ export const SectionId = {
   Stats: 'stats',
   Testimonials: 'testimonials',
   Sliders: 'featured',
+  SliderCarousel: 'carousel',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -389,46 +394,62 @@ export const testimonial: TestimonialSection = {
     },
   ],
 };
-export const slider: SliderSection = {
-  SliderimageSrc: sliderImage,
-  sliders: [
+export const Carousel: SliderCarousel = {
+  slidersections: [
     {
-      image: fieldaiFeatured,
-      title: 'Field AI',
-      description: "My most recent co-op had me working at Field AI, where I was a member of the hardware team. During my time there I worked on prototyping and testing various components for their payload system.",
-    //  href: 'idfk',
-    },
-    {
-      image: USVFeatured,
-      title: 'Unmanned Surface Vehicle',
-      description: "This is by far one of my most favourite projects in robotics that I got to work on. This was the project that I was working on for the UCLA SRI Lab. As detailed in my Experiences section, while my work on this project was mostly software related, I did also model some components for this project.",
-    //  href: 'idfk',
-    },    
-    {
-      image: ODSTFeatured,
-      title: 'Halo Reach ODST',
-      description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODSTs featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
-    //  href: 'idfk',
-    },
-  //   {
-  //     image: JetpackFeatured,
-  //     title: 'Functioning Halo Jetpack',
-  //     description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class with the hopes of later printing it out and being able to implement it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
-  //  //   href: 'idfk',
-  //   },
-    {
-      image: ReachFeatured,
-      title: 'Halo Reach Spartan',
-      description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friends basement on his Xbox 360.",
-   //   href: 'idfk',
-    },
-    {
-      image: ScoutTrooperFeatured,
-      title: '41st Trooper',
-      description: "This was my most recent cosplay project, and one I am quite fond of. In just under a month I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
-   //   href: 'idfk',
-    },
+    SliderimageSrc: sliderImageFieldAI,
+    title: 'Field AI Projects',
+    sliders: [
+        {
+        image: fieldaiFeatured,
+        title: 'Field AI',
+        description: "My most recent co-op had me working at Field AI, where I was a member of the hardware team. During my time there I worked on prototyping and testing various components for their payload system.",
+      //  href: 'idfk',
+      },
   ],
+},
+{
+    SliderimageSrc: sliderImageUCLA,
+    title: 'UCLA Projects',
+    sliders: [
+            {
+        image: USVFeatured,
+        title: 'Unmanned Surface Vehicle',
+        description: "This is by far one of my most favourite projects in robotics that I got to work on. This was the project that I was working on for the UCLA SRI Lab. As detailed in my Experiences section, while my work on this project was mostly software related, I did also model some components for this project.",
+      //  href: 'idfk',
+      },    
+    ],
+  },{
+    SliderimageSrc: sliderImageCosplay,
+    title: 'Costume Projects',
+    sliders: [
+      {
+        image: ODSTFeatured,
+        title: 'Halo Reach ODST',
+        description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODSTs featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
+      //  href: 'idfk',
+      },
+      {
+        image: JetpackFeatured,
+        title: 'Functioning Halo Jetpack',
+        description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class with the hopes of later printing it out and being able to implement it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
+     //   href: 'idfk',
+      },
+      {
+        image: ReachFeatured,
+        title: 'Halo Reach Spartan',
+        description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friends basement on his Xbox 360.",
+    //   href: 'idfk',
+      },
+      {
+        image: ScoutTrooperFeatured,
+        title: '41st Trooper',
+        description: "This was my most recent cosplay project, and one I am quite fond of. In just under a month I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
+    //   href: 'idfk',
+      },
+    ],
+  },
+]
 };
 /**
  * Contact section

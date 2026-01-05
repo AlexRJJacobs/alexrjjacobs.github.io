@@ -113,8 +113,13 @@ export interface Testimonial {
   linkedinaddress: string;
   href: string;
 }
+export interface SliderCarousel {
+  slidersections: SliderSection[];
+}
+
 export interface SliderSection {
   SliderimageSrc?: string | StaticImageData;
+  title: string;
   sliders: Slider[];
 }
 
