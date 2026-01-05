@@ -18,11 +18,11 @@ import heroImage from '../images/backdrop1.jpeg';
 import testimonialImage from '../images/backdrop3.jpeg';
 import porfolioImage11 from '../images/boathull.gif';
 import porfolioImage13 from '../images/CameraMount.gif';
+import fieldaiFeatured from '../images/fieldai/Spot.jpeg';
 import porfolioImage12 from '../images/jetpack1.gif';
 //import JetpackFeatured from '../images/jetpack2.gif';
 import porfolioImage10 from '../images/mp9speedloader.gif';
 import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
-import fieldaiFeatured from '../images/fieldai/Spot.jpeg';
 import sliderImage from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
 import porfolioImage1 from '../images/ODST/164-Halo_Shoot_Oct_28_hi_res-164.jpg';
 import porfolioImage14 from '../images/Plate.gif';
@@ -44,7 +44,6 @@ import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
 // import fieldaiImage2 from '../images/fieldai/backpack_1.jpeg';
 // import fieldaiImage3 from '../images/fieldai/backpack_2.jpeg';
 // import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
-
 import {
   About,
   ContactSection,
