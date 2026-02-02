@@ -97,7 +97,7 @@ const Sliders: FC = memo(() => {
     setScrollValue(event.currentTarget.scrollLeft);
   }, []);
 
-  useInterval(next, 999999);
+//  useInterval(next, 999999);
 
   // If no slider sections, don't render the section
   if (!slidersections.length) {
