@@ -36,16 +36,17 @@ import ReachFeatured from '../images/ReachCosplayPhotos/IMG_9919_cropped.jpg'
 import ScoutTrooperFeatured from '../images/ScoutTrooper/featured.jpg';
 import porfolioImage3 from '../images/ScoutTrooper/IMG_1490.jpg';
 import USVFeatured from '../images/usv.jpg';
+import backpackFeatured from '../images/fieldai/Exploded_View_No_Logo.gif';
 import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
 import porfolioImage5 from '../images/VariousProjects/helldivershelmet.jpg';
 import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
 import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
 import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
 import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
-// import fieldaiImage1 from '../images/fieldai/Cube.jpeg';
+ import cubeFeatured from '../images/fieldai/Cube.jpeg';
 // import fieldaiImage2 from '../images/fieldai/backpack_1.jpeg';
-// import fieldaiImage3 from '../images/fieldai/backpack_2.jpeg';
-// import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
+import fieldaiImage3 from '../images/fieldai/backpack_2.jpeg';
+import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
 //import Carousel from 'react-elastic-carousel'
 import {
   About,
@@ -307,7 +308,18 @@ export const portfolioItems: PortfolioItem[] = [
     // url: '',
     image: porfolioImage14,
   },
-  
+    {
+    title: 'Backpack Payload',
+    description: 'These are the final two backpack payload prototypes sent out to the humanoid testing offices of Field AI.',
+    // url: '',
+    image: fieldaiImage3,
+  },
+      {
+    title: 'Ultrasonic Testing Apparatus',
+    description: 'This was a testing apparatus designed to compare two perpendicular ultrasonic sensors at varying distances.',
+    // url: '',
+    image: fieldaiImage4,
+  },
   
   // {
   //   title: 'Project title 10',
@@ -327,6 +339,23 @@ export const portfolioItems: PortfolioItem[] = [
  */
 
 export const experience: TimelineItem[] = [
+      {
+    date: 'September 15th 2025 - December 15th 2025',
+    location: 'Field AI, Irvine CA',
+    title: 'Hardware Engineering Co-op',
+    content: (
+      <div className="flex text-left">
+      <p> 
+        <ul>
+      <li>◦ Led end-to-end development of a modular, back-mounted backpack payload for the Unitree G1 humanoid, allowing for rapid testing and development.</li>
+      <li>◦ Developed and tested ingress protection solutions, increasing the robots viable environments.</li>
+      <li>◦ Designed and manufactured a modular, configurable, and reliable sensor testing tower using rapid prototyping techniques, allowing for rapid testing and development.</li>
+      <li>◦ Developed testing frameworks and apparatus for validating sensors and components, allowing for optimal component selection.</li>
+      </ul>
+      </p>
+      </div>
+    ),
+  },
   {
     date: 'January 6th 2025 - April 21st 2025',
     location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
@@ -335,18 +364,16 @@ export const experience: TimelineItem[] = [
       <div className="flex text-left">
       <p> 
         <ul>
-      <li>◦ Wrote a program to add Gaussian noise to LiDAR or IMU data within .bag files for <strong>Robot Operating System (ROS)</strong></li>
-      <li>◦ Created files and instructions to import buildings from CAD to the robotics simulator <strong>Gazebo</strong></li>
-      <li>◦ Designed and modelled multiple pre-existing mounting solutions to allow for newer parts to be installed</li>
-      <li>◦ Debugged and tested numerous SLAM algorithms on several datasets</li>
-      <li>◦ Debugged several deprecated programs related to <strong>Robot Operating System (ROS)</strong></li>
-      <li>◦ Designed multiple different logos for the lab as a whole</li>
-      <li>◦ Other miscellaneous work to accelerate the lab’s research</li>
+      <li>◦ Developed a custom Gazebo simulator in C++ and Python to collect LiDAR, visual, and inertial sensor data from a quadrupedal robot performing waypoint navigation.</li>
+      <li>◦ Developed a metric evaluation framework in Python to benchmark state-of-the-art SLAM algorithms on open datasets.</li>
+      <li>◦ Debugged and tested proprietary laboratory software for robotic sensor data collection, processing, and visualization.</li>
+      <li>◦ Designed and 3D printed SolidWorks models to integrate new modules into existing ground and aquatic robot platforms.</li>
       </ul>
       </p>
       </div>
     ),
   },
+
   // {
   //   date: 'March 2007 - February 2010',
   //   location: 'Garage Startup Studio',
@@ -360,18 +387,32 @@ export const experience: TimelineItem[] = [
   // },
 ];
 export const education: TimelineItem[] = [
+    {
+    date: 'November 2025 - December 2025',
+    location: 'Field AI, Irvine CA',
+    title: 'Back-Mounted Sensing and Compute Payload',
+    content: <p>Led end-to-end desgining and prototyping of a hard-mounted, hard-shelled backpack style payload for the Unitree G1
+humanoid, allowing for rapid testing.</p>,
+  },
+      {
+    date: 'October 2025 - December 2025',
+    location: 'Field AI, Irvine CA',
+    title: 'Sensor Tower Testing Rig',
+    content: <p>Desgining and developed a reliable and configurable sensor testing tower using rapid prototyping techniques, allowing for rapid testing and development.</p>,
+  },
   {
     date: 'August 2023, January 6th 2025 - April 21st 2025',
     location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
     title: 'Unmanned Surface Vehicle',
     content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorithms on related datasets</p>,
   },
-  {
-    date: 'August 2023',
-    location: 'New Haven Learning Centre',
-    title: 'Forearm Guard',
-    content: <p>I designed, modelled, and 3D-printed a bite guard for therapists working with autistic children</p>,
-  },
+  
+//  {
+//    date: 'August 2023',
+//    location: 'New Haven Learning Centre',
+//    title: 'Forearm Guard',
+//    content: <p>I designed, modelled, and 3D-printed a bite guard for therapists working with autistic children</p>,
+//  },
 ];
 
 
@@ -403,7 +444,19 @@ export const Carousel: SliderCarousel = {
         {
         image: fieldaiFeatured,
         title: 'Field AI',
-        description: "My most recent co-op had me working at Field AI, where I was a member of the hardware team. During my time there I worked on prototyping and testing various components for their payload system.",
+        description: "My most recent co-op had me working at Field AI, where I was a member of the hardware team. During my time there I worked on developing prototypes and testing various components for their payload system.",
+      //  href: 'idfk',
+      },
+      {
+        image: backpackFeatured,
+        title: 'Back-Mounted Payload',
+        description: "This project involved me designed and manufacturing a back-mounted backpack payload for the Unitree G1 humanoid robot. I designed the entire structure in Solidworks and manufactured it using 3D-printing. I take a lot of pride in the design. It is made to easily remove components for testing, be simple to print, build, assemble, and disassemble.",
+      //  href: 'idfk',
+      },
+      {
+        image: cubeFeatured,
+        title: 'Sensor Tower Testing Rig',
+        description: "This project involved me designed and manufacturing a sensor tower testing rig so more senior hardware engineers could replace one of our sensors. Unfortunatly the sensors used are private, so I cannot share exactly what this was for. I designed the structure in Solidworks and manufactured it using 3D-printing and miniature T-slots. This was designed to be both configurable and incredibly robust.",
       //  href: 'idfk',
       },
   ],
