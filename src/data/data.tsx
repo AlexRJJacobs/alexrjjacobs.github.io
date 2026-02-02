@@ -484,7 +484,7 @@ export const Carousel: SliderCarousel = {
       },
       {
         image: JetpackFeatured,
-        title: 'Functioning Halo Jetpack',
+        title: 'Motorized Halo Jetpack',
         description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class with the hopes of later printing it out and being able to implement it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
      //   href: 'idfk',
       },
