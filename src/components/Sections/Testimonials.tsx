@@ -42,21 +42,21 @@ const Testimonials: FC = memo(() => {
     }
   }, [itemWidth, scrollValue]);
 
-  const setTestimonial = useCallback(
-    (index: number) => () => {
-      if (scrollContainer !== null && scrollContainer.current !== null) {
-        scrollContainer.current.scrollLeft = itemWidth.current * index;
-      }
-    },
-    [],
-  );
-  const next = useCallback(() => {
-    if (activeIndex + 1 === testimonials.length) {
-      setTestimonial(0)();
-    } else {
-      setTestimonial(activeIndex + 1)();
-    }
-  }, [activeIndex, setTestimonial, testimonials.length]);
+  // const setTestimonial = useCallback(
+  //   (index: number) => () => {
+  //     if (scrollContainer !== null && scrollContainer.current !== null) {
+  //       scrollContainer.current.scrollLeft = itemWidth.current * index;
+  //     }
+  //   },
+  //   [],
+  // );
+  // const next = useCallback(() => {
+  //   if (activeIndex + 1 === testimonials.length) {
+  //     setTestimonial(0)();
+  //   } else {
+  //     setTestimonial(activeIndex + 1)();
+  //   }
+  // }, [activeIndex, setTestimonial, testimonials.length]);
 
   const handleScroll = useCallback<UIEventHandler<HTMLDivElement>>(event => {
     setScrollValue(event.currentTarget.scrollLeft);
