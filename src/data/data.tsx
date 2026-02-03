@@ -103,8 +103,8 @@ export const heroData: Hero = {
         and <strong className="text-stone-100">Programming</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, I am found creating <strong className="text-stone-100">Costumes and Props</strong> from
-        movies and video games, taking <strong className="text-stone-100">Landscape Photography</strong>, or <strong className="text-stone-100">Exploring </strong>
+        In my free time, I am often found creating <strong className="text-stone-100">Costumes and Props</strong> from
+        movies and video games, taking <strong className="text-stone-100">Landscape Photography</strong>, or <strong className="text-stone-100">Exploring</strong>
         whichever city I find myself in. {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
       </p>
     </>
@@ -129,9 +129,9 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I am a second year student studying mechatronics engineering at the University of Waterloo.
+  description: `I am a second-year student studying mechatronics engineering at the University of Waterloo.
    Ever since I could hold a screwdriver, I've been disassembling, reimagining, and reassembling mechanical and electrical devices. 
-   Fortunately for me, these are transferable skills which have allowed me to pursue a career in engineering.`,
+   Fortunately for me, these are transferable skills that have allowed me to pursue a career in engineering.`,
   aboutItems: [
     {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
     {label: 'Age', text: '19', Icon: CalendarIcon},
@@ -150,7 +150,7 @@ export const skills: SkillGroup[] = [
     name: '3D CAD Programs',
     skills: [
       {
-        name: 'Solidworks',
+        name: 'SolidWorks',
         level: 10,
       },
       {
@@ -232,13 +232,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'Halo Reach Noble Six Cosplay',
-    description: 'Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach.',
+    description: 'Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled-down wearable replica of the armour you can find in Halo Reach.',
     // url: '',
     image: porfolioImage2,
   },
   {
     title: 'Revenge of the Sith Scout Trooper Cosplay',
-    description: 'In just under a month I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend.',
+    description: 'In just under a month, I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend.',
     // url: '',
     image: porfolioImage3,
   },
@@ -286,7 +286,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'Boat Hull',
-    description: "When I was 16 I modelled this for the hull of an autonomous aquatic robot for UCLA's SRI Lab. ",
+    description: "When I was 16, I modelled this for the hull of an autonomous aquatic robot for UCLA's SRI Lab. ",
     // url: '',
     image: porfolioImage11,
   },
@@ -298,7 +298,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'Camera Mount',
-    description: "This is a two part camera mount I modelled for the UCLA SRI Lab. It was designed with different mounts at different angles for the camera to mount onto.",
+    description: "This is a two-part camera mount I modelled for the UCLA SRI Lab. It was designed with different mounts at different angles for the camera to mount onto.",
     // url: '',
     image: porfolioImage13,
   },
@@ -348,7 +348,7 @@ export const experience: TimelineItem[] = [
       <p> 
         <ul>
       <li>◦ Led end-to-end development of a modular, back-mounted backpack payload for the Unitree G1 humanoid, allowing for rapid testing and development.</li>
-      <li>◦ Developed and tested ingress protection solutions, increasing the robots viable environments.</li>
+      <li>◦ Developed and tested ingress protection solutions, increasing the robot's viable environments.</li>
       <li>◦ Designed and manufactured a modular, configurable, and reliable sensor testing tower using rapid prototyping techniques, allowing for rapid testing and development.</li>
       <li>◦ Developed testing frameworks and apparatus for validating sensors and components, allowing for optimal component selection.</li>
       </ul>
@@ -367,7 +367,7 @@ export const experience: TimelineItem[] = [
       <li>◦ Developed a custom Gazebo simulator in C++ and Python to collect LiDAR, visual, and inertial sensor data from a quadrupedal robot performing waypoint navigation.</li>
       <li>◦ Developed a metric evaluation framework in Python to benchmark state-of-the-art SLAM algorithms on open datasets.</li>
       <li>◦ Debugged and tested proprietary laboratory software for robotic sensor data collection, processing, and visualization.</li>
-      <li>◦ Designed and 3D printed SolidWorks models to integrate new modules into existing ground and aquatic robot platforms.</li>
+      <li>◦ Designed and 3D-printed SolidWorks models to integrate new modules into existing ground and aquatic robot platforms.</li>
       </ul>
       </p>
       </div>
@@ -391,20 +391,20 @@ export const education: TimelineItem[] = [
     date: 'November 2025 - December 2025',
     location: 'Field AI, Irvine CA',
     title: 'Back-Mounted Sensing and Compute Payload',
-    content: <p>Led end-to-end desgining and prototyping of a hard-mounted, hard-shelled backpack style payload for the Unitree G1
+    content: <p>Led end-to-end design and prototyping of a hard-mounted, hard-shelled backpack-style payload for the Unitree G1
 humanoid, allowing for rapid testing.</p>,
   },
       {
     date: 'October 2025 - December 2025',
     location: 'Field AI, Irvine CA',
     title: 'Sensor Tower Testing Rig',
-    content: <p>Desgining and developed a reliable and configurable sensor testing tower using rapid prototyping techniques, allowing for rapid testing and development.</p>,
+    content: <p>Designed and developed a reliable and configurable sensor testing tower using rapid prototyping techniques, allowing for rapid testing and development.</p>,
   },
   {
     date: 'August 2023, January 6th 2025 - April 21st 2025',
     location: 'Sensing and Robotics for Infrastructure Lab, UCLA',
     title: 'Unmanned Surface Vehicle',
-    content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorithms on related datasets</p>,
+    content: <p>Did various work ranging from modelling parts of the hull to running SLAM algorithms on related datasets.</p>,
   },
   
 //  {
@@ -444,19 +444,19 @@ export const Carousel: SliderCarousel = {
         {
         image: fieldaiFeatured,
         title: 'Field AI',
-        description: "My most recent co-op had me working at Field AI, where I was a member of the hardware team. During my time there I worked on developing prototypes and testing various components for their payload system.",
+        description: "My most recent co-op had me working at Field AI, where I was a member of the hardware team. During my time there, I worked on developing prototypes and testing various components for their payload system.",
       //  href: 'idfk',
       },
       {
         image: backpackFeatured,
         title: 'Back-Mounted Payload',
-        description: "This project involved me designed and manufacturing a back-mounted backpack payload for the Unitree G1 humanoid robot. I designed the entire structure in Solidworks and manufactured it using 3D-printing. I take a lot of pride in the design. It is made to easily remove components for testing, be simple to print, build, assemble, and disassemble.",
+        description: "This project involved me designing and manufacturing a back-mounted backpack payload for the Unitree G1 humanoid robot. I designed the entire structure in SolidWorks and manufactured it using 3D printing. I take a lot of pride in the design. It is made to allow easy removal of components for testing and to be simple to print, build, assemble, and disassemble.",
       //  href: 'idfk',
       },
       {
         image: cubeFeatured,
         title: 'Sensor Tower Testing Rig',
-        description: "This project involved me designed and manufacturing a sensor tower testing rig so more senior hardware engineers could replace one of our sensors. Unfortunatly the sensors used are private, so I cannot share exactly what this was for. I designed the structure in Solidworks and manufactured it using 3D-printing and miniature T-slots. This was designed to be both configurable and incredibly robust.",
+        description: "This project involved me designing and manufacturing a sensor tower testing rig so more senior hardware engineers could replace one of our sensors. Unfortunately the sensors used are private, so I cannot share exactly what this was for. I designed the structure in SolidWorks and manufactured it using 3D printing and miniature T-slots. This was designed to be both configurable and incredibly robust.",
       //  href: 'idfk',
       },
   ],
@@ -468,7 +468,7 @@ export const Carousel: SliderCarousel = {
             {
         image: USVFeatured,
         title: 'Unmanned Surface Vehicle',
-        description: "This is by far one of my most favourite projects in robotics that I got to work on. This was the project that I was working on for the UCLA SRI Lab. As detailed in my Experiences section, while my work on this project was mostly software related, I did also model some components for this project.",
+        description: "This is by far one of my favourite projects in robotics that I got to work on. This was the project that I was working on for the UCLA SRI Lab. As detailed in my Experiences section, while my work on this project was mostly software-related, I did also model some components for this project.",
       //  href: 'idfk',
       },    
     ],
@@ -485,19 +485,19 @@ export const Carousel: SliderCarousel = {
       {
         image: JetpackFeatured,
         title: 'Motorized Halo Jetpack',
-        description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class with the hopes of later printing it out and being able to implement it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
+        description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class, with the hope of later printing it out and incorporating it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
      //   href: 'idfk',
       },
       {
         image: ReachFeatured,
         title: 'Halo Reach Spartan',
-        description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friends basement on his Xbox 360.",
+        description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled-down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friend's basement on his Xbox 360.",
     //   href: 'idfk',
       },
       {
         image: ScoutTrooperFeatured,
         title: '41st Trooper',
-        description: "This was my most recent cosplay project, and one I am quite fond of. In just under a month I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
+        description: "This was my most recent cosplay project, and one I am quite fond of. In just under a month, I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
     //   href: 'idfk',
       },
     ],
@@ -519,7 +519,7 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
+      text: 'Victoria, BC, Canada',
       href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
     },
     {
