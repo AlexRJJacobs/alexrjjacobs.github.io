@@ -85,13 +85,13 @@ const Sliders: FC = memo(() => {
     }, 50);
   }, [activeSectionIndex, slidersections.length]);
 
-  const next = useCallback(() => {
-    if (activeSliderIndex + 1 === sliders.length) {
-      setSlider(0)();
-    } else {
-      setSlider(activeSliderIndex + 1)();
-    }
-  }, [activeSliderIndex, setSlider, sliders.length]);
+  // const next = useCallback(() => {
+  //   if (activeSliderIndex + 1 === sliders.length) {
+  //     setSlider(0)();
+  //   } else {
+  //     setSlider(activeSliderIndex + 1)();
+  //   }
+  // }, [activeSliderIndex, setSlider, sliders.length]);
 
   const handleScroll = useCallback<UIEventHandler<HTMLDivElement>>(event => {
     setScrollValue(event.currentTarget.scrollLeft);
