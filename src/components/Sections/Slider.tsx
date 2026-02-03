@@ -6,7 +6,7 @@ import {FC, memo, UIEventHandler, useCallback, useEffect, useRef, useState} from
 import {isApple, isMobile} from '../../config';
 import {SectionId, Carousel} from '../../data/data';
 import {Slider as SliderType} from '../../data/dataDef';
-import useInterval from '../../hooks/useInterval';
+//import useInterval from '../../hooks/useInterval';
 import useWindow from '../../hooks/useWindow';
 import Section from '../Layout/Section';
 
