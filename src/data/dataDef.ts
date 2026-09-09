@@ -119,12 +119,14 @@ export interface SliderCarousel {
 
 export interface SliderSection {
   SliderimageSrc?: string | StaticImageData;
+  backgroundPosition?: string;
   title: string;
   sliders: Slider[];
 }
 
 export interface Slider {
   image: string | StaticImageData;
+  imagePosition?: string;
   title: string;
   description: string;
 //  href: string;

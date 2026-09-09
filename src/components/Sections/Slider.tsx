@@ -1,27 +1,27 @@
 import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import Image from 'next/image';
-import {FC, memo, UIEventHandler, useCallback, useEffect, useRef, useState} from 'react';
+import {CSSProperties, FC, memo, PointerEventHandler, useCallback, useEffect, useRef, useState} from 'react';
 
 import {isApple, isMobile} from '../../config';
-import {SectionId, Carousel} from '../../data/data';
+import {Carousel, SectionId} from '../../data/data';
 import {Slider as SliderType} from '../../data/dataDef';
-//import useInterval from '../../hooks/useInterval';
-import useWindow from '../../hooks/useWindow';
+import ImageWithPlaceholder from '../ImageWithPlaceholder';
 import Section from '../Layout/Section';
+
+const arrowButtonClass =
+  'rounded-full p-2 text-white ring-1 ring-white/30 backdrop-blur transition-colors duration-200 disabled:opacity-30';
+
+// A horizontal drag shorter than this is treated as a tap rather than a swipe.
+const SWIPE_THRESHOLD = 40;
 
 const Sliders: FC = memo(() => {
   const [activeSectionIndex, setActiveSectionIndex] = useState<number>(0);
   const [previousSectionIndex, setPreviousSectionIndex] = useState<number>(0);
   const [activeSliderIndex, setActiveSliderIndex] = useState<number>(0);
-  const [scrollValue, setScrollValue] = useState(0);
   const [parallaxEnabled, setParallaxEnabled] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
-  const itemWidth = useRef(0);
-  const scrollContainer = useRef<HTMLDivElement>(null);
-
-  const {width} = useWindow();
+  const dragStart = useRef<{x: number; y: number} | null>(null);
 
   const {slidersections} = Carousel;
   const currentSection = slidersections[activeSectionIndex];
@@ -32,72 +32,69 @@ const Sliders: FC = memo(() => {
     setParallaxEnabled(!(isMobile && isApple));
   }, []);
 
-  useEffect(() => {
-    itemWidth.current = scrollContainer.current ? scrollContainer.current.offsetWidth : 0;
-  }, [width]);
+  const nextSlide = useCallback(() => {
+    setActiveSliderIndex(current => Math.min(current + 1, sliders.length - 1));
+  }, [sliders.length]);
 
-  useEffect(() => {
-    if (scrollContainer.current) {
-      const newIndex = Math.round(scrollContainer.current.scrollLeft / itemWidth.current);
-      setActiveSliderIndex(newIndex);
-    }
-  }, [itemWidth, scrollValue]);
-
-  const setSlider = useCallback(
-    (index: number) => () => {
-      if (scrollContainer !== null && scrollContainer.current !== null) {
-        scrollContainer.current.scrollLeft = itemWidth.current * index;
-      }
-    },
-    [],
-  );
-
-  // Navigation functions for slider sections
-  const nextSection = useCallback(() => {
-    setPreviousSectionIndex(activeSectionIndex);
-    setIsFading(true);
-    setTimeout(() => {
-      const nextIndex = (activeSectionIndex + 1) % slidersections.length;
-      setActiveSectionIndex(nextIndex);
-      setActiveSliderIndex(0);
-      if (scrollContainer.current) {
-        scrollContainer.current.scrollLeft = 0;
-      }
-      setTimeout(() => {
-        setIsFading(false);
-      }, 50);
-    }, 50);
-  }, [activeSectionIndex, slidersections.length]);
-
-  const prevSection = useCallback(() => {
-    setPreviousSectionIndex(activeSectionIndex);
-    setIsFading(true);
-    setTimeout(() => {
-      const prevIndex = (activeSectionIndex - 1 + slidersections.length) % slidersections.length;
-      setActiveSectionIndex(prevIndex);
-      setActiveSliderIndex(0);
-      if (scrollContainer.current) {
-        scrollContainer.current.scrollLeft = 0;
-      }
-      setTimeout(() => {
-        setIsFading(false);
-      }, 50);
-    }, 50);
-  }, [activeSectionIndex, slidersections.length]);
-
-  // const next = useCallback(() => {
-  //   if (activeSliderIndex + 1 === sliders.length) {
-  //     setSlider(0)();
-  //   } else {
-  //     setSlider(activeSliderIndex + 1)();
-  //   }
-  // }, [activeSliderIndex, setSlider, sliders.length]);
-
-  const handleScroll = useCallback<UIEventHandler<HTMLDivElement>>(event => {
-    setScrollValue(event.currentTarget.scrollLeft);
+  const prevSlide = useCallback(() => {
+    setActiveSliderIndex(current => Math.max(current - 1, 0));
   }, []);
 
-//  useInterval(next, 10000);
+  const handlePointerDown = useCallback<PointerEventHandler<HTMLDivElement>>(event => {
+    dragStart.current = {x: event.clientX, y: event.clientY};
+  }, []);
+
+  const handlePointerUp = useCallback<PointerEventHandler<HTMLDivElement>>(
+    event => {
+      const start = dragStart.current;
+      dragStart.current = null;
+      if (!start) {
+        return;
+      }
+      const deltaX = event.clientX - start.x;
+      const deltaY = event.clientY - start.y;
+      // One gesture advances one card, and mostly-vertical drags are left to the page scroll.
+      if (Math.abs(deltaX) < SWIPE_THRESHOLD || Math.abs(deltaX) < Math.abs(deltaY)) {
+        return;
+      }
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    },
+    [nextSlide, prevSlide],
+  );
+
+  const handlePointerCancel = useCallback(() => {
+    dragStart.current = null;
+  }, []);
+
+  const changeSection = useCallback(
+    (index: number) => {
+      if (index === activeSectionIndex) {
+        return;
+      }
+      setPreviousSectionIndex(activeSectionIndex);
+      setIsFading(true);
+      setTimeout(() => {
+        setActiveSectionIndex(index);
+        setActiveSliderIndex(0);
+        setTimeout(() => {
+          setIsFading(false);
+        }, 50);
+      }, 200);
+    },
+    [activeSectionIndex],
+  );
+
+  const nextSection = useCallback(() => {
+    changeSection((activeSectionIndex + 1) % slidersections.length);
+  }, [activeSectionIndex, changeSection, slidersections.length]);
+
+  const prevSection = useCallback(() => {
+    changeSection((activeSectionIndex - 1 + slidersections.length) % slidersections.length);
+  }, [activeSectionIndex, changeSection, slidersections.length]);
 
   // If no slider sections, don't render the section
   if (!slidersections.length) {
@@ -109,147 +106,186 @@ const Sliders: FC = memo(() => {
       <div className="relative w-full bg-neutral-700">
         {/* Render all background layers to preload images */}
         {slidersections.map((section, index) => {
-          const resolvedSrc = section.SliderimageSrc 
-            ? (typeof section.SliderimageSrc === 'string' ? section.SliderimageSrc : section.SliderimageSrc.src)
+          const resolvedSrc = section.SliderimageSrc
+            ? typeof section.SliderimageSrc === 'string'
+              ? section.SliderimageSrc
+              : section.SliderimageSrc.src
             : undefined;
-          
+
           const isPrevious = index === previousSectionIndex;
           const isCurrent = index === activeSectionIndex;
           const isVisible = (isPrevious && isFading) || (isCurrent && !isFading);
-          
+
           return (
             <div
-              key={`bg-${index}`}
               className={classNames(
-                'absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-300',
+                'absolute inset-0 h-full w-full bg-cover transition-opacity duration-300',
                 parallaxEnabled && 'bg-fixed',
                 isVisible ? 'opacity-100' : 'opacity-0',
-                isCurrent ? 'z-10' : 'z-0'
+                isCurrent ? 'z-10' : 'z-0',
               )}
-              style={resolvedSrc ? {backgroundImage: `url(${resolvedSrc})`} : undefined}
+              key={`bg-${index}`}
+              style={
+                resolvedSrc
+                  ? {
+                      backgroundImage: `url(${resolvedSrc})`,
+                      backgroundPosition: section.backgroundPosition ?? 'center',
+                    }
+                  : undefined
+              }
             />
           );
         })}
+
         {/* Content Layer */}
         <div className="relative z-20 flex w-full items-center justify-center px-4 py-16 md:py-24 lg:px-8">
-        <div className="z-10 w-full max-w-screen-md px-4 lg:px-0">
-          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/60 p-6 shadow-lg">
-            
-            {/* Section Navigation Header */}
-            <div className="flex items-center justify-between w-full mb-4">
-              <button
-                onClick={prevSection}
-                className="p-2 text-white hover:text-gray-300 transition-colors duration-200 disabled:opacity-50"
-                disabled={slidersections.length <= 1}
-                aria-label="Previous section">
-                <ChevronLeftIcon className="h-6 w-6" />
-              </button>
-              
-              <div className="text-center">
-                <h2 className="text-xl font-bold text-white mb-2">{currentSection.title}</h2>
-                <div className="flex gap-x-2">
-                  {slidersections.map((_, index) => (
+          <div className="w-full max-w-screen-lg">
+            {/* Experience controls, sitting above the cards */}
+            <div className="mb-8 flex flex-col items-center gap-y-4">
+              <div className="flex w-full items-center justify-between gap-x-4">
+                <button
+                  aria-label="Previous experience"
+                  className={classNames(arrowButtonClass, 'bg-gray-900/70 hover:bg-gray-900/90')}
+                  disabled={slidersections.length <= 1}
+                  onClick={prevSection}>
+                  <ChevronLeftIcon className="h-6 w-6" />
+                </button>
+
+                <div className="flex flex-col items-center gap-y-1 rounded-xl bg-gray-900/70 px-5 py-2 shadow-lg ring-1 ring-white/10 backdrop-blur-sm">
+                  <span className="text-xs font-medium uppercase tracking-widest text-neutral-300">
+                    Experience {activeSectionIndex + 1} of {slidersections.length}
+                  </span>
+                  <h2 className="text-center text-xl font-bold text-white sm:text-2xl">{currentSection.title}</h2>
+                </div>
+
+                <button
+                  aria-label="Next experience"
+                  className={classNames(arrowButtonClass, 'bg-gray-900/70 hover:bg-gray-900/90')}
+                  disabled={slidersections.length <= 1}
+                  onClick={nextSection}>
+                  <ChevronRightIcon className="h-6 w-6" />
+                </button>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {slidersections.map((section, index) => (
+                  <button
+                    className={classNames(
+                      'rounded-full border px-3 py-1 text-xs font-medium backdrop-blur transition-colors duration-200 sm:text-sm',
+                      activeSectionIndex === index
+                        ? 'border-white bg-white text-neutral-900'
+                        : 'border-white/40 bg-gray-900/60 text-neutral-100 hover:bg-gray-900/80',
+                    )}
+                    key={`section-${index}`}
+                    onClick={() => changeSection(index)}>
+                    {section.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Card stage: the active project sits in front, its neighbours behind it */}
+            <div
+              className="relative h-[520px] touch-pan-y select-none overflow-hidden sm:h-[470px] lg:h-[430px]"
+              onPointerCancel={handlePointerCancel}
+              onPointerDown={handlePointerDown}
+              onPointerUp={handlePointerUp}>
+              {sliders.map((slider, index) => {
+                const offset = index - activeSliderIndex;
+                const distance = Math.abs(offset);
+                const isVisible = distance <= 2;
+                const style: CSSProperties = {
+                  transform: `translate(-50%, -50%) translateX(${offset * 42}%) scale(${1 - distance * 0.12})`,
+                  zIndex: 30 - distance * 10,
+                  opacity: isVisible ? 1 - distance * 0.3 : 0,
+                  pointerEvents: isVisible ? 'auto' : 'none',
+                };
+                return <SliderItem key={`${slider.title}-${index}`} slider={slider} style={style} />;
+              })}
+
+              {sliders.length > 1 && (
+                <>
+                  <button
+                    aria-label="Previous project"
+                    className={classNames(
+                      arrowButtonClass,
+                      'absolute left-0 top-1/2 z-40 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900',
+                    )}
+                    disabled={activeSliderIndex === 0}
+                    onClick={prevSlide}>
+                    <ChevronLeftIcon className="h-5 w-5" />
+                  </button>
+                  <button
+                    aria-label="Next project"
+                    className={classNames(
+                      arrowButtonClass,
+                      'absolute right-0 top-1/2 z-40 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900',
+                    )}
+                    disabled={activeSliderIndex === sliders.length - 1}
+                    onClick={nextSlide}>
+                    <ChevronRightIcon className="h-5 w-5" />
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Project navigation, below the cards */}
+            {sliders.length > 1 && (
+              <div className="mt-6 flex flex-col items-center gap-y-2">
+                <div className="flex gap-x-3">
+                  {sliders.map((slider, index) => (
                     <button
-                      key={`section-${index}`}
+                      aria-label={`Go to ${slider.title}`}
                       className={classNames(
-                        'h-2 w-8 rounded-full transition-all duration-300',
-                        activeSectionIndex === index ? 'bg-white' : 'bg-gray-400'
+                        'h-3 w-3 rounded-full transition-all duration-300',
+                        index === activeSliderIndex ? 'scale-100 bg-white' : 'scale-75 bg-white/50 hover:bg-white/80',
                       )}
-                      onClick={() => {
-                        setPreviousSectionIndex(activeSectionIndex);
-                        setIsFading(true);
-                        setTimeout(() => {
-                          setActiveSectionIndex(index);
-                          setActiveSliderIndex(0);
-                          if (scrollContainer.current) {
-                            scrollContainer.current.scrollLeft = 0;
-                          }
-                          setTimeout(() => {
-                            setIsFading(false);
-                          }, 50);
-                        }, 300);
-                      }}
-                      aria-label={`Go to section ${index + 1}`}
+                      key={`select-button-${index}`}
+                      onClick={() => setActiveSliderIndex(index)}
                     />
                   ))}
                 </div>
+                <span className="rounded-full bg-gray-900/60 px-3 py-1 text-xs text-neutral-200 backdrop-blur-sm">
+                  Project {activeSliderIndex + 1} of {sliders.length} · swipe or use the arrows
+                </span>
               </div>
-              
-              <button
-                onClick={nextSection}
-                className="p-2 text-white hover:text-gray-300 transition-colors duration-200 disabled:opacity-50"
-                disabled={slidersections.length <= 1}
-                aria-label="Next section">
-                <ChevronRightIcon className="h-6 w-6" />
-              </button>
-            </div>
-
-            {/* Slider Items */}
-            <div
-              className="no-scrollbar flex w-full touch-pan-x snap-x snap-mandatory gap-x-6 overflow-x-auto scroll-smooth"
-              onScroll={handleScroll}
-              ref={scrollContainer}>
-              {sliders.map((slider, index) => {
-                const isActive = index === activeSliderIndex;
-                return (
-                  <SliderItem isActive={isActive} key={`${slider.title}-${index}`} slider={slider} />
-                );
-              })}
-            </div>
-            
-            {/* Item Navigation Dots */}
-            <div className="flex gap-x-4">
-              {[...Array(sliders.length)].map((_, index) => {
-                const isActive = index === activeSliderIndex;
-                return (
-                  <button
-                    className={classNames(
-                      'h-3 w-3 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
-                      isActive ? 'scale-100 opacity-70' : 'scale-75 opacity-70',
-                    )}
-                    disabled={isActive}
-                    key={`select-button-${index}`}
-                    onClick={setSlider(index)}></button>
-                );
-              })}
-            </div>
+            )}
           </div>
         </div>
-      </div>
       </div>
     </Section>
   );
 });
 
-const SliderItem: FC<{slider: SliderType; isActive: boolean}> = memo(
-  ({slider: {title, image, description}, isActive}) => (
-<div
-  className={classNames(
-    'flex flex-col-reverse lg:flex-row w-full shrink-0 snap-start snap-always items-start p-0 transition-opacity duration-3000 ease-in-out gap-y-6 lg:gap-x-10 justify-between',
-    isActive ? 'opacity-100' : 'opacity-0'
-  )}
->
-  {/* Text Section */}
-  <div className="flex flex-col w-full lg:max-w-1/3 px-4">
-    <h2 className="underline decoration-indigo-400 text-lg sm:text-xl font-bold uppercase text-gray-100 text-left">
-      {title}
-    </h2>
-    <p className="mt-4 text-sm sm:text-base md:text-lg text-white text-left break-normal">
-      {description}
-    </p>
-  </div>
+const SliderItem: FC<{slider: SliderType; style: CSSProperties}> = memo(
+  ({slider: {title, image, imagePosition, description}, style}) => (
+    <div
+      className="absolute left-1/2 top-1/2 flex h-full w-[88%] max-w-[740px] flex-col gap-4 rounded-xl bg-gray-800/90 p-4 shadow-2xl shadow-black/50 ring-1 ring-white/10 transition-[transform,opacity] duration-300 ease-out will-change-transform sm:p-5 lg:flex-row lg:gap-6"
+      style={style}>
+      {/* Image Section */}
+      <div className="h-48 w-full shrink-0 overflow-hidden rounded-lg sm:h-52 lg:h-full lg:w-[280px]">
+        <ImageWithPlaceholder
+          alt={title}
+          className="h-full w-full rounded-lg object-cover object-top"
+          src={image}
+          style={imagePosition ? {objectPosition: imagePosition} : undefined}
+          wrapperClassName="h-full w-full"
+        />
+      </div>
 
-  {/* Image Section */}
-  <div className="w-full lg:w-[270px] lg:h-[340px] aspect-[3/5] max-w-[370px] mx-auto overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl">
-    <Image 
-      alt={title}
-      src={image}
-      // placeholder="blur"
-      className="w-full h-full object-cover object-top rounded-lg"
-    />
-  </div>
-</div>
-  )
+      {/* Text Section */}
+      <div className="flex min-h-0 flex-1 flex-col">
+        <h3 className="text-left text-base font-bold uppercase text-gray-100 underline decoration-indigo-400 sm:text-lg">
+          {title}
+        </h3>
+        <p className="no-scrollbar mt-3 overflow-y-auto break-normal text-left text-sm text-white sm:text-base">
+          {description}
+        </p>
+      </div>
+    </div>
+  ),
 );
 
+SliderItem.displayName = 'SliderItem';
+Sliders.displayName = 'Sliders';
 export default Sliders;

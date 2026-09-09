@@ -1,12 +1,12 @@
 // import {ArrowTopRightOnSquareIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import Image from 'next/image';
 import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
 
 import {isMobile} from '../../config';
 import {portfolioItems, SectionId} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
+import ImageWithPlaceholder from '../ImageWithPlaceholder';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
@@ -23,8 +23,7 @@ const Portfolio: FC = memo(() => {
                   className={classNames(
                     'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
                   )}>
-                  <Image alt={title} className="h-full w-full"  src={image} /> 
-                  {/* placeholder="blur" */}
+                  <ImageWithPlaceholder alt={title} className="h-full w-full" src={image} wrapperClassName="w-full" />
                   <ItemOverlay item={item} />
                 </div>
               </div>
@@ -65,9 +64,8 @@ const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {/*url,*/ title, des
   return (
     <a
       className={classNames(
-        'absolute inset-0 h-full w-full  bg-gray-900 transition-all duration-300',
-        {'opacity-0 hover:opacity-80': !mobile},
-        showOverlay ? 'opacity-80' : 'opacity-0',
+        'absolute inset-0 h-full w-full cursor-pointer bg-gray-900 transition-opacity duration-300',
+        mobile ? (showOverlay ? 'opacity-80' : 'opacity-0') : 'opacity-0 hover:opacity-80',
       )}
       // href={url}
       onClick={handleItemClick}

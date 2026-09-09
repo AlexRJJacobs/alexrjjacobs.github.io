@@ -1,19 +1,24 @@
 import classNames from 'classnames';
-import Image from 'next/image';
 import {FC, memo} from 'react';
 
 import {aboutData, SectionId} from '../../data/data';
+import ImageWithPlaceholder from '../ImageWithPlaceholder';
 import Section from '../Layout/Section';
 
 const About: FC = memo(() => {
   const {profileImageSrc, description, aboutItems} = aboutData;
   return (
     <Section className="bg-neutral-800" sectionId={SectionId.About}>
-      <div className={classNames('grid grid-cols-1 gap-y-4', {'md:grid-cols-4': !!profileImageSrc})}>
+      <div className={classNames('grid grid-cols-1 gap-y-4', {'md:grid-cols-4 md:gap-x-8': !!profileImageSrc})}>
         {!!profileImageSrc && (
           <div className="col-span-1 flex justify-center md:justify-start">
-            <div className="relative h-24 w-24 overflow-hidden rounded-xl md:h-32 md:w-32">
-              <Image alt="about-me-image" className="h-full w-full object-cover" src={profileImageSrc} />
+            <div className="relative h-40 w-40 overflow-hidden rounded-xl md:h-full md:w-full">
+              <ImageWithPlaceholder
+                alt="about-me-image"
+                className="h-full w-full origin-[70%_35%] scale-[1.35] object-cover object-center"
+                src={profileImageSrc}
+                wrapperClassName="h-full w-full"
+              />
             </div>
           </div>
         )}

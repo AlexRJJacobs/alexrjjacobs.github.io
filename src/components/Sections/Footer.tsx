@@ -1,4 +1,4 @@
-import {BoltIcon, ChevronUpIcon} from '@heroicons/react/24/solid';
+import {ChevronUpIcon} from '@heroicons/react/24/solid';
 import {FC, memo} from 'react';
 
 import {SectionId} from '../../data/data';
@@ -19,17 +19,10 @@ const Footer: FC = memo(() => (
       <div className="flex gap-x-4 text-neutral-500">
         <Socials />
       </div>
-      <a
-        className="-m-2 flex items-center gap-x-1 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
-        href="https://reactresume.com">
-        <BoltIcon className="h-5 w-5 text-yellow" />
-        <span>
-          Provided by <span className="text-white">React</span>
-          <span className="italic text-yellow">Resume</span>
-        </span>
-      </a>
-      <h2 className="text-sm text-neutral-700 text-right">The landscape photographs featured on this webpage were taken by Alex Jacobs</h2>
-      <span className="text-sm text-neutral-700">Template created by Tim Baker © Copyright {currentYear} Tim Baker</span>
+      <h2 className="text-right text-sm text-neutral-700">
+        The landscape photographs featured on this webpage were taken by Alex Jacobs
+      </h2>
+      <span className="text-sm text-neutral-700">© Copyright {currentYear} Alex Jacobs</span>
     </div>
   </div>
 ));
