@@ -1,5 +1,5 @@
 import {
-  // AcademicCapIcon,
+  AcademicCapIcon,
   ArrowDownTrayIcon,
   // BuildingOffice2Icon,
   CalendarIcon,
@@ -139,8 +139,8 @@ export const aboutData: About = {
     {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
     {label: 'Age', text: '20', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Canadian', Icon: FlagIcon},
+    {label: 'Studying', text: 'Mechatronics Engineering, cGPA 4.00', Icon: AcademicCapIcon},
     {label: 'Interests', text: 'Science Fiction, Photography, Painting', Icon: SparklesIcon},
-    // {label: 'Study', text: 'University of Waterloo', Icon: AcademicCapIcon},
     // {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
   ],
 };
@@ -229,7 +229,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Machining',
-        evidence: ['Lathe, mill, drill press, band saw, scroll saw'],
+        evidence: ['Shop trained through university and school on the lathe, mill, drill press, band saw, and scroll saw'],
       },
     ],
   },
@@ -259,7 +259,9 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Ingress protection',
-        evidence: ['Developed and validated IP solutions at Field AI to widen where the robots could be sent'],
+        evidence: [
+          'Developed and validated ingress protection solutions at Field AI, widening the environments the robots could be sent into',
+        ],
       },
     ],
   },
@@ -627,7 +629,7 @@ export const Carousel: SliderCarousel = {
         image: JetpackFeatured,
         imagePosition: 'center',
         title: 'Motorized Halo Jetpack',
-        description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class, with the hope of later printing it out and incorporating it into my cosplays. Unfortunately school took priority and I haven't had enough time since. Please take a look at the exploded view in the gallery if you are interested!",
+        description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class, with the hope of later printing it out and incorporating it into my cosplays. Unfortunately school took priority and I haven't had enough time since.",
      //   href: 'idfk',
       },
     ],
