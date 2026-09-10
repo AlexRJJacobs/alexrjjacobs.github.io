@@ -95,9 +95,14 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a University of Waterloo <strong className="text-stone-100">Mechatronics student</strong>, currently in 2nd
-        year with years of prior experience in <strong className="text-stone-100">3D-Modelling, 3D-Printing,</strong>{' '}
-        and <strong className="text-stone-100">Programming</strong>.
+        I do <strong className="text-stone-100">mechanical design for robots</strong>. Most recently a back-mounted
+        sensing and compute payload for a <strong className="text-stone-100">humanoid at Field AI</strong>, and the
+        sensor head and mast for an airborne object tracking system at{' '}
+        <strong className="text-stone-100">Panopsys</strong>, a three-person venture I co-founded.
+      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+        I'm a <strong className="text-stone-100">Mechatronics Engineering</strong> student at the University of
+        Waterloo, graduating in <strong className="text-stone-100">2029</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         In my free time, I am often found creating <strong className="text-stone-100">Costumes and Props</strong> from
@@ -127,7 +132,7 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: spotImage,
-  description: `I am a second-year student studying mechatronics engineering at the University of Waterloo.
+  description: `I am a mechatronics engineering student at the University of Waterloo, graduating in 2029.
    Ever since I could hold a screwdriver, I've been disassembling, reimagining, and reassembling mechanical and electrical devices.
    Fortunately for me, these are transferable skills that have allowed me to pursue a career in engineering.`,
   aboutItems: [
@@ -149,19 +154,23 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'SolidWorks',
-        level: 10,
-      },
-      {
-        name: 'Onshape',
-        level: 8,
+        evidence: [
+          'G1 backpack payload at Field AI',
+          'Sensor tower test rig',
+          'USV sensing kits and hydrodynamic fairing at the UCLA SRI Lab',
+        ],
       },
       {
         name: 'Fusion 360',
-        level: 8,
+        evidence: ['2nd place, Toronto CAD modelling competition'],
       },
       {
         name: 'Blender',
-        level: 6,
+        evidence: ['Eight years of modelling and mesh work'],
+      },
+      {
+        name: 'Onshape',
+        evidence: ['Used throughout high school'],
       },
     ],
   },
@@ -169,20 +178,33 @@ export const skills: SkillGroup[] = [
     name: 'Robotics & Software',
     skills: [
       {
-        name: 'C++',
-        level: 9,
+        name: 'Gazebo',
+        evidence: [
+          'Built a custom Gazebo world from a campus building model',
+          'Ran a simulated quadruped through waypoint navigation in it, logging LiDAR, visual, and inertial data',
+        ],
+      },
+      {
+        name: 'SLAM evaluation',
+        evidence: [
+          'Ran open-source implementations against datasets outside their intended domain',
+          'Compared point clouds and localization behaviour to find where they broke down',
+        ],
+      },
+      {
+        name: 'ROS and ROS2',
+        evidence: [
+          'Debugged recorded datasets in ROS1, inspecting topics for sensor data',
+          'Design hardware around the node-based ROS2 architecture behind Panopsys, and review its fusion assumptions with our software lead',
+        ],
       },
       {
         name: 'Python',
-        level: 6,
+        evidence: ['Added Gaussian noise to otherwise ideal simulated sensor readings'],
       },
       {
-        name: 'ROS2',
-        level: 6,
-      },
-      {
-        name: 'Gazebo',
-        level: 6,
+        name: 'C++, VHDL, and ladder logic',
+        evidence: ['University coursework'],
       },
     ],
   },
@@ -190,16 +212,24 @@ export const skills: SkillGroup[] = [
     name: 'Manufacturing',
     skills: [
       {
-        name: '3D-Printing',
-        level: 10,
+        name: 'FDM 3D printing',
+        evidence: [
+          'Multiple G1 payload iterations for parallel cross-office testing',
+          'Printed fixtures for the sensor tower rig',
+          'Every costume and prop build in the gallery',
+        ],
       },
       {
-        name: 'Detail Finishing',
-        level: 7,
+        name: 'Finishing and paint',
+        evidence: [
+          'Halo Reach Spartan and ODST armour',
+          '41st Scout Troopers',
+          'Two full NCR Ranger kits',
+        ],
       },
       {
-        name: 'Machining (Lathe & Mill)',
-        level: 7,
+        name: 'Machining',
+        evidence: ['Lathe, mill, drill press, band saw, scroll saw'],
       },
     ],
   },
@@ -207,16 +237,29 @@ export const skills: SkillGroup[] = [
     name: 'Electronics & Test',
     skills: [
       {
-        name: 'Sensor Integration',
-        level: 7,
-      },
-      {
-        name: 'Wiring & Harnessing',
-        level: 7,
-      },
-      {
         name: 'Microcontrollers (Teensy)',
-        level: 6,
+        evidence: [
+          'Designed and printed a test fixture, then instrumented it with a Teensy 4.0 to capture ultrasonic readings',
+          "Turned the capture into a distance-over-time report that fed the team's component selection",
+        ],
+      },
+      {
+        name: 'Sensor integration',
+        evidence: [
+          'LiDAR, camera, and ultrasonic hardware at configurable extrinsics on the tower rig',
+          'Camera and antenna mounting on the Panopsys sensor head',
+        ],
+      },
+      {
+        name: 'Wiring and harnessing',
+        evidence: [
+          'Internal cable routing and thermal integration in the G1 payload',
+          'Compute, RF, and power hardware on the Panopsys mast',
+        ],
+      },
+      {
+        name: 'Ingress protection',
+        evidence: ['Developed and validated IP solutions at Field AI to widen where the robots could be sent'],
       },
     ],
   },
@@ -226,6 +269,40 @@ export const skills: SkillGroup[] = [
  * Portfolio section
  */
 export const portfolioItems: PortfolioItem[] = [
+  {
+    title: 'Ultrasonic Testing Apparatus',
+    description:
+      'A fixture from my Field AI co-op for comparing two perpendicular ultrasonic sensors across a range of distances. Holding both at fixed, known offsets meant distance was the only thing changing between runs, so the readings could be compared directly. Part of the sensor validation work that fed component selection.',
+    // url: '',
+    image: fieldaiImage4,
+  },
+  {
+    title: 'Camera Mount',
+    description:
+      'A two-part camera mount for the UCLA SRI Lab. The camera had to sit at several different angles depending on the test, so rather than a separate bracket for each one I modelled a common base carrying mounting faces at every angle we needed.',
+    // url: '',
+    image: porfolioImage13,
+  },
+  {
+    title: 'Mounting Plate',
+    description: 'A mounting plate I modified for the UCLA SRI Lab.',
+    // url: '',
+    image: porfolioImage14,
+  },
+  {
+    title: 'Boat Hull',
+    description:
+      "Modelled when I was 16 for the hull of the UCLA SRI Lab's autonomous surface vehicle. That is the same platform as the unmanned surface vehicle in the featured projects above, which I came back to and worked on directly during my 2025 term at the lab.",
+    // url: '',
+    image: porfolioImage11,
+  },
+  {
+    title: 'Airsoft MP9 Speedloader',
+    description:
+      'Modelled and printed to fit my own airsoft magazines. A small part, but one that had to match the real magazine geometry closely enough to actually work.',
+    // url: '',
+    image: porfolioImage10,
+  },
   {
     title: 'Ace of Spades Replica',
     description: 'A friend of mine wanted a replica of his favourite weapon from his favourite game Destiny!',
@@ -245,16 +322,16 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage6,
   },
   {
-    title: 'Ultrakill Figurine',
-    description: 'Another commission from a different client in the USA. I printed and painted a custom figurine of the character V1 from the video game Ultrakill.',
-    // url: '',
-    image: porfolioImage7,
-  },
-  {
     title: 'NCR Ranger Helmet',
     description: 'I was commissioned by a friend to recreate the entire helmet of an NCR Ranger from the video game Fallout: New Vegas.',
     // url: '',
     image: porfolioImage8,
+  },
+  {
+    title: 'Ultrakill Figurine',
+    description: 'Another commission from a different client in the USA. I printed and painted a custom figurine of the character V1 from the video game Ultrakill.',
+    // url: '',
+    image: porfolioImage7,
   },
   {
     title: 'Borderlands Psycho Mask',
@@ -262,37 +339,7 @@ export const portfolioItems: PortfolioItem[] = [
     // url: '',
     image: porfolioImage9,
   },
-  {
-    title: 'Airsoft MP9 Speedloader',
-    description: 'I modelled and printed this speedloader for my airsoft magazines.',
-    // url: '',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Boat Hull',
-    description: "When I was 16, I modelled this for the hull of an autonomous aquatic robot for UCLA's SRI Lab. ",
-    // url: '',
-    image: porfolioImage11,
-  },
-  {
-    title: 'Camera Mount',
-    description: "This is a two-part camera mount I modelled for the UCLA SRI Lab. It was designed with different mounts at different angles for the camera to mount onto.",
-    // url: '',
-    image: porfolioImage13,
-  },
-  {
-    title: 'Mounting Plate',
-    description: "This is a mounting plate I modified for the UCLA SRI Lab.",
-    // url: '',
-    image: porfolioImage14,
-  },
-      {
-    title: 'Ultrasonic Testing Apparatus',
-    description: 'This was a testing apparatus designed to compare two perpendicular ultrasonic sensors at varying distances.',
-    // url: '',
-    image: fieldaiImage4,
-  },
-  
+
   // {
   //   title: 'Project title 10',
   //   description: 'Give a short description of your project here.',
@@ -330,7 +377,8 @@ export const experience: TimelineItem[] = [
           iteration on new sensor and payload configurations.
         </li>
         <li>
-          Built sensor validation frameworks and apparatus to characterize components and guide part selection.
+          Built test apparatus and logged sensor readings on a Teensy 4.0 to characterize components and support part
+          selection.
         </li>
       </ul>
     ),
@@ -342,8 +390,8 @@ export const experience: TimelineItem[] = [
     content: (
       <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
         <li>
-          Developed a custom Gazebo simulator in C++ and Python to collect LiDAR, visual, and inertial data from a
-          quadrupedal robot performing waypoint navigation.
+          Built Gazebo simulation environments from campus building models so a simulated quadrupedal robot could run
+          waypoint navigation while logging LiDAR, visual, and inertial data.
         </li>
         <li>
           Evaluated open-source SLAM implementations on datasets outside the domains they were designed for,
@@ -373,16 +421,23 @@ export const experience: TimelineItem[] = [
 export const education: TimelineItem[] = [
   {
     date: 'August 2025 - Present',
-    location: 'Panopsys, Remote',
+    location: 'Panopsys, Toronto, ON',
     title: 'Airborne Object Tracking System',
     content: (
-      <p>
-        Co-founded a three-person venture building a ground-based system that localizes airborne objects in 3D by fusing
-        detections from multiple distributed cameras on a node-based ROS2 architecture. As Mechanical Lead I own camera
-        and antenna mounting, the sensor-head enclosure, and structural integration of compute and RF hardware on a
-        portable tripod mast. I also led the system's first outdoor deployment at an airshow, capturing three hours of
-        three-node data across 14 aircraft out to roughly 5 km.
-      </p>
+      <div className="flex flex-col gap-y-3">
+        <p>
+          Co-founded a three-person venture building a ground-based system that localizes airborne objects in 3D by
+          fusing detections from multiple distributed cameras on a node-based ROS2 architecture.
+        </p>
+        <p>
+          As Mechanical Lead I own camera and antenna mounting, the sensor-head enclosure, and structural integration of
+          compute and RF hardware on a portable tripod mast.
+        </p>
+        <p>
+          I also led the system's first outdoor deployment at an airshow, capturing three hours of three-node data
+          across 14 aircraft out to roughly 5 km.
+        </p>
+      </div>
     ),
   },
   {
@@ -390,12 +445,16 @@ export const education: TimelineItem[] = [
     location: 'Field AI, Irvine, CA',
     title: 'Back-Mounted Sensing and Compute Payload',
     content: (
-      <p>
-        Owned mechanical design, internal cable routing, and thermal integration of a rigid backpack payload for the
-        Unitree G1 humanoid, from concept through fabricated prototype. Fabricated multiple iterations via 3D printing to
-        enable parallel cross-office testing, and authored the design documentation and file-structure guides that
-        enabled a clean handoff to downstream engineers.
-      </p>
+      <div className="flex flex-col gap-y-3">
+        <p>
+          Owned mechanical design, internal cable routing, and thermal integration of a rigid backpack payload for the
+          Unitree G1 humanoid, from concept through fabricated prototype.
+        </p>
+        <p>
+          Fabricated multiple iterations via 3D printing to enable parallel cross-office testing, and authored the
+          design documentation and file-structure guides that enabled a clean handoff to downstream engineers.
+        </p>
+      </div>
     ),
   },
   {
@@ -403,12 +462,17 @@ export const education: TimelineItem[] = [
     location: 'Field AI, Irvine, CA',
     title: 'Sensor Tower Test Rig',
     content: (
-      <p>
-        Designed and manufactured a modular rigid sensor tower supporting LiDAR, camera, ultrasonic, and compute payload
-        testing with configurable extrinsics. Built custom 3D printed fixtures and a Teensy 4.0-based validation
-        framework to streamline sensor characterization and comparison, delivering a reconfigurable platform that
-        supports ongoing perception development rather than a single test.
-      </p>
+      <div className="flex flex-col gap-y-3">
+        <p>
+          Designed and manufactured a modular rigid sensor tower supporting LiDAR, camera, ultrasonic, and compute
+          payload testing with configurable extrinsics.
+        </p>
+        <p>
+          Built custom 3D printed fixtures, and logged sensor readings on a Teensy 4.0 to characterize and compare
+          components, delivering a reconfigurable platform that supports ongoing perception development rather than a
+          single test.
+        </p>
+      </div>
     ),
   },
   {
@@ -416,12 +480,16 @@ export const education: TimelineItem[] = [
     location: 'UCLA Sensing and Robotics for Infrastructure Lab, Los Angeles, CA',
     title: 'Unmanned Surface Vehicle',
     content: (
-      <p>
-        Maintained and extended SolidWorks models of the platform's above- and below-water sensing kits, including
-        prototype hull components and camera mounts for evolving sensor configurations. Modeled and 3D printed a
-        hydrodynamic fairing to reduce drag around the underwater sensors, and assisted with data collection for a
-        visual-inertial navigation ablation study.
-      </p>
+      <div className="flex flex-col gap-y-3">
+        <p>
+          Maintained and extended SolidWorks models of the platform's above- and below-water sensing kits, including
+          prototype hull components and camera mounts for evolving sensor configurations.
+        </p>
+        <p>
+          Modeled and 3D printed a hydrodynamic fairing to reduce drag around the underwater sensors, and assisted with
+          data collection for a visual-inertial navigation ablation study.
+        </p>
+      </div>
     ),
   },
   {
@@ -429,11 +497,16 @@ export const education: TimelineItem[] = [
     location: 'UCLA Sensing and Robotics for Infrastructure Lab, Los Angeles, CA',
     title: 'Simulation and SLAM Evaluation',
     content: (
-      <p>
-        Built a custom Gazebo simulator in C++ and Python to collect synchronized LiDAR, visual, and inertial data from a
-        quadrupedal robot running waypoint navigation. Ran open-source SLAM implementations against datasets outside
-        their intended domain, comparing reconstructed point clouds and localization behaviour to identify failure cases.
-      </p>
+      <div className="flex flex-col gap-y-3">
+        <p>
+          Converted campus building models into Gazebo worlds using a Blender workflow, giving a simulated quadrupedal
+          robot an environment to run waypoint navigation in while logging LiDAR, visual, and inertial data.
+        </p>
+        <p>
+          Ran open-source SLAM implementations against datasets outside their intended domain, comparing reconstructed
+          point clouds and localization behaviour to identify failure cases.
+        </p>
+      </div>
     ),
   },
 
@@ -502,7 +575,7 @@ export const Carousel: SliderCarousel = {
         image: cubeFeatured,
         imagePosition: 'center 30%',
         title: 'Sensor Tower Testing Rig',
-        description: "Field AI needed to iterate on sensor and payload configurations without building a dedicated mount for each one. I designed and manufactured a modular rigid tower from miniature T-slot extrusion and custom 3D printed fixtures, supporting LiDAR, camera, ultrasonic, and compute payload testing at configurable extrinsics, along with a Teensy 4.0 validation framework for characterizing and comparing components. The sensors themselves are confidential, but the rig was built to support ongoing perception development rather than a single test.",
+        description: "Field AI needed to iterate on sensor and payload configurations without building a dedicated mount for each one. I designed and manufactured a modular rigid tower from miniature T-slot extrusion and custom 3D printed fixtures, supporting LiDAR, camera, ultrasonic, and compute payload testing at configurable extrinsics, along with a Teensy 4.0 logging setup for capturing sensor readings and comparing components. The sensors themselves are confidential, but the rig was built to support ongoing perception development rather than a single test.",
       //  href: 'idfk',
       },
   ],

@@ -5,17 +5,22 @@ import {TimelineItem} from '../../../data/dataDef';
 const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
   const {title, date, location, content} = item;
   return (
-    <div className="flex flex-col pb-8 text-left last:pb-0">
-      {/* text-center md:text-left */}
-      <div className="flex flex-col pb-4">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <div className="flex items-center justify-left gap-x-2 md:justify-start">
-          <span className="flex-1 text-sm font-medium italic sm:flex-none">{location}</span>
-          <span>•</span>
-          <span className="flex-1 text-sm sm:flex-none">{date}</span>
+    <div className="relative flex flex-col pb-8 pl-6 text-left last:pb-0">
+      <span aria-hidden className="absolute inset-y-0 left-0 w-px bg-neutral-300" />
+      <span
+        aria-hidden
+        className="absolute -left-[5px] top-5 h-[11px] w-[11px] rounded-full border-2 border-indigo-400 bg-neutral-100"
+      />
+      <div className="rounded-lg border border-neutral-200 bg-white p-5 shadow-sm">
+        <h3 className="text-lg font-bold leading-snug">{title}</h3>
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700">
+            {location}
+          </span>
+          <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs text-neutral-600">{date}</span>
         </div>
+        <div className="mt-4 text-sm text-neutral-700">{content}</div>
       </div>
-      {content}
     </div>
   );
 });

@@ -1,33 +1,52 @@
-import {FC, memo, PropsWithChildren, useMemo} from 'react';
+import classNames from 'classnames';
+import {FC, memo, useState} from 'react';
 
 import {Skill as SkillType, SkillGroup as SkillGroupType} from '../../../data/dataDef';
 
-export const SkillGroup: FC<PropsWithChildren<{skillGroup: SkillGroupType}>> = memo(({skillGroup}) => {
-  const {name, skills} = skillGroup;
+export const SkillTabs: FC<{skillGroups: SkillGroupType[]}> = memo(({skillGroups}) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeGroup = skillGroups[activeIndex];
+
   return (
-    <div className="flex flex-col">
-      <span className="text-center text-lg font-bold">{name}</span>
-      <div className="flex flex-col gap-y-2">
-        {skills.map((skill, index) => (
-          <Skill key={`${skill.name}-${index}`} skill={skill} />
+    <div className="flex flex-col gap-y-4">
+      <div className="flex flex-wrap gap-2">
+        {skillGroups.map((group, index) => (
+          <button
+            className={classNames(
+              'rounded-full border px-3 py-1 text-sm font-medium transition-colors duration-200',
+              index === activeIndex
+                ? 'border-indigo-400 bg-indigo-400 text-white'
+                : 'border-neutral-300 bg-white text-neutral-700 hover:border-indigo-400 hover:text-indigo-700',
+            )}
+            key={group.name}
+            onClick={() => setActiveIndex(index)}>
+            {group.name}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid min-h-[16rem] grid-cols-1 items-start gap-5 rounded-lg border border-neutral-200 bg-white p-5 shadow-sm sm:grid-cols-2">
+        {activeGroup.skills.map(skill => (
+          <Skill key={skill.name} skill={skill} />
         ))}
       </div>
     </div>
   );
 });
 
-SkillGroup.displayName = 'SkillGroup';
+SkillTabs.displayName = 'SkillTabs';
 
 export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
-  const {name, level, max = 10} = skill;
-  const percentage = useMemo(() => Math.round((level / max) * 100), [level, max]);
+  const {name, evidence} = skill;
 
   return (
-    <div className="flex flex-col">
-      <span className="ml-2 text-sm font-medium">{name}</span>
-      <div className="h-5 w-full overflow-hidden rounded-full bg-neutral-300">
-        <div className="h-full rounded-full bg-indigo-400" style={{width: `${percentage}%`}} />
-      </div>
+    <div className="flex flex-col gap-y-1 border-l-2 border-indigo-400 pl-3">
+      <span className="text-sm font-bold">{name}</span>
+      <ul className="flex list-disc flex-col gap-y-1 pl-4 text-sm text-neutral-600">
+        {evidence.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 });
