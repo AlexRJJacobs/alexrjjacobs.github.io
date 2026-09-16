@@ -187,8 +187,8 @@ export const skills: SkillGroup[] = [
       {
         name: 'SLAM evaluation',
         evidence: [
-          'Ran open-source implementations against datasets outside their intended domain',
-          'Compared point clouds and localization behaviour to find where they broke down',
+          'Benchmarked 5+ open-source systems (DLIO, LIO-SAM, Coco-LIC, ORB-SLAM) on out-of-domain datasets',
+          'Deployed the packages on lab workstations, patching source and build dependencies to get them running',
         ],
       },
       {
@@ -239,8 +239,8 @@ export const skills: SkillGroup[] = [
       {
         name: 'Microcontrollers (Teensy)',
         evidence: [
-          'Designed and printed a test fixture, then instrumented it with a Teensy 4.0 to capture ultrasonic readings',
-          "Turned the capture into a distance-over-time report that fed the team's component selection",
+          'Built a Teensy 4.0 data logger to characterize ultrasonic sensor noise',
+          "Identified off-axis beam-spread reflections, informing the team's decision on sensor adoption",
         ],
       },
       {
@@ -260,7 +260,8 @@ export const skills: SkillGroup[] = [
       {
         name: 'Ingress protection',
         evidence: [
-          'Developed and validated ingress protection solutions at Field AI, widening the environments the robots could be sent into',
+          'Assessed IP54 sealing feasibility for a sensing payload using custom splash-test fixtures',
+          'Found insufficient seal clearances that would require a payload redesign, and stayed on as ingress protection point of contact',
         ],
       },
     ],
@@ -363,24 +364,28 @@ export const experience: TimelineItem[] = [
   {
     date: 'September 2025 - December 2025',
     location: 'Field AI, Irvine, CA',
-    title: 'Mechanical Designer, Quadrupedal & Humanoid Robotics',
+    title: 'Mechanical Design Co-op, Quadrupedal & Humanoid Robotics',
     content: (
       <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
         <li>
-          Led end-to-end mechanical development of a modular, back-mounted sensing and compute payload for the Unitree
-          G1 humanoid, porting existing hardware onto a new platform under tight timelines.
+          Led end-to-end mechanical design of a modular sensing and compute payload for the Unitree G1 humanoid across
+          five iterations in 4 weeks alongside three parallel projects, porting existing hardware onto a new platform.
         </li>
         <li>
-          Developed and validated ingress protection solutions, expanding the range of environments the robot could
-          operate in.
+          Designed enclosures adding 20 kg of lead-shot ballast to a quadruped in 3 days, modelling roughly 63.5% random
+          packing density to hit target mass within 0.2% error and meet international competition weight rules.
         </li>
         <li>
-          Designed and built modular test infrastructure, including a reconfigurable sensor tower rig, accelerating
-          iteration on new sensor and payload configurations.
+          Assessed IP54 sealing feasibility for a sensing payload using custom splash-test fixtures, identifying
+          insufficient seal clearances that would require a payload redesign.
         </li>
         <li>
-          Built test apparatus and logged sensor readings on a Teensy 4.0 to characterize components and support part
-          selection.
+          Built a modular sensor tower test rig with adjustable camera mounts and configurable extrinsics, saving hours
+          of reconfiguration and accelerating iteration on LiDAR and camera setups.
+        </li>
+        <li>
+          Built a Teensy 4.0 data logger to characterize ultrasonic sensor noise, identifying off-axis beam-spread
+          reflections and informing the team's decision on sensor adoption.
         </li>
       </ul>
     ),
@@ -392,18 +397,21 @@ export const experience: TimelineItem[] = [
     content: (
       <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
         <li>
-          Built Gazebo simulation environments from campus building models so a simulated quadrupedal robot could run
-          waypoint navigation while logging LiDAR, visual, and inertial data.
+          Benchmarked 5+ open-source SLAM systems (DLIO, LIO-SAM, Coco-LIC, ORB-SLAM) on out-of-domain datasets,
+          characterizing localization and mapping failure modes.
         </li>
         <li>
-          Evaluated open-source SLAM implementations on datasets outside the domains they were designed for,
-          characterizing where localization and mapping broke down.
+          Deployed SLAM packages on lab workstations, patching source and build dependencies to resolve
+          incompatibilities.
         </li>
         <li>
-          Debugged and tested proprietary laboratory software for robotic sensor data collection, processing, and
-          visualization.
+          Built a Gazebo simulation from campus models via a Blender pipeline with Python Gaussian noise injection,
+          improving the realism of simulated sensor data.
         </li>
-        <li>Designed and 3D printed SolidWorks models to integrate new modules into ground and aquatic robot platforms.</li>
+        <li>
+          Extended SolidWorks models of an unmanned surface vehicle's sensing kits and designed a 3D printed
+          hydrodynamic fairing, reducing drag around its underwater sensors.
+        </li>
       </ul>
     ),
   },
@@ -436,8 +444,12 @@ export const education: TimelineItem[] = [
           compute and RF hardware on a portable tripod mast.
         </p>
         <p>
-          I also led the system's first outdoor deployment at an airshow, capturing three hours of three-node data
-          across 14 aircraft out to roughly 5 km.
+          I also led the system's first outdoor deployment at an airshow, with zero mechanical failures, capturing three
+          hours of three-node data across 14 aircraft out to roughly 5 km.
+        </p>
+        <p>
+          I am now driving a v2 sensor head that replaces the 20 mm extrusion frame with a single printed structure,
+          removing the mounting constraints that dictated sensor placement on the prototype.
         </p>
       </div>
     ),
@@ -449,12 +461,17 @@ export const education: TimelineItem[] = [
     content: (
       <div className="flex flex-col gap-y-3">
         <p>
-          Owned mechanical design, internal cable routing, and thermal integration of a rigid backpack payload for the
-          Unitree G1 humanoid, from concept through fabricated prototype.
+          Conceived and designed the full payload architecture for the Unitree G1 from a requirements-only brief,
+          including the frame, modular shelf layout, and mounting interface, porting existing hardware onto a new
+          platform.
         </p>
         <p>
-          Fabricated multiple iterations via 3D printing to enable parallel cross-office testing, and authored the
-          design documentation and file-structure guides that enabled a clean handoff to downstream engineers.
+          Architected internal cable routing and thermal integration so existing sensing and compute hardware dropped in
+          cleanly, improving serviceability of connectors and fans.
+        </p>
+        <p>
+          Fabricated five 3D printed iterations in 4 weeks for Boston office testing, alongside three other projects,
+          and authored the design documentation that streamlined handoff to downstream engineers.
         </p>
       </div>
     ),
@@ -466,13 +483,37 @@ export const education: TimelineItem[] = [
     content: (
       <div className="flex flex-col gap-y-3">
         <p>
-          Designed and manufactured a modular rigid sensor tower supporting LiDAR, camera, ultrasonic, and compute
-          payload testing with configurable extrinsics.
+          Designed and manufactured a modular sensor tower for LiDAR, camera, ultrasonic, and compute payload testing.
         </p>
         <p>
-          Built custom 3D printed fixtures, and logged sensor readings on a Teensy 4.0 to characterize and compare
-          components, delivering a reconfigurable platform that supports ongoing perception development rather than a
-          single test.
+          Designed adjustable camera mounts with configurable extrinsics in place of the specified fixed design, saving
+          hours of reconfiguration between tests.
+        </p>
+        <p>
+          Built fixtures and a Teensy 4.0 logger to characterize ultrasonic noise, identifying off-axis beam-spread
+          reflections and informing the sensor adoption decision.
+        </p>
+      </div>
+    ),
+  },
+  {
+    date: 'September 2025 - December 2025',
+    location: 'Field AI, Irvine, CA',
+    title: 'Competition Ballast & Ingress Protection',
+    content: (
+      <div className="flex flex-col gap-y-3">
+        <p>
+          Designed three enclosures adding 20 kg of lead-shot ballast to a quadruped in 3 days, meeting the weight
+          requirements for an international competition in Singapore.
+        </p>
+        <p>
+          Sized the enclosures for minimum volume using a roughly 63.5% random packing density, landing target mass
+          within 0.2% error.
+        </p>
+        <p>
+          Ran splash-test feasibility checks toward IP54 for a sensing payload, building custom fixtures for enclosures,
+          fans, and speakers. Identified insufficient seal clearances that would require a payload redesign, and
+          continued as the ingress protection point of contact.
         </p>
       </div>
     ),
@@ -483,12 +524,13 @@ export const education: TimelineItem[] = [
     title: 'Unmanned Surface Vehicle',
     content: (
       <div className="flex flex-col gap-y-3">
+        <p>Began as a high school placement in 2023, and returned to the lab in 2025.</p>
         <p>
-          Maintained and extended SolidWorks models of the platform's above- and below-water sensing kits, including
-          prototype hull components and camera mounts for evolving sensor configurations.
+          Extended SolidWorks models of the above- and below-water sensing kits, including hull components and camera
+          mounts, supporting evolving sensor configurations.
         </p>
         <p>
-          Modeled and 3D printed a hydrodynamic fairing to reduce drag around the underwater sensors, and assisted with
+          Modeled and 3D printed a hydrodynamic fairing for the underwater sensors, reducing drag, and assisted with
           data collection for a visual-inertial navigation ablation study.
         </p>
       </div>
@@ -501,12 +543,16 @@ export const education: TimelineItem[] = [
     content: (
       <div className="flex flex-col gap-y-3">
         <p>
-          Converted campus building models into Gazebo worlds using a Blender workflow, giving a simulated quadrupedal
-          robot an environment to run waypoint navigation in while logging LiDAR, visual, and inertial data.
+          Built a Gazebo simulation from campus models via a Blender pipeline with Python Gaussian noise injection,
+          improving sensor realism for a simulated quadruped.
         </p>
         <p>
-          Ran open-source SLAM implementations against datasets outside their intended domain, comparing reconstructed
-          point clouds and localization behaviour to identify failure cases.
+          Deployed SLAM packages on lab workstations, patching source and build dependencies to resolve compatibility
+          issues.
+        </p>
+        <p>
+          Benchmarked 5+ open-source SLAM systems (DLIO, LIO-SAM, Coco-LIC, ORB-SLAM) on out-of-domain datasets,
+          comparing point clouds and localization behaviour to document failure cases.
         </p>
       </div>
     ),
