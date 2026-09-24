@@ -1,4 +1,4 @@
-import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/outline';
+import {ArrowDownIcon, ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import {CSSProperties, FC, memo, PointerEventHandler, useCallback, useEffect, useRef, useState} from 'react';
 
@@ -144,7 +144,7 @@ const Sliders: FC = memo(() => {
             <div className="mb-8 flex flex-col items-center gap-y-4">
               <div className="flex w-full items-center justify-between gap-x-4">
                 <button
-                  aria-label="Previous experience"
+                  aria-label="Previous group"
                   className={classNames(arrowButtonClass, 'bg-gray-900/70 hover:bg-gray-900/90')}
                   disabled={slidersections.length <= 1}
                   onClick={prevSection}>
@@ -153,13 +153,13 @@ const Sliders: FC = memo(() => {
 
                 <div className="flex flex-col items-center gap-y-1 rounded-xl bg-gray-900/70 px-5 py-2 shadow-lg ring-1 ring-white/10 backdrop-blur-sm">
                   <span className="text-xs font-medium uppercase tracking-widest text-neutral-300">
-                    Experience {activeSectionIndex + 1} of {slidersections.length}
+                    Featured Projects
                   </span>
                   <h2 className="text-center text-xl font-bold text-white sm:text-2xl">{currentSection.title}</h2>
                 </div>
 
                 <button
-                  aria-label="Next experience"
+                  aria-label="Next group"
                   className={classNames(arrowButtonClass, 'bg-gray-900/70 hover:bg-gray-900/90')}
                   disabled={slidersections.length <= 1}
                   onClick={nextSection}>
@@ -200,7 +200,14 @@ const Sliders: FC = memo(() => {
                   opacity: isVisible ? 1 - distance * 0.3 : 0,
                   pointerEvents: isVisible ? 'auto' : 'none',
                 };
-                return <SliderItem key={`${slider.title}-${index}`} slider={slider} style={style} />;
+                return (
+                  <SliderItem
+                    isActive={offset === 0}
+                    key={`${slider.title}-${index}`}
+                    slider={slider}
+                    style={style}
+                  />
+                );
               })}
 
               {sliders.length > 1 && (
@@ -257,8 +264,8 @@ const Sliders: FC = memo(() => {
   );
 });
 
-const SliderItem: FC<{slider: SliderType; style: CSSProperties}> = memo(
-  ({slider: {title, image, imagePosition, description}, style}) => (
+const SliderItem: FC<{slider: SliderType; style: CSSProperties; isActive: boolean}> = memo(
+  ({slider: {title, image, imagePosition, description, href}, style, isActive}) => (
     <div
       className="absolute left-1/2 top-1/2 flex h-full w-[88%] max-w-[740px] flex-col gap-4 rounded-xl bg-gray-800/90 p-4 shadow-2xl shadow-black/50 ring-1 ring-white/10 transition-[transform,opacity] duration-300 ease-out will-change-transform sm:p-5 lg:flex-row lg:gap-6"
       style={style}>
@@ -281,6 +288,15 @@ const SliderItem: FC<{slider: SliderType; style: CSSProperties}> = memo(
         <p className="no-scrollbar mt-3 overflow-y-auto break-normal text-left text-sm text-white sm:text-base">
           {description}
         </p>
+        {href && (
+          <a
+            className="mt-3 flex shrink-0 items-center gap-x-1 self-start rounded-md text-sm font-medium text-indigo-300 hover:text-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 sm:text-base"
+            href={href}
+            tabIndex={isActive ? undefined : -1}>
+            See the full write-up
+            <ArrowDownIcon className="h-4 w-4" />
+          </a>
+        )}
       </div>
     </div>
   ),

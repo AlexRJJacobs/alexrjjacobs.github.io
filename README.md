@@ -37,10 +37,25 @@ Images live in `src/images` and are imported directly into `data.tsx`. Because t
 static export, `next.config.js` sets `images.unoptimized`, so whatever file you import is
 served at full size. Resize images before adding them, around 2000px on the long edge.
 
-Two optional per-item fields worth knowing about:
+### Keeping it in sync with the resume
+
+The resume PDF is the source of truth. Edit it first, then copy the wording onto the site:
+
+- **Experiences** repeats page 1 of the resume word for word, in the same order.
+- **Professional Projects** repeats the portfolio pages (2 and 3), including the Goal / Design / Result labels.
+- **The featured carousel** gives a short intro and links down to the matching project. Keep numbers out of it, so
+  there is only one place a figure can go stale.
+- **The PDF** lives at `public/assets/Alex_Jacobs_Resume.pdf`. Overwrite that file rather than adding a new name, so
+  the hero button and any links you have already sent keep working. `Alex_Jacobs_Resume_2026.pdf` is an old path
+  kept as a copy for links sent before September 2026. Delete it once those links no longer matter.
+
+Optional per-item fields worth knowing about:
 
 - `backgroundPosition` on a carousel section, for nudging the backdrop crop
 - `imagePosition` on a carousel card, for nudging that card's image crop
+- `href` on a carousel card, pointing at a timeline entry's `id` (e.g. `#project-usv`) for its "See the full
+  write-up" link
+- `note` on a timeline entry, for an extra chip such as "Co-op work term"
 
 ## Credit
 

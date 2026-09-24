@@ -2,11 +2,11 @@ import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
   // BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
+  ChartBarIcon,
   MapIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
+import {FC, memo, ReactNode} from 'react';
 
 // import GithubIcon from '../components/Icon/GithubIcon';
 // import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -96,13 +96,13 @@ export const heroData: Hero = {
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         I do <strong className="text-stone-100">mechanical design for robots</strong>. Most recently a back-mounted
-        sensing and compute payload for a <strong className="text-stone-100">humanoid at Field AI</strong>, and the
-        sensor head and mast for an airborne object tracking system at{' '}
-        <strong className="text-stone-100">Panopsys</strong>, a three-person venture I co-founded.
+        sensing and compute payload for a <strong className="text-stone-100">humanoid at Field AI</strong>, and all
+        mechanical design of the sensor head for an airborne object tracking system at{' '}
+        <strong className="text-stone-100">Panopsys</strong>, a 3-person venture I co-founded.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         I'm a <strong className="text-stone-100">Mechatronics Engineering</strong> student at the University of
-        Waterloo, graduating in <strong className="text-stone-100">2029</strong>.
+        Waterloo, expected to graduate in <strong className="text-stone-100">April 2029</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         In my free time, I am often found creating <strong className="text-stone-100">Costumes and Props</strong> from
@@ -114,8 +114,8 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/Alex_Jacobs_Resume_2026.pdf',
-      text: 'Resume',
+      href: '/assets/Alex_Jacobs_Resume.pdf',
+      text: 'Resume + Portfolio',
       primary: true,
       Icon: ArrowDownTrayIcon,
     },
@@ -132,14 +132,13 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: spotImage,
-  description: `I am a mechatronics engineering student at the University of Waterloo, graduating in 2029.
+  description: `I am a mechatronics engineering student at the University of Waterloo, expected to graduate in April 2029.
    Ever since I could hold a screwdriver, I've been disassembling, reimagining, and reassembling mechanical and electrical devices.
    Fortunately for me, these are transferable skills that have allowed me to pursue a career in engineering.`,
   aboutItems: [
     {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
-    {label: 'Age', text: '20', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian', Icon: FlagIcon},
-    {label: 'Studying', text: 'Mechatronics Engineering, cGPA 4.00', Icon: AcademicCapIcon},
+    {label: 'Studying', text: 'BASc Mechatronics Engineering, University of Waterloo', Icon: AcademicCapIcon},
+    {label: 'Cumulative average', text: '90.79%', Icon: ChartBarIcon},
     {label: 'Interests', text: 'Science Fiction, Photography, Painting', Icon: SparklesIcon},
     // {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
   ],
@@ -150,73 +149,88 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Design & CAD',
+    name: 'CAD & Modeling',
     skills: [
       {
         name: 'SolidWorks',
         evidence: [
-          'G1 backpack payload at Field AI',
+          'Back-mounted sensing and compute payload for the Unitree G1 at Field AI',
           'Sensor tower test rig',
           'USV sensing kits and hydrodynamic fairing at the UCLA SRI Lab',
         ],
       },
       {
-        name: 'Fusion 360',
-        evidence: ['2nd place, Toronto CAD modelling competition'],
-      },
-      {
-        name: 'Blender',
-        evidence: ['Eight years of modelling and mesh work'],
-      },
-      {
         name: 'Onshape',
         evidence: ['Used throughout high school'],
       },
+      {
+        name: 'Blender',
+        evidence: ['Converted existing campus models for the Gazebo simulation at UCLA'],
+      },
     ],
   },
   {
-    name: 'Robotics & Software',
+    name: 'Mechanical Design',
     skills: [
       {
-        name: 'Gazebo',
+        name: 'Enclosures',
         evidence: [
-          'Built a custom Gazebo world from a campus building model',
-          'Ran a simulated quadruped through waypoint navigation in it, logging LiDAR, visual, and inertial data',
+          'Frame, modular shelf layout, and mounting interface of the G1 payload',
+          'Three lead-shot ballast enclosures for a quadruped, sized from the random packing fraction',
+          'Camera housings on the Panopsys sensor head',
         ],
       },
       {
-        name: 'SLAM evaluation',
+        name: 'Mounts and fixtures',
         evidence: [
-          'Benchmarked 5+ open-source systems (DLIO, LIO-SAM, Coco-LIC, ORB-SLAM) on out-of-domain datasets',
-          'Deployed the packages on lab workstations, patching source and build dependencies to get them running',
+          'Camera and antenna mounts on the Panopsys sensor head, with one latch releasing the whole head',
+          'Adjustable camera mounts with configurable extrinsics on the sensor tower',
+          'Splash-test fixtures and an ultrasonic characterization fixture at Field AI',
         ],
       },
       {
-        name: 'ROS and ROS2',
+        name: 'Cable routing',
+        evidence: ['Internal cable routing and thermal integration in the G1 payload'],
+      },
+      {
+        name: 'Design for 3D printing',
         evidence: [
-          'Debugged recorded datasets in ROS1, inspecting topics for sensor data',
-          'Design hardware around the node-based ROS2 architecture behind Panopsys, and review its fusion assumptions with our software lead',
+          "Hydrodynamic fairing for the USV's underwater sensors",
+          'The v2 Panopsys sensor head, now in progress, a single printed structure replacing the 20 mm extrusion frame',
         ],
-      },
-      {
-        name: 'Python',
-        evidence: ['Added Gaussian noise to otherwise ideal simulated sensor readings'],
-      },
-      {
-        name: 'C++, VHDL, and ladder logic',
-        evidence: ['University coursework'],
       },
     ],
   },
   {
-    name: 'Manufacturing',
+    name: 'Fabrication & Test',
     skills: [
       {
         name: 'FDM 3D printing',
         evidence: [
-          'Multiple G1 payload iterations for parallel cross-office testing',
+          'Five G1 payload iterations in 4 weeks for testing at the Boston office',
           'Printed fixtures for the sensor tower rig',
           'Every costume and prop build in the gallery',
+        ],
+      },
+      {
+        name: 'Splash testing',
+        evidence: [
+          "Tested a sensing payload's enclosures, fans, and speakers against the water half of IP54 (IPX4)",
+          'Found insufficient seal clearances that would require a payload redesign',
+        ],
+      },
+      {
+        name: 'Sensor characterization',
+        evidence: [
+          'Built a Teensy 4.0 data logger to characterize ultrasonic sensor noise across distances',
+          "Identified off-axis beam-spread reflections, informing the team's sensor-adoption decision",
+        ],
+      },
+      {
+        name: 'Field testing',
+        evidence: [
+          'Led the first outdoor Panopsys deployment at an airshow, with no structural failures',
+          'The deployment surfaced an unseated antenna that blocked an RTK fix, to fix before the next one',
         ],
       },
       {
@@ -227,41 +241,45 @@ export const skills: SkillGroup[] = [
           'Two full NCR Ranger kits',
         ],
       },
-      {
-        name: 'Machining',
-        evidence: ['Shop trained through university and school on the lathe, mill, drill press, band saw, and scroll saw'],
-      },
     ],
   },
   {
-    name: 'Electronics & Test',
+    name: 'Software & Electronics',
     skills: [
       {
-        name: 'Microcontrollers (Teensy)',
+        name: 'ROS 2',
         evidence: [
-          'Built a Teensy 4.0 data logger to characterize ultrasonic sensor noise',
-          "Identified off-axis beam-spread reflections, informing the team's decision on sensor adoption",
+          'Design hardware around the node-based ROS 2 architecture behind Panopsys, and review its fusion assumptions with our software lead',
+          'Debugged recorded datasets in ROS 1, inspecting topics for sensor data',
         ],
       },
       {
-        name: 'Sensor integration',
+        name: 'Gazebo',
         evidence: [
-          'LiDAR, camera, and ultrasonic hardware at configurable extrinsics on the tower rig',
-          'Camera and antenna mounting on the Panopsys sensor head',
+          'Built a Gazebo simulation for a quadruped from existing campus models via a Blender conversion pipeline',
+          'Collected LiDAR, visual, and inertial data from the simulated quadruped on waypoint navigation runs',
         ],
       },
       {
-        name: 'Wiring and harnessing',
+        name: 'SLAM evaluation',
         evidence: [
-          'Internal cable routing and thermal integration in the G1 payload',
+          'Benchmarked 5+ open-source systems, including DLIO, LIO-SAM, Coco-LIC, and ORB-SLAM, on out-of-domain datasets',
+          'Deployed the packages on lab workstations, patching source and build dependencies to get them running',
+        ],
+      },
+      {
+        name: 'Python',
+        evidence: ['Added Gaussian noise to otherwise ideal simulated sensor readings'],
+      },
+      {
+        name: 'C++, VHDL, and ladder logic',
+        evidence: ['University coursework'],
+      },
+      {
+        name: 'Teensy and wiring harnesses',
+        evidence: [
+          'Teensy 4.0 data logger for the ultrasonic fixture',
           'Compute, RF, and power hardware on the Panopsys mast',
-        ],
-      },
-      {
-        name: 'Ingress protection',
-        evidence: [
-          'Assessed IP54 sealing feasibility for a sensing payload using custom splash-test fixtures',
-          'Found insufficient seal clearances that would require a payload redesign, and stayed on as ingress protection point of contact',
         ],
       },
     ],
@@ -275,7 +293,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Ultrasonic Testing Apparatus',
     description:
-      'A fixture from my Field AI co-op for comparing two perpendicular ultrasonic sensors across a range of distances. Holding both at fixed, known offsets meant distance was the only thing changing between runs, so the readings could be compared directly. Part of the sensor validation work that fed component selection.',
+      "A fixture from my Field AI co-op holding 2 perpendicular ultrasonic sensors at fixed, known offsets, so distance was the only thing that changed between runs. What it found informed the team's sensor-adoption decision; the full write-up is under Sensor Tower Test Rig above.",
     // url: '',
     image: fieldaiImage4,
   },
@@ -295,7 +313,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Boat Hull',
     description:
-      "Modelled when I was 16 for the hull of the UCLA SRI Lab's autonomous surface vehicle. That is the same platform as the unmanned surface vehicle in the featured projects above, which I came back to and worked on directly during my 2025 term at the lab.",
+      "Modeled on a 2023 high-school placement for the hull of the UCLA SRI Lab's unmanned surface vehicle. That is the same platform as the Unmanned Surface Vehicle project above, which I came back to during my 2025 term at the lab.",
     // url: '',
     image: porfolioImage11,
   },
@@ -360,57 +378,85 @@ export const portfolioItems: PortfolioItem[] = [
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
 
+// Experiences mirror page 1 of the resume PDF, and Professional Projects mirror its portfolio pages, line for line.
+// Change the resume first, then copy the new wording here.
 export const experience: TimelineItem[] = [
   {
-    date: 'September 2025 - December 2025',
-    location: 'Field AI, Irvine, CA',
-    title: 'Mechanical Design Co-op, Quadrupedal & Humanoid Robotics',
+    id: 'experience-panopsys',
+    date: 'Aug. 2025 – Present',
+    location: 'Panopsys, Toronto, ON',
+    note: 'Co-op work term, May – Aug. 2026',
+    title: 'Co-Founder & Mechanical Lead — Airborne Object Tracking',
     content: (
       <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
         <li>
-          Led end-to-end mechanical design of a modular sensing and compute payload for the Unitree G1 humanoid across
-          five iterations in 4 weeks alongside three parallel projects, porting existing hardware onto a new platform.
+          Co-founded a 3-person venture building a ground-based system that localizes airborne objects in 3D by fusing
+          detections from distributed camera nodes, running on a node-based ROS 2 architecture.
         </li>
         <li>
-          Designed enclosures adding 20 kg of lead-shot ballast to a quadruped in 3 days, modelling roughly 63.5% random
-          packing density to hit target mass within 0.2% error and meet international competition weight rules.
+          Own all mechanical design: sensor head, camera and antenna mounts, and compute, RF, and power integration on
+          a portable tripod mast; one latch releases the whole head for transport and setup.
         </li>
         <li>
-          Assessed IP54 sealing feasibility for a sensing payload using custom splash-test fixtures, identifying
-          insufficient seal clearances that would require a payload redesign.
+          Led the first outdoor field deployment at an airshow with no structural failures: 3 camera nodes on ~100 m
+          baselines captured ~3 h of data across 14 display acts, at ranges from overhead out to ~5 km.
         </li>
         <li>
-          Built a modular sensor tower test rig with adjustable camera mounts and configurable extrinsics, saving hours
-          of reconfiguration and accelerating iteration on LiDAR and camera setups.
-        </li>
-        <li>
-          Built a Teensy 4.0 data logger to characterize ultrasonic sensor noise, identifying off-axis beam-spread
-          reflections and informing the team's decision on sensor adoption.
+          Driving the v2 sensor-head design, replacing the 20 mm extrusion frame with a single printed structure to
+          remove the mounting constraints that dictated sensor placement on the v1 prototype.
         </li>
       </ul>
     ),
   },
   {
-    date: 'January 2025 - April 2025',
-    location: 'UCLA Sensing and Robotics for Infrastructure Lab, Los Angeles, CA',
-    title: 'Research Assistant, Mobile Robotics & SLAM',
+    id: 'experience-field-ai',
+    date: 'Sep. 2025 – Dec. 2025',
+    location: 'Field AI, Irvine, CA',
+    title: 'Mechanical Design Co-op — Quadrupedal & Humanoid Robotics',
     content: (
       <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
         <li>
-          Benchmarked 5+ open-source SLAM systems (DLIO, LIO-SAM, Coco-LIC, ORB-SLAM) on out-of-domain datasets,
-          characterizing localization and mapping failure modes.
+          Owned mechanical design of a back-mounted sensing and compute payload for the Unitree G1 humanoid from a
+          requirements-only brief, building five 3D-printed iterations in 4 weeks alongside 3 other projects.
         </li>
         <li>
-          Deployed SLAM packages on lab workstations, patching source and build dependencies to resolve
-          incompatibilities.
+          Designed 3 enclosures adding 20 kg of lead shot to a quadruped in 3 days to meet competition weight rules,
+          sized from the ~63.5% random packing fraction; final ballast mass was within 0.2% of target.
         </li>
         <li>
-          Built a Gazebo simulation from campus models via a Blender pipeline with Python Gaussian noise injection,
-          improving the realism of simulated sensor data.
+          Built custom fixtures to splash-test a sensing payload's enclosures, fans, and speakers against the water
+          half of IP54 (IPX4), identifying insufficient seal clearances that would require a payload redesign.
         </li>
         <li>
-          Extended SolidWorks models of an unmanned surface vehicle's sensing kits and designed a 3D printed
-          hydrodynamic fairing, reducing drag around its underwater sensors.
+          Designed and built a modular sensor tower test rig for LiDAR, camera, ultrasonic, and compute payload
+          testing, with adjustable camera mounts and configurable extrinsics in place of the specified fixed design.
+        </li>
+        <li>
+          Built a test fixture and Teensy 4.0 data logger to characterize ultrasonic sensor noise across distances,
+          identifying off-axis beam-spread reflections and informing the team's sensor-adoption decision.
+        </li>
+      </ul>
+    ),
+  },
+  {
+    id: 'experience-ucla',
+    date: 'Jan. 2025 – Apr. 2025',
+    location: 'UCLA Sensing and Robotics for Infrastructure Lab, Los Angeles, CA',
+    note: 'Co-op work term',
+    title: 'Research Assistant — Mobile Robotics & SLAM',
+    content: (
+      <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
+        <li>
+          Extended SolidWorks models of an unmanned surface vehicle's above- and below-water sensing kits, including
+          camera mounts, and designed a 3D-printed hydrodynamic fairing for its underwater sensors.
+        </li>
+        <li>
+          Benchmarked 5+ open-source SLAM systems, including DLIO, LIO-SAM, Coco-LIC, and ORB-SLAM, on datasets
+          outside their design domains, characterizing localization and mapping failure modes.
+        </li>
+        <li>
+          Built a Gazebo simulation for a quadruped from existing campus models via a Blender conversion pipeline, and
+          wrote Python to add Gaussian noise to its otherwise ideal simulated sensor readings.
         </li>
       </ul>
     ),
@@ -428,132 +474,154 @@ export const experience: TimelineItem[] = [
   //   ),
   // },
 ];
+const ProjectNote: FC<{label: string; children: ReactNode}> = memo(({label, children}) => (
+  <p>
+    <span className="font-semibold text-neutral-900">{label}:</span> {children}
+  </p>
+));
+
 export const education: TimelineItem[] = [
   {
-    date: 'August 2025 - Present',
+    id: 'project-panopsys',
+    date: 'Aug. 2025 – Present',
     location: 'Panopsys, Toronto, ON',
     title: 'Airborne Object Tracking System',
     content: (
       <div className="flex flex-col gap-y-3">
-        <p>
-          Co-founded a three-person venture building a ground-based system that localizes airborne objects in 3D by
-          fusing detections from multiple distributed cameras on a node-based ROS2 architecture.
-        </p>
-        <p>
-          As Mechanical Lead I own camera and antenna mounting, the sensor-head enclosure, and structural integration of
-          compute and RF hardware on a portable tripod mast.
-        </p>
-        <p>
-          I also led the system's first outdoor deployment at an airshow, with zero mechanical failures, capturing three
-          hours of three-node data across 14 aircraft out to roughly 5 km.
-        </p>
-        <p>
-          I am now driving a v2 sensor head that replaces the 20 mm extrusion frame with a single printed structure,
-          removing the mounting constraints that dictated sensor placement on the prototype.
-        </p>
+        <ProjectNote label="First field deployment">
+          3 camera nodes · ~100 m baselines · 14 display acts · out to ~5 km · ~3 h capture
+        </ProjectNote>
+        <ProjectNote label="Goal">
+          Locate airborne objects in 3D by fusing detections from distributed ground camera nodes on ROS 2.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          As co-founder, own all mechanical design: camera housings and mounts, antenna placement, sensor-head
+          structure, and integration of compute, RF, and power hardware on a portable tripod mast.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          One latch frees the whole 20 mm extrusion head from the tripod for fast transport and setup.
+        </ProjectNote>
+        <ProjectNote label="Result">
+          Led the first outdoor deployment at an airshow, with no structural failures over ~3 h of capture. It surfaced
+          issues to fix before the next deployment, including an unseated antenna that blocked an RTK fix.
+        </ProjectNote>
+        <ProjectNote label="Next">
+          The v2 sensor head, now in progress, replaces the 20 mm extrusion frame with a single printed structure,
+          removing the mounting constraints that dictated sensor placement on the v1 prototype.
+        </ProjectNote>
       </div>
     ),
   },
   {
-    date: 'November 2025 - December 2025',
+    id: 'project-payload',
+    date: 'Nov. 2025 – Dec. 2025',
     location: 'Field AI, Irvine, CA',
     title: 'Back-Mounted Sensing and Compute Payload',
     content: (
       <div className="flex flex-col gap-y-3">
-        <p>
-          Conceived and designed the full payload architecture for the Unitree G1 from a requirements-only brief,
-          including the frame, modular shelf layout, and mounting interface, porting existing hardware onto a new
-          platform.
-        </p>
-        <p>
-          Architected internal cable routing and thermal integration so existing sensing and compute hardware dropped in
-          cleanly, improving serviceability of connectors and fans.
-        </p>
-        <p>
-          Fabricated five 3D printed iterations in 4 weeks for Boston office testing, alongside three other projects,
-          and authored the design documentation that streamlined handoff to downstream engineers.
-        </p>
+        <ProjectNote label="Goal">
+          Port existing sensing and compute hardware onto the Unitree G1 humanoid, from a requirements-only brief.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          Architected the frame, modular shelf layout, and mounting interface, with internal cable routing and thermal
+          integration so the hardware dropped in cleanly and its connectors and fans stayed serviceable.
+        </ProjectNote>
+        <ProjectNote label="Result">
+          Built five 3D-printed iterations in 4 weeks, alongside 3 other projects, for testing at the Boston office,
+          and wrote the design documentation and file-structure guides for handoff to downstream engineers.
+        </ProjectNote>
       </div>
     ),
   },
   {
-    date: 'September 2025 - December 2025',
+    id: 'project-sensor-tower',
+    date: 'Sep. 2025 – Dec. 2025',
     location: 'Field AI, Irvine, CA',
     title: 'Sensor Tower Test Rig',
     content: (
       <div className="flex flex-col gap-y-3">
-        <p>
-          Designed and manufactured a modular sensor tower for LiDAR, camera, ultrasonic, and compute payload testing.
-        </p>
-        <p>
-          Designed adjustable camera mounts with configurable extrinsics in place of the specified fixed design, saving
-          hours of reconfiguration between tests.
-        </p>
-        <p>
-          Built fixtures and a Teensy 4.0 logger to characterize ultrasonic noise, identifying off-axis beam-spread
-          reflections and informing the sensor adoption decision.
-        </p>
+        <ProjectNote label="Goal">
+          Build a modular tower for testing LiDAR, camera, ultrasonic, and compute payload setups.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          Chose adjustable camera mounts with configurable extrinsics over the specified fixed design.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          Built a fixture holding 2 perpendicular ultrasonic sensors at fixed, known offsets, so distance was the only
+          thing that changed between runs, plus a Teensy 4.0 logger recording their readings over time.
+        </ProjectNote>
+        <ProjectNote label="Result">
+          Found off-axis beam-spread reflections in the noise, informing the team's adoption decision.
+        </ProjectNote>
       </div>
     ),
   },
   {
-    date: 'September 2025 - December 2025',
+    id: 'project-ballast-ip',
+    date: 'Sep. 2025 – Dec. 2025',
     location: 'Field AI, Irvine, CA',
     title: 'Competition Ballast & Ingress Protection',
     content: (
       <div className="flex flex-col gap-y-3">
-        <p>
-          Designed three enclosures adding 20 kg of lead-shot ballast to a quadruped in 3 days, meeting the weight
-          requirements for an international competition in Singapore.
-        </p>
-        <p>
-          Sized the enclosures for minimum volume using a roughly 63.5% random packing density, landing target mass
-          within 0.2% error.
-        </p>
-        <p>
-          Ran splash-test feasibility checks toward IP54 for a sensing payload, building custom fixtures for enclosures,
-          fans, and speakers. Identified insufficient seal clearances that would require a payload redesign, and
-          continued as the ingress protection point of contact.
-        </p>
+        <h4 className="font-bold text-neutral-900">Competition ballast</h4>
+        <ProjectNote label="Goal">
+          Add 20 kg to a quadruped in 3 days to meet weight rules at an international event in Singapore.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          Sized 3 lead-shot enclosures for minimum volume, <i>V</i> = <i>m</i>/(<i>φρ</i>
+          <sub>Pb</sub>), at random packing <i>φ</i> ≈ 0.635.
+        </ProjectNote>
+        <ProjectNote label="Result">Final ballast mass within 0.2% of target.</ProjectNote>
+        <h4 className="mt-2 font-bold text-neutral-900">IP54 feasibility</h4>
+        <ProjectNote label="Goal">Check if a sensing payload could reach IP54.</ProjectNote>
+        <ProjectNote label="Design">
+          Built splash-test fixtures for its enclosures, fans, and speakers, covering IP54's water half (IPX4).
+        </ProjectNote>
+        <ProjectNote label="Result">
+          Found insufficient seal clearances, meaning the payload would need a redesign to reach IP54.
+        </ProjectNote>
       </div>
     ),
   },
   {
-    date: 'August 2023, January 2025 - April 2025',
+    id: 'project-usv',
+    date: 'Aug. 2023, Jan. – Apr. 2025',
     location: 'UCLA Sensing and Robotics for Infrastructure Lab, Los Angeles, CA',
     title: 'Unmanned Surface Vehicle',
     content: (
       <div className="flex flex-col gap-y-3">
-        <p>Began as a high school placement in 2023, and returned to the lab in 2025.</p>
-        <p>
-          Extended SolidWorks models of the above- and below-water sensing kits, including hull components and camera
-          mounts, supporting evolving sensor configurations.
-        </p>
-        <p>
-          Modeled and 3D printed a hydrodynamic fairing for the underwater sensors, reducing drag, and assisted with
-          data collection for a visual-inertial navigation ablation study.
-        </p>
+        <ProjectNote label="Goal">
+          Support the lab's evolving sensor configurations on its unmanned surface vehicle (USV).
+        </ProjectNote>
+        <ProjectNote label="Design">
+          Modeled the hull on a 2023 high-school placement, then returned in 2025 to extend SolidWorks models of the
+          above- and below-water sensing kits, including hull parts and camera mounts.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          Modeled and 3D-printed a hydrodynamic fairing to reduce drag on the underwater sensors.
+        </ProjectNote>
       </div>
     ),
   },
   {
-    date: 'January 2025 - April 2025',
+    id: 'project-slam',
+    date: 'Jan. – Apr. 2025',
     location: 'UCLA Sensing and Robotics for Infrastructure Lab, Los Angeles, CA',
     title: 'Simulation and SLAM Evaluation',
     content: (
       <div className="flex flex-col gap-y-3">
-        <p>
-          Built a Gazebo simulation from campus models via a Blender pipeline with Python Gaussian noise injection,
-          improving sensor realism for a simulated quadruped.
-        </p>
-        <p>
-          Deployed SLAM packages on lab workstations, patching source and build dependencies to resolve compatibility
-          issues.
-        </p>
-        <p>
-          Benchmarked 5+ open-source SLAM systems (DLIO, LIO-SAM, Coco-LIC, ORB-SLAM) on out-of-domain datasets,
-          comparing point clouds and localization behaviour to document failure cases.
-        </p>
+        <ProjectNote label="Design">
+          Built a Gazebo simulation for a quadruped from campus models via Blender, with Python adding Gaussian noise
+          to otherwise ideal sensor readings.
+        </ProjectNote>
+        <ProjectNote label="Design">
+          Deployed SLAM packages on lab workstations, patching their source code and build dependencies to resolve
+          compatibility issues.
+        </ProjectNote>
+        <ProjectNote label="Result">
+          Benchmarked 5+ open-source SLAM systems, including DLIO, LIO-SAM, Coco-LIC, and ORB-SLAM, on out-of-domain
+          datasets, comparing point clouds and localization to document failures.
+        </ProjectNote>
       </div>
     ),
   },
@@ -574,7 +642,7 @@ export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
     {
-      cellnumber: '437-688-2039',
+      cellnumber: '+1 (437) 688-2039',
       cell: 'Call',
       email: 'Email',
       emailaddress: 'ajrjacob@uwaterloo.ca',
@@ -596,8 +664,8 @@ export const Carousel: SliderCarousel = {
         image: panopsysFeatured,
         imagePosition: 'center',
         title: 'Airborne Object Tracking System',
-        description: "Panopsys is a three-person venture I co-founded that builds a ground-based system for locating airborne objects in 3D, fusing detections from several distributed cameras on a node-based ROS2 architecture. I own the mechanical side of it: camera housings and mounts, antenna placement, the sensor-head structure, and integrating the compute, RF, and power hardware onto a portable tripod mast. Our first outdoor deployment ran three camera nodes at an airshow and captured about three hours of data across 14 aircraft, out to roughly 5 km.",
-      //  href: 'idfk',
+        description: "Panopsys is a venture I co-founded that builds a ground-based system for locating airborne objects in 3D, fusing detections from distributed camera nodes. I own all of its mechanical design: the sensor head, its camera and antenna mounts, and the compute, RF, and power integration on a portable tripod mast. The photo is from our first field deployment, at an airshow.",
+        href: '#project-panopsys',
       },
     ],
   },
@@ -610,21 +678,21 @@ export const Carousel: SliderCarousel = {
         image: spotImage,
         imagePosition: 'center',
         title: 'Field AI',
-        description: "Field AI develops autonomy software for robots working in unstructured environments, and I spent my fall 2025 co-op on their hardware team in Irvine. My work was the physical side of that: a back-mounted payload for the Unitree G1 humanoid, ingress protection to widen the range of conditions the robots could be sent into, and test hardware for characterizing sensors and guiding part selection. That is one of the office Spot units in the photo.",
-      //  href: 'idfk',
+        description: "Field AI develops autonomy software for robots working in unstructured environments, and I spent my fall 2025 co-op on their hardware team in Irvine. My work was the physical side of that: a back-mounted payload for the Unitree G1 humanoid, competition ballast for a quadruped, splash testing toward ingress protection, and test hardware for characterizing sensors. That is one of the office Spot units in the photo.",
+        href: '#experience-field-ai',
       },
       {
         image: backpackFeatured,
         title: 'Back-Mounted Payload',
-        description: "Field AI needed its existing sensing and compute payload to run on a new platform, the Unitree G1 humanoid, on a compressed timeline. I owned the mechanical development end to end: a rigid backpack enclosure, internal cable routing, and thermal integration, with the mounting arranged so the existing sensing and compute hardware integrated cleanly. Connectors and fans remain accessible for servicing without disassembling the payload. I fabricated multiple iterations by 3D printing to support parallel testing across offices, and authored design and file-structure documentation for handoff to downstream engineers.",
-      //  href: 'idfk',
+        description: "Field AI needed its existing sensing and compute hardware to run on a new platform, the Unitree G1 humanoid. Working from a requirements-only brief, I designed the frame, modular shelf layout, and mounting interface, with the cabling and cooling arranged so connectors and fans stay serviceable without disassembling the payload.",
+        href: '#project-payload',
       },
       {
         image: cubeFeatured,
         imagePosition: 'center 30%',
         title: 'Sensor Tower Testing Rig',
-        description: "Field AI needed to iterate on sensor and payload configurations without building a dedicated mount for each one. I designed and manufactured a modular rigid tower from miniature T-slot extrusion and custom 3D printed fixtures, supporting LiDAR, camera, ultrasonic, and compute payload testing at configurable extrinsics, along with a Teensy 4.0 logging setup for capturing sensor readings and comparing components. The sensors themselves are confidential, but the rig was built to support ongoing perception development rather than a single test.",
-      //  href: 'idfk',
+        description: "Field AI needed to iterate on sensor and payload configurations without building a dedicated mount for each one. I designed and built a modular tower from miniature T-slot extrusion and printed fixtures, with adjustable camera mounts, for LiDAR, camera, ultrasonic, and compute payload testing. The sensors themselves are confidential.",
+        href: '#project-sensor-tower',
       },
   ],
 },
@@ -637,8 +705,8 @@ export const Carousel: SliderCarousel = {
         image: USVFeatured,
         imagePosition: 'center',
         title: 'Unmanned Surface Vehicle',
-        description: "An unmanned surface vehicle the UCLA SRI Lab uses for visual-inertial navigation research. I maintained and extended the SolidWorks models of its sensing kits above and below the waterline, including prototype hull components and camera mounts that had to keep up with changing sensor configurations, and modelled and printed a hydrodynamic fairing to cut drag around the underwater sensors. I also helped run data collection with the detachable above-water sensors for an ablation study. Still one of my favourite things I have gotten to work on.",
-      //  href: 'idfk',
+        description: "An unmanned surface vehicle the UCLA SRI Lab uses for visual-inertial navigation research. I first modeled its hull on a high-school placement, then came back to extend the SolidWorks models of its sensing kits above and below the waterline and to design a printed fairing for the underwater sensors. Still one of my favourite things I have gotten to work on.",
+        href: '#project-usv',
       },
     ],
   },{

@@ -86,8 +86,10 @@ export interface PortfolioItem {
  * Resume section
  */
 export interface TimelineItem {
+  id?: string;
   date: string;
   location: string;
+  note?: string;
   title: string;
   content: JSX.Element;
 }
@@ -128,7 +130,7 @@ export interface Slider {
   imagePosition?: string;
   title: string;
   description: string;
-//  href: string;
+  href?: string;
 }
 
 
