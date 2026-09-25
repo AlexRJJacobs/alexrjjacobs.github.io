@@ -10,13 +10,13 @@ const ImageWithPlaceholder: FC<ImageProps & {wrapperClassName?: string}> = memo(
     const handleLoad = useCallback(() => setLoaded(true), []);
 
     return (
-      <span className={classNames('relative block overflow-hidden bg-neutral-700', wrapperClassName)}>
+      <span className={classNames('relative block overflow-hidden', wrapperClassName)}>
         <span
           className={classNames(
             'absolute inset-0 flex items-center justify-center bg-neutral-700 transition-opacity duration-500',
             loaded ? 'opacity-0' : 'animate-pulse opacity-100',
           )}>
-          <PhotoIcon className="h-8 w-8 text-neutral-500" />
+          <PhotoIcon aria-hidden="true" className="h-8 w-8 text-neutral-500" />
         </span>
         <Image
           {...imageProps}

@@ -100,3 +100,35 @@ yarn-error.log*
 /src/images/fieldai/fallen_robot.jpg
 /src/images/flying1.jpeg
 /src/images/flying2.jpeg
+
+# Originals replaced by the resized WebP and MP4 files the site ships (September 2026). Kept on disk to re-export from.
+/src/images/CameraMount.webp
+/src/images/NCR_ranger_cosplay.jpg
+/src/images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg
+/src/images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg
+/src/images/Plate.webp
+/src/images/ReachCosplayPhotos/AR503291.jpg
+/src/images/ScoutTrooper/featured.jpg
+/src/images/UCLA/backdrop.jpeg
+/src/images/VariousProjects/AceOfSpades.jpg
+/src/images/VariousProjects/IMG_3549.jpg
+/src/images/VariousProjects/NCRRangerHelmet.jpg
+/src/images/VariousProjects/NCRRangerMask.jpg
+/src/images/VariousProjects/helldivershelmet.jpg
+/src/images/VariousProjects/ultrakill_thingy.png
+/src/images/airborne_tracker/plane.jpeg
+/src/images/airborne_tracker/tracker_and_plane.jpeg
+/src/images/backdrop1.jpeg
+/src/images/backdrop3.jpeg
+/src/images/boathull.webp
+/src/images/fieldai/Cube.jpeg
+/src/images/fieldai/Exploded_View_No_Logo.webp
+/src/images/fieldai/Spot.jpeg
+/src/images/fieldai/backdrop.jpeg
+/src/images/fieldai/ultrasonic.jpeg
+/src/images/jetpack2.webp
+/src/images/mp9speedloader.webp
+/src/images/usv.jpg
+
+# Personal to-do notes
+/TODO.txt

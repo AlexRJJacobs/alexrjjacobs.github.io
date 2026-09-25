@@ -1,60 +1,51 @@
 import {useEffect} from 'react';
 
-import {headerID} from '../components/Sections/Header';
 import {SectionId} from '../data/data';
 
+// How far down the viewport a section's top has to pass before it counts as the current one.
+const ACTIVE_LINE = 0.3;
+
+/**
+ * Reports the last section whose top has scrolled above the line 30% down the viewport, or the last section once the
+ * page is scrolled to the bottom. Works for sections of any height, unlike an IntersectionObserver threshold, which a
+ * section taller than the observed band can never reach.
+ */
 export const useNavObserver = (selectors: string, handler: (section: SectionId | null) => void) => {
   useEffect(() => {
-    // Get all sections
-    const headings = document.querySelectorAll(selectors);
-    const headingsArray = Array.from(headings);
-    const headerWrapper = document.getElementById(headerID);
+    // querySelectorAll returns elements in document order, which the loop below relies on.
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(selectors));
+    let frame = 0;
 
-    // Create the IntersectionObserver API
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          const currentY = entry.boundingClientRect.y;
-          const id = entry.target.getAttribute('id');
-          if (headerWrapper) {
-            // Create a decision object
-            const decision = {
-              id,
-              currentIndex: headingsArray.findIndex(heading => heading.getAttribute('id') === id),
-              isIntersecting: entry.isIntersecting,
-              currentRatio: entry.intersectionRatio,
-              aboveToc: currentY < headerWrapper.getBoundingClientRect().y,
-              belowToc: !(currentY < headerWrapper.getBoundingClientRect().y),
-            };
-            if (decision.isIntersecting) {
-              // Header at 30% from the top, update to current header
-              handler(decision.id as SectionId);
-            } else if (
-              !decision.isIntersecting &&
-              decision.currentRatio < 1 &&
-              decision.currentRatio > 0 &&
-              decision.belowToc
-            ) {
-              const currentVisible = headingsArray[decision.currentIndex - 1]?.getAttribute('id');
-              handler(currentVisible as SectionId);
-            }
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0.1,
-        rootMargin: '0px 0px -70% 0px',
-      },
-    );
-    // Observe all the Sections
-    headings.forEach(section => {
-      observer.observe(section);
-    });
-    // Cleanup
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight * ACTIVE_LINE;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      let current: HTMLElement | undefined;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= line) {
+          current = section;
+        }
+      }
+      if (atBottom && sections.length) {
+        current = sections[sections.length - 1];
+      }
+      handler((current?.id as SectionId | undefined) ?? null);
+    };
+
+    const scheduleUpdate = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(update);
+      }
+    };
+
+    update();
+    window.addEventListener('scroll', scheduleUpdate, {passive: true});
+    window.addEventListener('resize', scheduleUpdate);
     return () => {
-      observer.disconnect();
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      window.cancelAnimationFrame(frame);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Dependency here is the post content.
+  }, []);
 };

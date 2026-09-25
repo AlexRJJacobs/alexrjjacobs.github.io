@@ -1,29 +1,50 @@
 import {StaticImageData} from 'next/image';
-import {FC, ForwardRefExoticComponent, SVGProps} from 'react';
+import {FC, ForwardRefExoticComponent, ReactNode, SVGProps} from 'react';
 
 import {IconProps} from '../components/Icon/Icon';
+
+type HeroIcon = ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
 
 export interface HomepageMeta {
   title: string;
   description: string;
+  /** Absolute URL of the 1200x630 link-preview image */
   ogImageUrl?: string;
-  twitterCardType?: 'summary' | 'summary_large';
-  twitterTitle?: string;
-  twitterSite?: string;
-  twitterCreator?: string;
-  twitterDomain?: string;
-  twitterUrl?: string;
-  twitterDescription?: string;
-  twitterImageUrl?: string;
+  ogImageAlt?: string;
+}
+
+/**
+ * A photo, render, or looping CAD video with a caption. `image` doubles as the video's poster.
+ */
+export interface Figure {
+  image: StaticImageData;
+  alt: string;
+  caption: string;
+  /** Path under /public of a muted, looping MP4, e.g. '/media/camera-mount.mp4' */
+  video?: string;
+  /** 'contain' for renders on a flat background that must not be cropped */
+  fit?: 'cover' | 'contain';
+  /** CSS object-position for 'cover' crops */
+  position?: string;
+  /** Fill behind a 'contain' render, matched to the render's own background */
+  background?: string;
+  /** Span the full row at the image's own aspect ratio, for diagrams that are unreadable when cropped or shrunk */
+  wide?: boolean;
 }
 
 /**
  * Hero section
  */
 export interface Hero {
-  imageSrc: string;
   name: string;
-  description: JSX.Element;
+  tagline: string;
+  eyebrow: string;
+  description: ReactNode;
+  /** The co-op term being sought. Rendered as a highlighted line when set. */
+  availability?: string;
+  image: Figure;
+  /** Full-bleed photo behind the hero, blurred and darkened toward the text */
+  backdrop?: StaticImageData;
   actions: HeroActionItem[];
 }
 
@@ -31,37 +52,27 @@ interface HeroActionItem {
   href: string;
   text: string;
   primary?: boolean;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  Icon?: HeroIcon;
 }
 
 /**
  * About section
  */
 export interface About {
-  profileImageSrc?: string;
-  description: string;
+  profileImage?: Figure;
+  description: ReactNode;
   aboutItems: AboutItem[];
 }
 
 export interface AboutItem {
   label: string;
   text: string;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-}
-
-/**
- * Stat section
- */
-export interface Stat {
-  title: string;
-  value: number;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  Icon?: HeroIcon;
 }
 
 /**
  * Skills section
  */
-
 export interface Skill {
   name: string;
   evidence: string[];
@@ -73,13 +84,18 @@ export interface SkillGroup {
 }
 
 /**
- * Portfolio section
+ * Personal builds gallery
  */
 export interface PortfolioItem {
   title: string;
   description: string;
-  // url: string;
-  image: string | StaticImageData;
+  image: StaticImageData;
+  alt: string;
+  video?: string;
+  /** Photographer, when the photo isn't mine */
+  credit?: string;
+  /** CSS object-position for the square thumbnail crop */
+  position?: string;
 }
 
 /**
@@ -91,55 +107,44 @@ export interface TimelineItem {
   location: string;
   note?: string;
   title: string;
-  content: JSX.Element;
+  content: ReactNode;
+  figures?: Figure[];
 }
 
 /**
- * Testimonial section
+ * Featured project carousel
  */
-export interface TestimonialSection {
-  imageSrc?: string | StaticImageData;
-  testimonials: Testimonial[];
-}
-
-export interface Testimonial {
-  image?: string;
-  name: string;
-  text: string;
-  cell: string;
-  cellnumber: string;
-  email: string;
-  emailaddress: string;
-  linkedin: string;
-  linkedinaddress: string;
-  href: string;
-}
 export interface SliderCarousel {
   slidersections: SliderSection[];
 }
 
 export interface SliderSection {
-  SliderimageSrc?: string | StaticImageData;
+  SliderimageSrc?: StaticImageData;
   backgroundPosition?: string;
   title: string;
+  /** One line of context shown under the group title */
+  summary?: string;
   sliders: Slider[];
 }
 
 export interface Slider {
-  image: string | StaticImageData;
+  image: StaticImageData;
+  alt: string;
   imagePosition?: string;
+  imageFit?: 'cover' | 'contain';
   title: string;
   description: string;
   href?: string;
 }
 
-
 /**
  * Contact section
  */
 export interface ContactSection {
-  headerText?: string;
+  headerText: string;
   description: string;
+  backgroundImage?: StaticImageData;
+  email: string;
   items: ContactItem[];
 }
 
@@ -147,24 +152,19 @@ export const ContactType = {
   Email: 'Email',
   Phone: 'Phone',
   Location: 'Location',
-  Github: 'Github',
   LinkedIn: 'LinkedIn',
-  Facebook: 'Facebook',
-  Twitter: 'Twitter',
-  Instagram: 'Instagram',
+  Resume: 'Resume',
 } as const;
 
 export type ContactType = (typeof ContactType)[keyof typeof ContactType];
 
+export type ContactIcon = FC<IconProps> | HeroIcon;
+
 export interface ContactItem {
   type: ContactType;
+  label: string;
   text: string;
   href?: string;
-}
-
-export interface ContactValue {
-  Icon: FC<IconProps> | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-  srLabel: string;
 }
 
 /**

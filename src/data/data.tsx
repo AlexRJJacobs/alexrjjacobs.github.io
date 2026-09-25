@@ -1,71 +1,71 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  // BuildingOffice2Icon,
-  ChartBarIcon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+import {AcademicCapIcon, ArrowDownTrayIcon, ChartBarIcon, MapIcon, SparklesIcon} from '@heroicons/react/24/outline';
 import {FC, memo, ReactNode} from 'react';
 
-// import GithubIcon from '../components/Icon/GithubIcon';
-// import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-// import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-// import TwitterIcon from '../components/Icon/TwitterIcon';
-// import heroImage from '../images/header-background.webp';
-import heroImage from '../images/backdrop1.jpeg';
-import testimonialImage from '../images/backdrop3.jpeg';
-import porfolioImage11 from '../images/boathull.webp';
-import porfolioImage13 from '../images/CameraMount.webp';
-import spotImage from '../images/fieldai/Spot.jpeg';
-import JetpackFeatured from '../images/jetpack2.webp';
-import porfolioImage10 from '../images/mp9speedloader.webp';
-import ODSTFeatured from '../images/ODST/46-Halo_Shoot_Oct_28_hi_res-46.jpg'
-import sliderImageCosplay from '../images/ODST/137-Halo_Shoot_Oct_28_hi_res-137.jpg';
-import sliderImageUCLA from '../images/UCLA/backdrop.jpeg';
-import sliderImageFieldAI from '../images/fieldai/backdrop.jpeg';
-import sliderImagePanopsys from '../images/airborne_tracker/plane.jpeg';
-import panopsysFeatured from '../images/airborne_tracker/tracker_and_plane.jpeg';
-import NCRRangerFeatured from '../images/NCR_ranger_cosplay.jpg';
-import porfolioImage14 from '../images/Plate.webp';
-// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import ReachFeatured from '../images/ReachCosplayPhotos/AR503291.jpg'
-import ScoutTrooperFeatured from '../images/ScoutTrooper/featured.jpg';
-import USVFeatured from '../images/usv.jpg';
-import backpackFeatured from '../images/fieldai/Exploded_View_No_Logo.webp';
-import porfolioImage4 from '../images/VariousProjects/AceOfSpades.jpg';
-import porfolioImage5 from '../images/VariousProjects/helldivershelmet.jpg';
-import porfolioImage9 from '../images/VariousProjects/IMG_3549.jpg';
-import porfolioImage8 from '../images/VariousProjects/NCRRangerHelmet.jpg';
-import porfolioImage6 from '../images/VariousProjects/NCRRangerMask.jpg';
-import porfolioImage7 from '../images/VariousProjects/ultrakill_thingy.png';
- import cubeFeatured from '../images/fieldai/Cube.jpeg';
-// import fieldaiImage2 from '../images/fieldai/backpack_1.jpeg';
-import fieldaiImage4 from '../images/fieldai/ultrasonic.jpeg';
-//import Carousel from 'react-elastic-carousel'
+import panopsysCameraModuleImage from '../images/airborne_tracker/camera-module.webp';
+import deploymentMapImage from '../images/airborne_tracker/deployment-map.svg';
+import panopsysAuroraImage from '../images/airborne_tracker/node-tracking-aurora.webp';
+import heroImage from '../images/airborne_tracker/node-tracking-helicopter.webp';
+import panopsysBackdrop from '../images/airborne_tracker/plane-backdrop.webp';
+import aceOfSpadesImage from '../images/builds/ace-of-spades.webp';
+import helldiversHelmetImage from '../images/builds/helldivers-helmet.webp';
+import mp9SpeedloaderPoster from '../images/builds/mp9-speedloader.webp';
+import ncrRangerHelmetImage from '../images/builds/ncr-ranger-helmet.webp';
+import ncrRangerKitsImage from '../images/builds/ncr-ranger-kits.webp';
+import ncrRangerMaskImage from '../images/builds/ncr-ranger-mask.webp';
+import odstImage from '../images/builds/odst.webp';
+import processBaseCoatImage from '../images/builds/process-base-coat.webp';
+import processFillerPrimerImage from '../images/builds/process-filler-primer.webp';
+import processPaintedImage from '../images/builds/process-painted.webp';
+import processRawPrintImage from '../images/builds/process-raw-print.webp';
+import psychoMaskImage from '../images/builds/psycho-mask.webp';
+import reachSpartanImage from '../images/builds/reach-spartan.webp';
+import scoutTroopersImage from '../images/builds/scout-troopers.webp';
+import ultrakillFigurineImage from '../images/builds/ultrakill-figurine.webp';
+import fieldAIBackdrop from '../images/fieldai/backdrop.webp';
+import payloadExplodedImage from '../images/fieldai/payload-exploded.webp';
+import payloadOnG1Image from '../images/fieldai/payload-on-g1.webp';
+import payloadPrototypesImage from '../images/fieldai/payload-prototypes.webp';
+import sensorTowerImage from '../images/fieldai/sensor-tower.webp';
+import splashTestEnclosureImage from '../images/fieldai/splash-test-enclosure.webp';
+import spotImage from '../images/fieldai/spot.webp';
+import ultrasonicFixtureImage from '../images/fieldai/ultrasonic-fixture.webp';
+import heroBackdrop from '../images/hero-backdrop.webp';
+import contactBackdrop from '../images/road-backdrop.webp';
+import uclaBackdrop from '../images/UCLA/backdrop.webp';
+import cameraMountPoster from '../images/UCLA/camera-mount.webp';
+import usvImage from '../images/UCLA/usv.webp';
+import usvFairingPoster from '../images/UCLA/usv-fairing.webp';
 import {
   About,
   ContactSection,
   ContactType,
+  Figure,
   Hero,
   HomepageMeta,
   PortfolioItem,
   SkillGroup,
   SliderCarousel,
-  // SliderSection,
   Social,
-  TestimonialSection,
   TimelineItem,
 } from './dataDef';
+
+export const siteUrl = 'https://alexrjjacobs.github.io';
+export const resumeHref = '/assets/Alex_Jacobs_Resume.pdf';
+
+// The next co-op term being applied for. Waterloo terms: Winter is January – April, Spring is May – August, Fall is
+// September – December. Spell out the months, since recruiters outside Waterloo won't know the term names.
+export const nextCoopTerm = 'Winter 2027 (January – April)';
 
 /**
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Alex Jacobs Engineering Portfolio',
-  description: "A portfolio website of projects by Alex Jacobs",
+  title: 'Alex Jacobs | Mechanical Design Portfolio',
+  description:
+    'Mechanical design for robots by Alex Jacobs, Mechatronics Engineering at Waterloo: a humanoid payload at Field AI, the Panopsys sensor head, and USV hardware at UCLA.',
+  ogImageUrl: `${siteUrl}/og-image.jpg`,
+  ogImageAlt: 'Alex Jacobs, mechanical design for robots, beside a close-up of the Panopsys camera module',
 };
 
 /**
@@ -74,56 +74,54 @@ export const homePageMeta: HomepageMeta = {
 export const SectionId = {
   Hero: 'hero',
   About: 'about',
-  Contact: 'contact',
-  Portfolio: 'gallery',
+  Featured: 'featured',
   Resume: 'resume',
-  // Skills: 'skills',
-  Stats: 'stats',
-  Testimonials: 'testimonials',
-  Sliders: 'featured',
-  SliderCarousel: 'carousel',
+  Experience: 'experience',
+  Projects: 'projects',
+  Skills: 'skills',
+  Builds: 'builds',
+  Contact: 'contact',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
 /**
+ * Header navigation, in page order
+ */
+export const navItems: {section: SectionId; label: string}[] = [
+  {section: SectionId.About, label: 'About'},
+  {section: SectionId.Featured, label: 'Featured'},
+  {section: SectionId.Experience, label: 'Experience'},
+  {section: SectionId.Projects, label: 'Projects'},
+  {section: SectionId.Builds, label: 'Builds'},
+  {section: SectionId.Contact, label: 'Contact'},
+];
+
+/**
  * Hero section
  */
 export const heroData: Hero = {
-  imageSrc: heroImage,
-  name: `Solutions From Scratch`,
+  name: 'Alex Jacobs',
+  tagline: 'Mechanical design for robots',
+  eyebrow: 'Mechatronics Engineering · University of Waterloo',
   description: (
     <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I do <strong className="text-stone-100">mechanical design for robots</strong>. Most recently a back-mounted
-        sensing and compute payload for a <strong className="text-stone-100">humanoid at Field AI</strong>, and all
-        mechanical design of the sensor head for an airborne object tracking system at{' '}
-        <strong className="text-stone-100">Panopsys</strong>, a 3-person venture I co-founded.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a <strong className="text-stone-100">Mechatronics Engineering</strong> student at the University of
-        Waterloo, expected to graduate in <strong className="text-stone-100">April 2029</strong>.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time, I am often found creating <strong className="text-stone-100">Costumes and Props</strong> from
-        movies and video games, taking <strong className="text-stone-100">Landscape Photography</strong>, or{' '}
-        <strong className="text-stone-100">Exploring</strong> whichever city I find myself in.
-        {/* <strong className="text-stone-100">Vancouver Island</strong>. */}
-      </p>
+      I lead mechanical design at <strong className="font-semibold text-white">Panopsys</strong>, an airborne object
+      tracking venture I co-founded. At <strong className="font-semibold text-white">Field AI</strong>, I designed a
+      back-mounted sensing and compute payload for the Unitree G1 humanoid.
     </>
   ),
+  availability: `Available for a co-op term in ${nextCoopTerm}`,
+  image: {
+    image: heroImage,
+    alt: 'An out-of-focus Panopsys sensor node in the foreground, with a helicopter flying over the lake and the Ontario Place dome on the far shore',
+    caption: 'A Panopsys node tracking a helicopter at our first field deployment',
+  },
+  // A Waterloo campus photo, darkened behind the text by a gradient in Hero.tsx
+  backdrop: heroBackdrop,
   actions: [
-    {
-      href: '/assets/Alex_Jacobs_Resume.pdf',
-      text: 'Resume + Portfolio',
-      primary: true,
-      Icon: ArrowDownTrayIcon,
-    },
-    {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
-      primary: false,
-    },
+    {href: resumeHref, text: 'Resume + portfolio (PDF)', primary: true, Icon: ArrowDownTrayIcon},
+    {href: `#${SectionId.Contact}`, text: 'Contact me'},
   ],
 };
 
@@ -131,16 +129,29 @@ export const heroData: Hero = {
  * About section
  */
 export const aboutData: About = {
-  profileImageSrc: spotImage,
-  description: `I am a mechatronics engineering student at the University of Waterloo, expected to graduate in April 2029.
-   Ever since I could hold a screwdriver, I've been disassembling, reimagining, and reassembling mechanical and electrical devices.
-   Fortunately for me, these are transferable skills that have allowed me to pursue a career in engineering.`,
+  profileImage: {
+    image: spotImage,
+    alt: 'Alex Jacobs crouching beside a yellow Boston Dynamics Spot robot in a lab',
+    caption: "With one of the Spot units at Field AI's Irvine office",
+  },
+  description: (
+    <>
+      <p>
+        I'm a Mechatronics Engineering student at the University of Waterloo. My co-op terms have taken me from SLAM and
+        simulation at UCLA's Sensing and Robotics for Infrastructure Lab, to mechanical design for quadrupeds and
+        humanoids at Field AI, to Panopsys, the airborne object tracking venture I co-founded.
+      </p>
+      <p>
+        Outside of work I build costumes and props from films and video games, take landscape photographs, including
+        several of the backdrops on this site, and explore whichever city I find myself in.
+      </p>
+    </>
+  ),
   aboutItems: [
     {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
-    {label: 'Studying', text: 'BASc Mechatronics Engineering, University of Waterloo', Icon: AcademicCapIcon},
+    {label: 'Degree', text: 'BASc Mechatronics Engineering, expected April 2029', Icon: AcademicCapIcon},
     {label: 'Cumulative average', text: '90.79%', Icon: ChartBarIcon},
-    {label: 'Interests', text: 'Science Fiction, Photography, Painting', Icon: SparklesIcon},
-    // {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Interests', text: 'Science fiction, photography, painting', Icon: SparklesIcon},
   ],
 };
 
@@ -209,7 +220,6 @@ export const skills: SkillGroup[] = [
         evidence: [
           'Five G1 payload iterations in 4 weeks for testing at the Boston office',
           'Printed fixtures for the sensor tower rig',
-          'Every costume and prop build in the gallery',
         ],
       },
       {
@@ -231,14 +241,6 @@ export const skills: SkillGroup[] = [
         evidence: [
           'Led the first outdoor Panopsys deployment at an airshow, with no structural failures',
           'The deployment surfaced an unseated antenna that blocked an RTK fix, to fix before the next one',
-        ],
-      },
-      {
-        name: 'Finishing and paint',
-        evidence: [
-          'Halo Reach Spartan and ODST armour',
-          '41st Scout Troopers',
-          'Two full NCR Ranger kits',
         ],
       },
     ],
@@ -287,99 +289,123 @@ export const skills: SkillGroup[] = [
 ];
 
 /**
- * Portfolio section
+ * Personal builds gallery. Engineering parts live with their project write-ups instead.
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Ultrasonic Testing Apparatus',
+    title: 'Halo Reach Spartan',
     description:
-      "A fixture from my Field AI co-op holding 2 perpendicular ultrasonic sensors at fixed, known offsets, so distance was the only thing that changed between runs. What it found informed the team's sensor-adoption decision; the full write-up is under Sensor Tower Test Rig above.",
-    // url: '',
-    image: fieldaiImage4,
+      "The costume build I'm proudest of. Over about 3 months I modified, 3D-printed, finished, and painted a scaled-down wearable replica of the Halo Reach armour, customized to match the character I played in a friend's basement on his Xbox 360.",
+    image: reachSpartanImage,
+    alt: 'Alex in green and red Halo Reach Spartan armour, holding a large hammer prop',
+    credit: 'Riley Marini',
+    position: 'center 20%',
   },
   {
-    title: 'Camera Mount',
+    title: 'NCR Ranger Kits',
     description:
-      'A two-part camera mount for the UCLA SRI Lab. The camera had to sit at several different angles depending on the test, so rather than a separate bracket for each one I modelled a common base carrying mounting faces at every angle we needed.',
-    // url: '',
-    image: porfolioImage13,
+      'Two full NCR Ranger kits from Fallout: New Vegas, one for me and one for a friend, built on and off across the summer of 2026. I modelled and printed the helmets and masks, assembled the armour and dusters, then weathered everything so it looked like it had spent time in the wasteland.',
+    image: ncrRangerKitsImage,
+    alt: 'Two people in weathered NCR Ranger armour, helmets, and long dusters at a convention',
+    position: 'center 25%',
   },
   {
-    title: 'Mounting Plate',
-    description: 'A mounting plate I modified for the UCLA SRI Lab.',
-    // url: '',
-    image: porfolioImage14,
+    title: '41st Scout Troopers',
+    description:
+      'Two wearable Scout Trooper costumes from Star Wars: Revenge of the Sith, one for me and one for a friend, built in just under a month.',
+    image: scoutTroopersImage,
+    alt: 'A camouflaged Scout Trooper costume seated on a speeder bike prop',
+    position: 'center 30%',
   },
   {
-    title: 'Boat Hull',
+    title: 'Halo Reach ODST',
     description:
-      "Modeled on a 2023 high-school placement for the hull of the UCLA SRI Lab's unmanned surface vehicle. That is the same platform as the Unmanned Surface Vehicle project above, which I came back to during my 2025 term at the lab.",
-    // url: '',
-    image: porfolioImage11,
+      'My oldest costume build, and the least documented. I modified the original files to fit me, then 3D-printed, sanded, painted, and rigged the suit to wear at conventions, on and off over about a year.',
+    image: odstImage,
+    alt: 'Armoured Halo ODST costume on a footbridge',
+    credit: 'Dan Pickard',
+    position: 'center 25%',
+  },
+  {
+    title: 'Helldivers 2 Helmet',
+    description: 'A wearable helmet from Helldivers 2, commissioned by a client in the USA.',
+    image: helldiversHelmetImage,
+    alt: 'Black helmet with yellow stripes and a dark visor, from Helldivers 2',
+  },
+  {
+    title: 'NCR Ranger Helmet',
+    description: 'A full NCR Ranger helmet from Fallout: New Vegas, commissioned by a friend.',
+    image: ncrRangerHelmetImage,
+    alt: 'Weathered NCR Ranger helmet with gas-mask respirator',
+  },
+  {
+    title: 'NCR Ranger Custom Mask',
+    description: 'A customized NCR Ranger mask from Fallout: New Vegas, commissioned by a client in Singapore.',
+    image: ncrRangerMaskImage,
+    alt: 'Weathered metal NCR Ranger mask with red eye lenses, lying on grass',
+  },
+  {
+    title: 'Borderlands Psycho Mask',
+    description: 'A wearable Psycho mask from the Borderlands series, made as a gift for a friend.',
+    image: psychoMaskImage,
+    alt: 'White Psycho mask with orange stripes and a metal mouth grille',
+  },
+  {
+    title: 'Ace of Spades Replica',
+    description: "A replica of a friend's favourite weapon from his favourite game, Destiny.",
+    image: aceOfSpadesImage,
+    alt: 'Painted replica of the Ace of Spades revolver from Destiny',
+  },
+  {
+    title: 'Ultrakill Figurine',
+    description:
+      'A printed and painted figurine of the character V1 from Ultrakill, commissioned by a client in the USA.',
+    image: ultrakillFigurineImage,
+    alt: 'Blue robot figurine of V1 from Ultrakill, posed against a red Ultrakill logo',
   },
   {
     title: 'Airsoft MP9 Speedloader',
     description:
       'Modelled and printed to fit my own airsoft magazines. A small part, but one that had to match the real magazine geometry closely enough to actually work.',
-    // url: '',
-    image: porfolioImage10,
+    image: mp9SpeedloaderPoster,
+    alt: 'Rotating CAD model of a rectangular speedloader with a round loading port',
+    video: '/media/mp9-speedloader.mp4',
   },
-  {
-    title: 'Ace of Spades Replica',
-    description: 'A friend of mine wanted a replica of his favourite weapon from his favourite game Destiny!',
-    // url: '',
-    image: porfolioImage4,
-  },
-  {
-    title: 'Helldivers 2 Wearable Helmet',
-    description: 'I was commissioned by a client in the USA to recreate the helmet featured in the video game Helldivers 2.',
-    // url: '',
-    image: porfolioImage5,
-  },
-  {
-    title: 'NCR Ranger Custom Mask',
-    description: 'I was commissioned by a client in Singapore to create a customized mask of an NCR Ranger from the video game Fallout: New Vegas.',
-    // url: '',
-    image: porfolioImage6,
-  },
-  {
-    title: 'NCR Ranger Helmet',
-    description: 'I was commissioned by a friend to recreate the entire helmet of an NCR Ranger from the video game Fallout: New Vegas.',
-    // url: '',
-    image: porfolioImage8,
-  },
-  {
-    title: 'Ultrakill Figurine',
-    description: 'Another commission from a different client in the USA. I printed and painted a custom figurine of the character V1 from the video game Ultrakill.',
-    // url: '',
-    image: porfolioImage7,
-  },
-  {
-    title: 'Borderlands Psycho Mask',
-    description: 'I made this wearable mask of the Psycho from the video game series Borderlands as a gift for a friend.',
-    // url: '',
-    image: porfolioImage9,
-  },
-
-  // {
-  //   title: 'Project title 10',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://reactresume.com',
-  //   image: porfolioImage10,
-  // },
-  // {
-  //   title: 'Project title 11',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://reactresume.com',
-  //   image: porfolioImage11,
-  // },
 ];
+
 /**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Build stages under the personal builds gallery. Each photo is from a different build, so captions say what the photo
+ * shows rather than which costume it belongs to.
+ */
+export const buildProcess: Figure[] = [
+  {
+    image: processRawPrintImage,
+    alt: 'A white 3D-printed Scout Trooper helmet straight off the printer, with stringing still on the dome',
+    caption: 'Printed: a Scout Trooper helmet before any cleanup',
+  },
+  {
+    image: processFillerPrimerImage,
+    alt: 'An NCR Ranger helmet in grey primer with red spot filler, on a paint-stained bench with sandpaper scraps',
+    caption: 'Filled and primed: spot filler over primer, sanded back between coats',
+  },
+  {
+    image: processBaseCoatImage,
+    alt: 'A Helldivers 2 helmet in black base coat, mostly covered in green masking tape with its yellow stripe sprayed',
+    caption: 'Base coats: a Helldivers 2 helmet masked off for its stripes',
+  },
+  {
+    image: processPaintedImage,
+    alt: 'A finished green Halo helmet with worn silver edges, a tinted visor and a side-mounted lamp',
+    caption: 'Painted and weathered: a finished Halo helmet',
+  },
+];
+
+/**
+ * Resume section
  */
 
 // Experiences mirror page 1 of the resume PDF, and Professional Projects mirror its portfolio pages, line for line.
-// Change the resume first, then copy the new wording here.
+// Change the resume first, then copy the new wording here. Figure captions follow the PDF's where it has one.
 export const experience: TimelineItem[] = [
   {
     id: 'experience-panopsys',
@@ -394,8 +420,8 @@ export const experience: TimelineItem[] = [
           detections from distributed camera nodes, running on a node-based ROS 2 architecture.
         </li>
         <li>
-          Own all mechanical design: sensor head, camera and antenna mounts, and compute, RF, and power integration on
-          a portable tripod mast; one latch releases the whole head for transport and setup.
+          Own all mechanical design: sensor head, camera and antenna mounts, and compute, RF, and power integration on a
+          portable tripod mast; one latch releases the whole head for transport and setup.
         </li>
         <li>
           Led the first outdoor field deployment at an airshow with no structural failures: 3 camera nodes on ~100 m
@@ -424,12 +450,12 @@ export const experience: TimelineItem[] = [
           sized from the ~63.5% random packing fraction; final ballast mass was within 0.2% of target.
         </li>
         <li>
-          Built custom fixtures to splash-test a sensing payload's enclosures, fans, and speakers against the water
-          half of IP54 (IPX4), identifying insufficient seal clearances that would require a payload redesign.
+          Built custom fixtures to splash-test a sensing payload's enclosures, fans, and speakers against the water half
+          of IP54 (IPX4), identifying insufficient seal clearances that would require a payload redesign.
         </li>
         <li>
-          Designed and built a modular sensor tower test rig for LiDAR, camera, ultrasonic, and compute payload
-          testing, with adjustable camera mounts and configurable extrinsics in place of the specified fixed design.
+          Designed and built a modular sensor tower test rig for LiDAR, camera, ultrasonic, and compute payload testing,
+          with adjustable camera mounts and configurable extrinsics in place of the specified fixed design.
         </li>
         <li>
           Built a test fixture and Teensy 4.0 data logger to characterize ultrasonic sensor noise across distances,
@@ -451,8 +477,8 @@ export const experience: TimelineItem[] = [
           camera mounts, and designed a 3D-printed hydrodynamic fairing for its underwater sensors.
         </li>
         <li>
-          Benchmarked 5+ open-source SLAM systems, including DLIO, LIO-SAM, Coco-LIC, and ORB-SLAM, on datasets
-          outside their design domains, characterizing localization and mapping failure modes.
+          Benchmarked 5+ open-source SLAM systems, including DLIO, LIO-SAM, Coco-LIC, and ORB-SLAM, on datasets outside
+          their design domains, characterizing localization and mapping failure modes.
         </li>
         <li>
           Built a Gazebo simulation for a quadruped from existing campus models via a Blender conversion pipeline, and
@@ -460,27 +486,27 @@ export const experience: TimelineItem[] = [
         </li>
       </ul>
     ),
+    figures: [
+      {
+        image: cameraMountPoster,
+        alt: 'Rotating CAD model of a two-part camera mount with mounting faces at several angles',
+        caption:
+          'A two-part camera mount for lab tests: one base carries a mounting face for every angle the camera needed, instead of a bracket per angle',
+        video: '/media/camera-mount.mp4',
+        fit: 'contain',
+        background: '#c5c5c5',
+      },
+    ],
   },
-
-  // {
-  //   date: 'March 2007 - February 2010',
-  //   location: 'Garage Startup Studio',
-  //   title: 'Junior bug fixer',
-  //   content: (
-  //     <p>
-  //       Describe work, special projects, notable achievements, what technologies you have been working with, and
-  //       anything else that would be useful for an employer to know.
-  //     </p>
-  //   ),
-  // },
 ];
+
 const ProjectNote: FC<{label: string; children: ReactNode}> = memo(({label, children}) => (
   <p>
     <span className="font-semibold text-neutral-900">{label}:</span> {children}
   </p>
 ));
 
-export const education: TimelineItem[] = [
+export const projects: TimelineItem[] = [
   {
     id: 'project-panopsys',
     date: 'Aug. 2025 – Present',
@@ -511,6 +537,28 @@ export const education: TimelineItem[] = [
         </ProjectNote>
       </div>
     ),
+    figures: [
+      {
+        image: deploymentMapImage,
+        alt: 'Map diagram: three camera nodes about 100 m apart on a lakeshore park at the west end of the airshow display area, which runs about 5 km east along the Toronto waterfront towards the airport, with range rings at 1, 3 and 5 km',
+        caption: 'Where the three nodes stood, and the airshow display area they covered',
+        fit: 'contain',
+        background: '#ffffff',
+        wide: true,
+      },
+      {
+        image: panopsysAuroraImage,
+        alt: 'A Panopsys sensor node on its tripod mast against a blue sky, with a four-engine patrol aircraft passing behind it',
+        caption: 'The v1 node on its portable tripod mast, tracking a CP-140 Aurora at the airshow',
+        position: 'center 30%',
+      },
+      {
+        image: panopsysCameraModuleImage,
+        alt: 'Close-up of a Panopsys sensor node: a camera in a grey printed housing on a black mount, with radio hardware behind it',
+        caption: 'Camera module and radio hardware on the mast',
+        position: 'center 55%',
+      },
+    ],
   },
   {
     id: 'project-payload',
@@ -527,11 +575,32 @@ export const education: TimelineItem[] = [
           integration so the hardware dropped in cleanly and its connectors and fans stayed serviceable.
         </ProjectNote>
         <ProjectNote label="Result">
-          Built five 3D-printed iterations in 4 weeks, alongside 3 other projects, for testing at the Boston office,
-          and wrote the design documentation and file-structure guides for handoff to downstream engineers.
+          Built five 3D-printed iterations in 4 weeks, alongside 3 other projects, for testing at the Boston office, and
+          wrote the design documentation and file-structure guides for handoff to downstream engineers.
         </ProjectNote>
       </div>
     ),
+    figures: [
+      {
+        image: payloadOnG1Image,
+        alt: 'A Unitree G1 humanoid hanging from a safety gantry, with the black Field AI payload and its antennas mounted on its back',
+        caption: 'The payload mounted on the Unitree G1',
+        position: 'center 40%',
+      },
+      {
+        image: payloadExplodedImage,
+        alt: 'Exploded CAD view of the payload, with frame panels, shelves, fans, and fasteners pulled apart along their assembly axes',
+        caption: 'Exploded view of my payload design',
+        fit: 'contain',
+        background: '#c2c7d3',
+      },
+      {
+        image: payloadPrototypesImage,
+        alt: 'Two black 3D-printed payload prototypes with Field AI logos on a workbench',
+        caption: 'Fabricated prototypes for cross-office testing',
+        position: 'center 60%',
+      },
+    ],
   },
   {
     id: 'project-sensor-tower',
@@ -555,6 +624,18 @@ export const education: TimelineItem[] = [
         </ProjectNote>
       </div>
     ),
+    figures: [
+      {
+        image: sensorTowerImage,
+        alt: 'A cube-shaped rig of miniature T-slot extrusion with black printed brackets and a sensor mounted on top, on a workbench',
+        caption: 'The sensor tower test rig I designed and built',
+      },
+      {
+        image: ultrasonicFixtureImage,
+        alt: 'Two ultrasonic sensors held perpendicular to each other on a black fixture, wired to a breadboard',
+        caption: 'The ultrasonic fixture, holding both sensors at fixed, known offsets',
+      },
+    ],
   },
   {
     id: 'project-ballast-ip',
@@ -582,6 +663,14 @@ export const education: TimelineItem[] = [
         </ProjectNote>
       </div>
     ),
+    figures: [
+      {
+        image: splashTestEnclosureImage,
+        alt: 'An open grey gasketed enclosure on a workbench, holding a smaller sealed junction box with a cable gland and power leads',
+        caption: 'The splash-test enclosure',
+        position: 'center 60%',
+      },
+    ],
   },
   {
     id: 'project-usv',
@@ -602,6 +691,22 @@ export const education: TimelineItem[] = [
         </ProjectNote>
       </div>
     ),
+    figures: [
+      {
+        image: usvImage,
+        alt: "Alex standing behind the lab's yellow Clearpath Heron USV, which sits on a cart with sensors mounted on its deck",
+        caption: "The lab's USV, a Clearpath Heron; my work was its sensing-kit models and fairing",
+        position: 'center 65%',
+      },
+      {
+        image: usvFairingPoster,
+        alt: 'Rotating CAD model of the fairing: a tapered section ending in a rounded nose',
+        caption: 'The hydrodynamic fairing for the underwater sensors, at the front tip of the hull',
+        video: '/media/usv-fairing.mp4',
+        fit: 'contain',
+        background: '#c5c5c5',
+      },
+    ],
   },
   {
     id: 'project-slam',
@@ -611,8 +716,8 @@ export const education: TimelineItem[] = [
     content: (
       <div className="flex flex-col gap-y-3">
         <ProjectNote label="Design">
-          Built a Gazebo simulation for a quadruped from campus models via Blender, with Python adding Gaussian noise
-          to otherwise ideal sensor readings.
+          Built a Gazebo simulation for a quadruped from campus models via Blender, with Python adding Gaussian noise to
+          otherwise ideal sensor readings.
         </ProjectNote>
         <ProjectNote label="Design">
           Deployed SLAM packages on lab workstations, patching their source code and build dependencies to resolve
@@ -625,158 +730,102 @@ export const education: TimelineItem[] = [
       </div>
     ),
   },
-
-//  {
-//    date: 'August 2023',
-//    location: 'New Haven Learning Centre',
-//    title: 'Forearm Guard',
-//    content: <p>I designed, modelled, and 3D-printed a bite guard for therapists working with autistic children</p>,
-//  },
 ];
 
-
 /**
- * Testimonial section
+ * Featured project carousel. Each card is a short intro that links to its full write-up, so keep numbers out of it.
  */
-export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
-  testimonials: [
-    {
-      cellnumber: '+1 (437) 688-2039',
-      cell: 'Call',
-      email: 'Email',
-      emailaddress: 'ajrjacob@uwaterloo.ca',
-      linkedin: 'LinkedIn',
-      linkedinaddress: 'Alex Jacobs',
-      href: 'https://www.linkedin.com/in/alex-jacobs-4bb0b6328/',
-      name: '',
-      text: '',
-    },
-  ],
-};
 export const Carousel: SliderCarousel = {
   slidersections: [
     {
-    SliderimageSrc: sliderImagePanopsys,
-    title: 'Panopsys Projects',
-    sliders: [
-      {
-        image: panopsysFeatured,
-        imagePosition: 'center',
-        title: 'Airborne Object Tracking System',
-        description: "Panopsys is a venture I co-founded that builds a ground-based system for locating airborne objects in 3D, fusing detections from distributed camera nodes. I own all of its mechanical design: the sensor head, its camera and antenna mounts, and the compute, RF, and power integration on a portable tripod mast. The photo is from our first field deployment, at an airshow.",
-        href: '#project-panopsys',
-      },
-    ],
-  },
-    {
-    SliderimageSrc: sliderImageFieldAI,
-    backgroundPosition: 'center 25%',
-    title: 'Field AI Projects',
-    sliders: [
+      SliderimageSrc: fieldAIBackdrop,
+      backgroundPosition: 'center 25%',
+      title: 'Field AI',
+      summary:
+        'Fall 2025 co-op on the hardware team in Irvine. Field AI develops autonomy software for robots working in unstructured environments.',
+      sliders: [
         {
-        image: spotImage,
-        imagePosition: 'center',
-        title: 'Field AI',
-        description: "Field AI develops autonomy software for robots working in unstructured environments, and I spent my fall 2025 co-op on their hardware team in Irvine. My work was the physical side of that: a back-mounted payload for the Unitree G1 humanoid, competition ballast for a quadruped, splash testing toward ingress protection, and test hardware for characterizing sensors. That is one of the office Spot units in the photo.",
-        href: '#experience-field-ai',
-      },
-      {
-        image: backpackFeatured,
-        title: 'Back-Mounted Payload',
-        description: "Field AI needed its existing sensing and compute hardware to run on a new platform, the Unitree G1 humanoid. Working from a requirements-only brief, I designed the frame, modular shelf layout, and mounting interface, with the cabling and cooling arranged so connectors and fans stay serviceable without disassembling the payload.",
-        href: '#project-payload',
-      },
-      {
-        image: cubeFeatured,
-        imagePosition: 'center 30%',
-        title: 'Sensor Tower Testing Rig',
-        description: "Field AI needed to iterate on sensor and payload configurations without building a dedicated mount for each one. I designed and built a modular tower from miniature T-slot extrusion and printed fixtures, with adjustable camera mounts, for LiDAR, camera, ultrasonic, and compute payload testing. The sensors themselves are confidential.",
-        href: '#project-sensor-tower',
-      },
+          image: payloadOnG1Image,
+          alt: 'A Unitree G1 humanoid with the black Field AI payload mounted on its back',
+          imagePosition: 'center 45%',
+          title: 'Back-Mounted Payload',
+          description:
+            'Field AI needed its existing sensing and compute hardware to run on a new platform, the Unitree G1 humanoid. Working from a requirements-only brief, I designed the frame, modular shelf layout, and mounting interface, with the cabling and cooling arranged so connectors and fans stay serviceable without disassembling the payload.',
+          href: '#project-payload',
+        },
+        {
+          image: sensorTowerImage,
+          alt: 'A cube-shaped test rig of miniature T-slot extrusion and printed brackets on a workbench',
+          imagePosition: 'center 30%',
+          title: 'Sensor Tower Test Rig',
+          description:
+            'Field AI needed to iterate on sensor and payload configurations without building a dedicated mount for each one. I designed and built a modular tower from miniature T-slot extrusion and printed fixtures, with adjustable camera mounts, for LiDAR, camera, ultrasonic, and compute payload testing. The sensors themselves are confidential.',
+          href: '#project-sensor-tower',
+        },
+      ],
+    },
+    {
+      SliderimageSrc: panopsysBackdrop,
+      title: 'Panopsys',
+      summary: 'A 3-person venture I co-founded, where I lead mechanical design.',
+      sliders: [
+        {
+          image: panopsysAuroraImage,
+          alt: 'A Panopsys sensor node on its tripod mast, with a patrol aircraft passing behind it',
+          imagePosition: 'center',
+          title: 'Airborne Object Tracking System',
+          description:
+            'Panopsys builds a ground-based system for locating airborne objects in 3D, fusing detections from distributed camera nodes. I own all of its mechanical design: the sensor head, its camera and antenna mounts, and the compute, RF, and power integration on a portable tripod mast. The photo shows the v1 prototype at our first field deployment, an airshow.',
+          href: '#project-panopsys',
+        },
+      ],
+    },
+    {
+      SliderimageSrc: uclaBackdrop,
+      backgroundPosition: 'center 25%',
+      title: 'UCLA SRI Lab',
+      summary: 'Winter 2025 co-op at the Sensing and Robotics for Infrastructure Lab.',
+      sliders: [
+        {
+          image: usvImage,
+          alt: "Alex behind the lab's yellow Clearpath Heron USV on a cart",
+          imagePosition: 'center 60%',
+          title: 'Unmanned Surface Vehicle',
+          description:
+            "The UCLA SRI Lab uses a Clearpath Heron, a commercial unmanned surface vehicle, for visual-inertial navigation research. My part was modelling parts of its hull on a high-school placement, then coming back to extend the SolidWorks models of its sensing kits above and below the waterline and to design a printed fairing for the underwater sensors. Still one of my favourite things I've worked on.",
+          href: '#project-usv',
+        },
+      ],
+    },
   ],
-},
-{
-    SliderimageSrc: sliderImageUCLA,
-    backgroundPosition: 'center 25%',
-    title: 'UCLA Projects',
-    sliders: [
-            {
-        image: USVFeatured,
-        imagePosition: 'center',
-        title: 'Unmanned Surface Vehicle',
-        description: "An unmanned surface vehicle the UCLA SRI Lab uses for visual-inertial navigation research. I first modeled its hull on a high-school placement, then came back to extend the SolidWorks models of its sensing kits above and below the waterline and to design a printed fairing for the underwater sensors. Still one of my favourite things I have gotten to work on.",
-        href: '#project-usv',
-      },
-    ],
-  },{
-    SliderimageSrc: sliderImageCosplay,
-    backgroundPosition: 'center 25%',
-    title: 'Costume Projects',
-    sliders: [
-      {
-        image: ODSTFeatured,
-        title: 'Halo Reach ODST',
-        description: "This is the project with by far the least documentation as it is my oldest project. I made this when I was 16 and worked on it for about a year on and off. It is a wearable replica of the jetpack ODSTs featured in Halo Reach. I modified the original files to fit me better, 3D-printed, sanded, painted and rigged up this suit to take to conventions!",
-      //  href: 'idfk',
-      },
-      {
-        image: ReachFeatured,
-        imagePosition: 'center 15%',
-        title: 'Halo Reach Spartan',
-        description: "By far the cosplay I am the most proud of! Over the course of approximately 3 months, I modified, 3D-printed, finished and painted a scaled-down wearable replica of the armour you can find in Halo Reach! This one is customized to appear like the character I would play as in my friend's basement on his Xbox 360.",
-    //   href: 'idfk',
-      },
-      {
-        image: NCRRangerFeatured,
-        title: 'NCR Ranger',
-        description: "My most recent costume project, built on and off across the summer of 2026. I made two full NCR Ranger kits from Fallout: New Vegas, one for me and one for a friend, modelling and printing the helmets and masks, assembling the armour and dusters, then weathering everything so it looked like it had actually spent time in the wasteland. We took them to a convention together once they were finished.",
-    //   href: 'idfk',
-      },
-      {
-        image: ScoutTrooperFeatured,
-        title: '41st Trooper',
-        description: "In just under a month, I constructed two wearable cosplays of Scout Troopers from Star Wars: Revenge of the Sith for me and my friend. It was a very busy month but one of the best summers of my life.",
-    //   href: 'idfk',
-      },
-      {
-        image: JetpackFeatured,
-        imagePosition: 'center',
-        title: 'Motorized Halo Jetpack',
-        description: "This is my first cosplay project I modelled from scratch. I modelled this at school in grade 12 with the free time I had during robotics class, with the hope of later printing it out and incorporating it into my cosplays. Unfortunately school took priority and I haven't had enough time since.",
-     //   href: 'idfk',
-      },
-    ],
-  },
-]
 };
+
 /**
  * Contact section
  */
-
 export const contact: ContactSection = {
-  headerText: '',
-  description: '',
+  headerText: 'Get in touch',
+  description: `I'm looking for a mechanical design co-op in ${nextCoopTerm}. Questions about that, or about a project? Send me an email or a LinkedIn message.`,
+  backgroundImage: contactBackdrop,
+  email: 'ajrjacob@uwaterloo.ca',
+  // A phone number can go here too: {type: ContactType.Phone, label: 'Phone', text: '...', href: 'tel:...'}
   items: [
     {
-      type: ContactType.Email,
-      text: 'ajrjacob@uwaterloo.ca',
-      href: 'mailto:ajrjacob@uwaterloo.ca',
-    },
-    {
-      type: ContactType.Location,
-      text: 'Waterloo, ON, Canada',
-      href: 'https://www.google.ca/maps/place/Waterloo,+ON',
-    },
-    {
       type: ContactType.LinkedIn,
+      label: 'LinkedIn',
       text: 'Alex Jacobs',
       href: 'https://www.linkedin.com/in/alex-jacobs-4bb0b6328/',
     },
     {
-      type: ContactType.Github,
-      text: 'AlexRJJacobs',
-      href: 'https://github.com/AlexRJJacobs',
+      type: ContactType.Resume,
+      label: 'Resume',
+      text: 'Resume + portfolio (PDF)',
+      href: resumeHref,
+    },
+    {
+      type: ContactType.Location,
+      label: 'Based in',
+      text: 'Waterloo, ON, Canada',
     },
   ],
 };
@@ -785,9 +834,5 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  // {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  // {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/alex-jacobs-4bb0b6328/'},
-  // {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  // {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
 ];
