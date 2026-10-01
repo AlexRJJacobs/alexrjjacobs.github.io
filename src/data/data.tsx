@@ -5,7 +5,7 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import panopsysCameraModuleImage from '../images/airborne_tracker/camera-module.webp';
 import deploymentMapImage from '../images/airborne_tracker/deployment-map.svg';
 import panopsysAuroraImage from '../images/airborne_tracker/node-tracking-aurora.webp';
-import heroImage from '../images/airborne_tracker/node-tracking-helicopter.webp';
+import panopsysHelicopterImage from '../images/airborne_tracker/node-tracking-helicopter.webp';
 import panopsysBackdrop from '../images/airborne_tracker/plane-backdrop.webp';
 import aceOfSpadesImage from '../images/builds/ace-of-spades.webp';
 import helldiversHelmetImage from '../images/builds/helldivers-helmet.webp';
@@ -113,9 +113,11 @@ export const heroData: Hero = {
   ),
   availability: `Available for a co-op term in ${nextCoopTerm}`,
   image: {
-    image: heroImage,
-    alt: 'An out-of-focus Panopsys sensor node in the foreground, with a helicopter flying over the lake and the Ontario Place dome on the far shore',
-    caption: 'A Panopsys node tracking a helicopter at our first field deployment',
+    image: panopsysAuroraImage,
+    alt: 'A Panopsys sensor node on its tripod mast at the lakeshore, with a CP-140 Aurora patrol aircraft flying past and the Toronto skyline on the horizon',
+    caption: 'A Panopsys node tracking a CP-140 Aurora at our first field deployment',
+    // 4:3 crop that keeps the full antenna and the aircraft
+    position: 'center 45%',
   },
   // A Waterloo campus photo, darkened behind the text by a gradient in Hero.tsx
   backdrop: heroBackdrop,
@@ -148,9 +150,9 @@ export const aboutData: About = {
     </>
   ),
   aboutItems: [
-    {label: 'Location', text: 'Waterloo, ON', Icon: MapIcon},
+    {label: 'Location', text: 'Waterloo, ON (open to relocation)', Icon: MapIcon},
     {label: 'Degree', text: 'BASc Mechatronics Engineering, expected April 2029', Icon: AcademicCapIcon},
-    {label: 'Cumulative average', text: '90.79%', Icon: ChartBarIcon},
+    {label: 'Grades', text: 'cGPA 3.92/4.00 · cumulative average 90.79%', Icon: ChartBarIcon},
     {label: 'Interests', text: 'Science fiction, photography, painting', Icon: SparklesIcon},
   ],
 };
@@ -177,6 +179,10 @@ export const skills: SkillGroup[] = [
       {
         name: 'Blender',
         evidence: ['Converted existing campus models for the Gazebo simulation at UCLA'],
+      },
+      {
+        name: 'Engineering drawings and GD&T',
+        evidence: ['University coursework'],
       },
     ],
   },
@@ -243,6 +249,10 @@ export const skills: SkillGroup[] = [
           'The deployment surfaced an unseated antenna that blocked an RTK fix, to fix before the next one',
         ],
       },
+      {
+        name: 'Machining and laser cutting',
+        evidence: ['University coursework'],
+      },
     ],
   },
   {
@@ -278,10 +288,10 @@ export const skills: SkillGroup[] = [
         evidence: ['University coursework'],
       },
       {
-        name: 'Teensy and wiring harnesses',
+        name: 'Raspberry Pi, Teensy, and wiring harnesses',
         evidence: [
           'Teensy 4.0 data logger for the ultrasonic fixture',
-          'Compute, RF, and power hardware on the Panopsys mast',
+          'Raspberry Pi, RF, and power integration on the Panopsys mast',
         ],
       },
     ],
@@ -408,33 +418,6 @@ export const buildProcess: Figure[] = [
 // Change the resume first, then copy the new wording here. Figure captions follow the PDF's where it has one.
 export const experience: TimelineItem[] = [
   {
-    id: 'experience-panopsys',
-    date: 'Aug. 2025 – Present',
-    location: 'Panopsys, Toronto, ON',
-    note: 'Co-op work term, May – Aug. 2026',
-    title: 'Co-Founder & Mechanical Lead — Airborne Object Tracking',
-    content: (
-      <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
-        <li>
-          Co-founded a 3-person venture building a ground-based system that localizes airborne objects in 3D by fusing
-          detections from distributed camera nodes, running on a node-based ROS 2 architecture.
-        </li>
-        <li>
-          Own all mechanical design: sensor head, camera and antenna mounts, and compute, RF, and power integration on a
-          portable tripod mast; one latch releases the whole head for transport and setup.
-        </li>
-        <li>
-          Led the first outdoor field deployment at an airshow with no structural failures: 3 camera nodes on ~100 m
-          baselines captured ~3 h of data across 14 display acts, at ranges from overhead out to ~5 km.
-        </li>
-        <li>
-          Driving the v2 sensor-head design, replacing the 20 mm extrusion frame with a single printed structure to
-          remove the mounting constraints that dictated sensor placement on the v1 prototype.
-        </li>
-      </ul>
-    ),
-  },
-  {
     id: 'experience-field-ai',
     date: 'Sep. 2025 – Dec. 2025',
     location: 'Field AI, Irvine, CA',
@@ -443,7 +426,8 @@ export const experience: TimelineItem[] = [
       <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
         <li>
           Owned mechanical design of a back-mounted sensing and compute payload for the Unitree G1 humanoid from a
-          requirements-only brief, building five 3D-printed iterations in 4 weeks alongside 3 other projects.
+          requirements-only brief, building five 3D-printed iterations in 4 weeks alongside 3 other projects and writing
+          the design documentation for handoff to downstream engineers.
         </li>
         <li>
           Designed 3 enclosures adding 20 kg of lead shot to a quadruped in 3 days to meet competition weight rules,
@@ -458,8 +442,34 @@ export const experience: TimelineItem[] = [
           with adjustable camera mounts and configurable extrinsics in place of the specified fixed design.
         </li>
         <li>
-          Built a test fixture and Teensy 4.0 data logger to characterize ultrasonic sensor noise across distances,
-          identifying off-axis beam-spread reflections and informing the team's sensor-adoption decision.
+          Characterized ultrasonic sensor noise across distances with a test fixture and Teensy 4.0 logger, root-causing
+          it to off-axis beam-spread reflections and informing the team's sensor-adoption decision.
+        </li>
+      </ul>
+    ),
+  },
+  {
+    id: 'experience-panopsys',
+    date: 'Aug. 2025 – Present',
+    location: 'Panopsys, Toronto, ON',
+    title: 'Co-Founder & Mechanical Lead — Airborne Object Tracking',
+    content: (
+      <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
+        <li>
+          Co-founded a 3-person venture (full-time for my summer 2026 co-op term) building a ground-based system that
+          localizes airborne objects in 3D via multi-camera sensor fusion on ROS 2.
+        </li>
+        <li>
+          Own all mechanical design: sensor head, camera and antenna mounts, and Raspberry Pi, RF, and power integration
+          on a portable tripod mast; one latch releases the whole head for transport and setup.
+        </li>
+        <li>
+          Led the first outdoor field deployment at an airshow with no structural failures: 3 camera nodes on ~100 m
+          baselines captured ~3 h of data across 14 display acts, at ranges from overhead out to ~5 km.
+        </li>
+        <li>
+          Driving the v2 sensor-head design, replacing the 20 mm extrusion frame with a single printed structure to
+          remove the mounting constraints that dictated sensor placement on the v1 prototype.
         </li>
       </ul>
     ),
@@ -468,8 +478,7 @@ export const experience: TimelineItem[] = [
     id: 'experience-ucla',
     date: 'Jan. 2025 – Apr. 2025',
     location: 'UCLA Sensing and Robotics for Infrastructure Lab, Los Angeles, CA',
-    note: 'Co-op work term',
-    title: 'Research Assistant — Mobile Robotics & SLAM',
+    title: 'Research Assistant (Co-op) — Mobile Robotics & SLAM',
     content: (
       <ul className="flex list-disc flex-col gap-y-1 pl-5 text-left">
         <li>
@@ -477,8 +486,8 @@ export const experience: TimelineItem[] = [
           camera mounts, and designed a 3D-printed hydrodynamic fairing for its underwater sensors.
         </li>
         <li>
-          Benchmarked 5+ open-source SLAM systems, including DLIO, LIO-SAM, Coco-LIC, and ORB-SLAM, on datasets outside
-          their design domains, characterizing localization and mapping failure modes.
+          Benchmarked 5+ open-source simultaneous localization and mapping (SLAM) systems, including DLIO, LIO-SAM,
+          Coco-LIC, and ORB-SLAM, on out-of-domain datasets, characterizing failure modes.
         </li>
         <li>
           Built a Gazebo simulation for a quadruped from existing campus models via a Blender conversion pipeline, and
@@ -770,12 +779,12 @@ export const Carousel: SliderCarousel = {
       summary: 'A 3-person venture I co-founded, where I lead mechanical design.',
       sliders: [
         {
-          image: panopsysAuroraImage,
-          alt: 'A Panopsys sensor node on its tripod mast, with a patrol aircraft passing behind it',
-          imagePosition: 'center',
+          image: panopsysHelicopterImage,
+          alt: 'An out-of-focus Panopsys sensor node in the foreground, with a helicopter flying over the lake',
+          imagePosition: '40% center',
           title: 'Airborne Object Tracking System',
           description:
-            'Panopsys builds a ground-based system for locating airborne objects in 3D, fusing detections from distributed camera nodes. I own all of its mechanical design: the sensor head, its camera and antenna mounts, and the compute, RF, and power integration on a portable tripod mast. The photo shows the v1 prototype at our first field deployment, an airshow.',
+            'Panopsys builds a ground-based system for locating airborne objects in 3D, fusing detections from distributed camera nodes. I own all of its mechanical design: the sensor head, its camera and antenna mounts, and the Raspberry Pi, RF, and power integration on a portable tripod mast. The photo shows the v1 prototype at our first field deployment, an airshow.',
           href: '#project-panopsys',
         },
       ],
@@ -825,7 +834,7 @@ export const contact: ContactSection = {
     {
       type: ContactType.Location,
       label: 'Based in',
-      text: 'Waterloo, ON, Canada',
+      text: 'Waterloo, ON, Canada (open to relocation)',
     },
   ],
 };

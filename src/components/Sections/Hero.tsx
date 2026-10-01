@@ -81,9 +81,12 @@ const Hero: FC = memo(() => {
               preload
               sizes="(min-width: 1024px) 440px, (min-width: 640px) 576px, 100vw"
               src={image.image}
+              style={image.position ? {objectPosition: image.position} : undefined}
             />
           </div>
-          <figcaption className="text-xs leading-snug text-neutral-100 sm:text-sm">{image.caption}</figcaption>
+          <figcaption className="text-xs leading-snug text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.9)] sm:text-sm">
+            {image.caption}
+          </figcaption>
         </figure>
       </div>
       <div className="absolute inset-x-0 bottom-6 hidden justify-center lg:flex">
